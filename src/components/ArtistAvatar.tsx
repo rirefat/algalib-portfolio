@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import galibImage from '@/assets/al-galib-image.png';
+const galibImage = 'https://i.ibb.co.com/tMNC5hMv/al-galib-image.png';
 
 export const ArtistAvatar: React.FC = () => {
   return (

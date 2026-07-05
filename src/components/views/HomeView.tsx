@@ -4,7 +4,7 @@ import { usePortfolioStore } from '../../hooks/usePortfolioStore';
 import { VelocityHeading } from '../VelocityHeading';
 import { ArtistAvatar } from '../ArtistAvatar';
 import { CreativeButton } from '../CreativeButton';
-import galibImage from '@/assets/al-galib-image.png';
+const galibImage = 'https://i.ibb.co.com/tMNC5hMv/al-galib-image.png';
 import { PROJECTS, CLIENTS, AWARDS, TESTIMONIALS, JOURNAL_POSTS } from '../../data/portfolioData';
 import { ProjectCard } from '../ProjectCard';
 import { ArrowDown, ArrowUpRight, Compass, Layers, Feather, Package, ChevronLeft, ChevronRight, Award, Quote } from 'lucide-react';
