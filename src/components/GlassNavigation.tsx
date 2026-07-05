@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { motion } from 'motion/react';
 import { usePortfolioStore } from '../hooks/usePortfolioStore';
 import { ViewMode } from '../types';
 import { Sun, Moon, Menu, X, ArrowUpRight } from 'lucide-react';
+import galibImage from '@/assets/al-galib-image.png';
 
 export const GlassNavigation: React.FC = () => {
   const {
@@ -83,14 +85,95 @@ export const GlassNavigation: React.FC = () => {
             onClick={() => handleNavClick('home')}
             onMouseEnter={() => setCursorMode('hover')}
             onMouseLeave={() => setCursorMode('default')}
-            className="flex items-center gap-4 group font-sans text-xl md:text-2xl font-bold tracking-tight text-neutral-900 dark:text-white"
+            className="flex items-center gap-3.5 group font-sans text-xl md:text-2xl font-bold tracking-tight text-neutral-900 dark:text-white"
           >
-            <span className="w-10 h-10 bg-[#D12B2B] text-black rounded-full flex items-center justify-center font-black text-sm transition-transform duration-500 group-hover:rotate-12 shadow-md">
-              AG
-            </span>
-            <span className="text-sm tracking-[0.3em] font-serif italic text-neutral-900 dark:text-neutral-100 lowercase">
-              al <span className="font-sans uppercase font-extrabold tracking-[0.2em]">galib</span>
-            </span>
+            {/* Custom SVG Drafting-Engine Emblem */}
+            <div className="relative w-10 h-10 flex-shrink-0 flex items-center justify-center group/logo bg-neutral-50 dark:bg-[#0E0E0E] rounded-md border border-neutral-200/50 dark:border-white/5 shadow-sm overflow-hidden">
+              {/* Fine technical background grid lines */}
+              <div className="absolute inset-0 opacity-[0.08] dark:opacity-[0.05] bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:6px_6px]" />
+              
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 100 100"
+                className="relative z-10 w-full h-full"
+              >
+                <defs>
+                  <linearGradient id="logoCrimsonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#FF4D4D" />
+                    <stop offset="100%" stopColor="#990000" />
+                  </linearGradient>
+                </defs>
+
+                {/* Rotating technical gauge elements */}
+                <motion.circle
+                  cx="50"
+                  cy="50"
+                  r="40"
+                  fill="none"
+                  stroke="#D12B2B"
+                  strokeWidth="1"
+                  strokeDasharray="4 16 12 16"
+                  opacity="0.3"
+                  animate={{ rotate: 360 }}
+                  transition={{ repeat: Infinity, duration: 15, ease: "linear" }}
+                />
+
+                <motion.circle
+                  cx="50"
+                  cy="50"
+                  r="34"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="0.5"
+                  strokeDasharray="1 3"
+                  className="text-neutral-300 dark:text-neutral-700"
+                  animate={{ rotate: -360 }}
+                  transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
+                />
+
+                {/* Geometric bespoke 'aG' letterforms */}
+                {/* The 'a' circle and vertical bar */}
+                <path
+                  d="M 42,55 A 8,8 0 1,1 42,39 A 8,8 0 0,1 42,55 Z M 50,39 L 50,55"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-neutral-800 dark:text-neutral-200 transition-colors"
+                />
+
+                {/* The 'G' custom outer vector segment */}
+                <path
+                  d="M 64,36 C 60,30 52,28 46,30 C 36,33 32,44 36,54 C 40,64 52,68 60,62 C 64,58 66,52 66,48 L 54,48"
+                  fill="none"
+                  stroke="url(#logoCrimsonGrad)"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+
+                {/* Precision drafting corner reticles */}
+                <path d="M 10 10 L 16 10" stroke="#D12B2B" strokeWidth="1" opacity="0.4" />
+                <path d="M 10 10 L 10 16" stroke="#D12B2B" strokeWidth="1" opacity="0.4" />
+                <path d="M 90 90 L 84 90" stroke="#D12B2B" strokeWidth="1" opacity="0.4" />
+                <path d="M 90 90 L 90 84" stroke="#D12B2B" strokeWidth="1" opacity="0.4" />
+              </svg>
+
+              {/* Shimmer overlay animation on hover */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/logo:animate-[shimmer_1s_infinite] transition-all pointer-events-none" />
+            </div>
+
+            {/* Structured Swiss Modernist typography */}
+            <div className="flex flex-col items-start leading-none gap-0.5 select-none text-left">
+              <span className="text-[13px] md:text-[14px] font-sans font-black tracking-[0.22em] uppercase text-neutral-950 dark:text-white transition-colors duration-300 group-hover:text-[#D12B2B]">
+                al<span className="text-neutral-400 dark:text-neutral-500 font-light">Galib</span>
+              </span>
+              <span className="text-[7.5px] font-mono tracking-[0.38em] uppercase text-neutral-400 dark:text-neutral-500 transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-neutral-600 dark:group-hover:text-neutral-300">
+                Design / Dir
+              </span>
+            </div>
           </button>
 
           {/* Desktop Navigation Link Cluster */}
@@ -123,9 +206,6 @@ export const GlassNavigation: React.FC = () => {
 
           {/* Action cluster (theme, download cv, contact triggers) */}
           <div className="flex items-center gap-3">
-            {/* Language indicator / decor like design */}
-            <span className="hidden md:inline text-[10px] uppercase tracking-[0.15em] text-zinc-500 font-mono mr-2">EN / JP</span>
-            
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}

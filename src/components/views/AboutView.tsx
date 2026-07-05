@@ -1,8 +1,10 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { usePortfolioStore } from '../../hooks/usePortfolioStore';
 import { VelocityHeading } from '../VelocityHeading';
-import galibImage from '@/assets/al-galib-image.png';
+import { ArtistAvatar } from '../ArtistAvatar';
 import { Award, Code, CheckCircle, Lightbulb, Coffee, Compass } from 'lucide-react';
+import aboutImage from '@/assets/about-galib.jpg';
 
 export const AboutView: React.FC = () => {
   const { setCurrentView, setCursorMode } = usePortfolioStore();
@@ -55,23 +57,50 @@ export const AboutView: React.FC = () => {
       {/* 2. Portrait Mockup & Narrative Stories */}
       <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         {/* Artistic portrait mockup matching the crimson drafting grid aesthetic */}
-        <div className="lg:col-span-5 relative group overflow-hidden rounded-sm bg-[#100204] aspect-[4/5] shadow-2xl border border-white/10">
-          {/* Base grid layer behind image */}
-          <div className="absolute inset-0 technical-grid opacity-30 z-10 pointer-events-none" />
-          
-          <img
-            src={`${galibImage}?v=2`}
-            alt="Abdullah Al Galib portrait"
-            referrerPolicy="no-referrer"
-            className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
-          />
-          
-          <div className="absolute bottom-6 left-6 text-white space-y-1 z-20 bg-black/40 backdrop-blur-xs p-2 rounded-xs">
-            <span className="text-[10px] font-mono tracking-widest uppercase text-[#D12B2B] font-bold">
-              AL GALIB
-            </span>
-            <p className="text-sm font-sans font-bold text-neutral-100">Creative Lead & Principal Designer</p>
-          </div>
+        <div className="lg:col-span-5">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="relative aspect-[4/5] w-full rounded-sm overflow-hidden border border-neutral-200/40 dark:border-white/10 group bg-[#0A0A0A] shadow-2xl"
+            onMouseEnter={() => setCursorMode('hover')}
+            onMouseLeave={() => setCursorMode('default')}
+          >
+            {/* Real photographic portrait */}
+            <img
+              src={aboutImage}
+              alt="Abdullah Al Galib Portrait"
+              referrerPolicy="no-referrer"
+              className="w-full h-full object-cover opacity-85 group-hover:scale-[1.03] group-hover:opacity-100 transition-all duration-700 ease-[0.16, 1, 0.3, 1]"
+            />
+
+            {/* Swiss Precision Drafting Grid & Coordinate Overlays */}
+            <div className="absolute inset-0 pointer-events-none border border-[#D12B2B]/20 m-3 z-10" />
+            
+            {/* Tech-Spec Badges */}
+            <div className="absolute top-6 left-6 z-20 flex flex-col gap-1 font-mono text-[9px] uppercase tracking-widest text-[#D12B2B] bg-black/75 px-2 py-1.5 backdrop-blur-sm border border-[#D12B2B]/30 rounded-sm">
+              <span>REF: ABOUT_PORTRAIT_01</span>
+              <span className="text-white">AL GALIB</span>
+            </div>
+
+            <div className="absolute bottom-6 right-6 z-20 flex flex-col gap-1 font-mono text-[9px] text-right uppercase tracking-widest text-neutral-400 bg-black/75 px-2.5 py-1.5 backdrop-blur-sm border border-white/5 rounded-sm">
+              <span className="text-white">ROLE: ARTISAN LEADER</span>
+              <span>EST. 1999</span>
+            </div>
+
+            {/* Precision Crosshair HUD Overlays */}
+            <div className="absolute top-1/2 left-6 right-6 h-[1px] bg-[#D12B2B]/15 z-10 pointer-events-none" />
+            <div className="absolute left-1/2 top-6 bottom-6 w-[1px] bg-[#D12B2B]/15 z-10 pointer-events-none" />
+            
+            {/* Dynamic visual framing rings */}
+            <div className="absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 border-[#D12B2B] z-20" />
+            <div className="absolute top-3 right-3 w-4 h-4 border-t-2 border-r-2 border-[#D12B2B] z-20" />
+            <div className="absolute bottom-3 left-3 w-4 h-4 border-b-2 border-l-2 border-[#D12B2B] z-20" />
+            <div className="absolute bottom-3 right-3 w-4 h-4 border-b-2 border-r-2 border-[#D12B2B] z-20" />
+
+            {/* Holographic light refraction overlay on hover */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-[#D12B2B]/10 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10" />
+          </motion.div>
         </div>
 
         {/* Narrative blocks */}

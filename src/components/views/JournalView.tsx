@@ -1,13 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { JOURNAL_POSTS } from '../../data/portfolioData';
 import { usePortfolioStore } from '../../hooks/usePortfolioStore';
 import { Calendar, Clock, ArrowLeft, ArrowUpRight, BookOpen } from 'lucide-react';
+import { calculateReadingTime } from '../../utils/readingTime';
 
 export const JournalView: React.FC = () => {
   const { setCursorMode } = usePortfolioStore();
   const [selectedPostId, setSelectedPostId] = useState<string | null>(null);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   const activePost = JOURNAL_POSTS.find((post) => post.id === selectedPostId);
+
+  useEffect(() => {
+    if (!activePost) {
+      setScrollProgress(0);
+      return;
+    }
+
+    const handleScroll = () => {
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (totalHeight > 0) {
+        const progress = (window.scrollY / totalHeight) * 100;
+        setScrollProgress(progress);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [activePost]);
 
   const handlePostClick = (id: string) => {
     setSelectedPostId(id);
@@ -19,12 +41,21 @@ export const JournalView: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+
   return (
     <div className="space-y-16 pb-24 px-6 max-w-7xl mx-auto pt-32 md:pt-40 lg:pt-44 select-none">
       
       {/* Article Detail View */}
       {activePost ? (
         <article className="max-w-3xl mx-auto space-y-10">
+          {/* Scroll progress indicator */}
+          <div className="fixed top-0 left-0 right-0 h-1.5 bg-neutral-200 dark:bg-neutral-800 z-[120] pointer-events-none">
+            <div 
+              className="h-full bg-[#D12B2B] transition-all duration-75"
+              style={{ width: `${scrollProgress}%` }}
+            />
+          </div>
+
           {/* Back Action Trigger */}
           <button
             onClick={handleBack}
@@ -45,14 +76,17 @@ export const JournalView: React.FC = () => {
               {activePost.title}
             </h1>
             
-            <div className="flex items-center gap-6 text-xs font-mono text-neutral-400 pt-2">
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs font-mono text-neutral-400 pt-2">
               <div className="flex items-center gap-1.5">
                 <Calendar className="w-3.5 h-3.5" />
                 <span>{activePost.date}</span>
               </div>
-              <div className="flex items-center gap-1.5">
+              <div className="flex items-center gap-1.5 text-[#D12B2B] font-bold">
                 <Clock className="w-3.5 h-3.5" />
-                <span>{activePost.readTime}</span>
+                <span>{calculateReadingTime([activePost.title, activePost.excerpt, activePost.content]).text}</span>
+                <span className="text-neutral-500 dark:text-zinc-500 font-light font-mono text-[10px]">
+                  ({calculateReadingTime([activePost.title, activePost.excerpt, activePost.content]).wordCount} words)
+                </span>
               </div>
             </div>
           </div>
@@ -136,8 +170,9 @@ export const JournalView: React.FC = () => {
                     <span className="px-3 py-0.5 text-[9px] font-mono font-bold uppercase rounded-sm bg-neutral-100 dark:bg-neutral-950 text-neutral-500 dark:text-neutral-400">
                       {post.category}
                     </span>
-                    <span className="text-[10px] font-mono text-neutral-400 uppercase">
-                      {post.readTime}
+                    <span className="text-[10px] font-mono text-neutral-400 uppercase flex items-center gap-1">
+                      <Clock className="w-3 h-3 text-[#D12B2B]" />
+                      <span>{calculateReadingTime([post.title, post.excerpt, post.content]).text}</span>
                     </span>
                   </div>
 

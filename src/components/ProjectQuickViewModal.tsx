@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { motion, AnimatePresence, useMotionValue, useSpring } from 'motion/react';
 import { usePortfolioStore } from '../hooks/usePortfolioStore';
-import { X, ArrowRight, Calendar, User, Briefcase, Tag } from 'lucide-react';
+import { X, ArrowRight, Calendar, User, Briefcase, Tag, Clock } from 'lucide-react';
+import { calculateReadingTime } from '../utils/readingTime';
 
 export const ProjectQuickViewModal: React.FC = () => {
   const { 
@@ -163,14 +164,14 @@ export const ProjectQuickViewModal: React.FC = () => {
                 </div>
 
                 {/* Core Specifications Bento Metadata Grid */}
-                <div className="grid grid-cols-2 gap-4 pt-4 border-t border-neutral-200/10 dark:border-white/5">
+                <div className="grid grid-cols-3 gap-4 pt-4 border-t border-neutral-200/10 dark:border-white/5">
                   <div className="space-y-1">
                     <div className="flex items-center gap-1.5 text-[10px] font-mono text-neutral-400 dark:text-neutral-500 uppercase">
                       <User size={10} className="text-[#D12B2B]" />
                       <span>Client</span>
                     </div>
-                    <p className="text-xs font-sans font-medium text-neutral-900 dark:text-white">
-                      {quickViewProject.client || 'Internal Project'}
+                    <p className="text-xs font-sans font-medium text-neutral-900 dark:text-white line-clamp-1">
+                      {quickViewProject.client || 'Internal'}
                     </p>
                   </div>
                   <div className="space-y-1">
@@ -178,8 +179,27 @@ export const ProjectQuickViewModal: React.FC = () => {
                       <Briefcase size={10} className="text-[#D12B2B]" />
                       <span>Role</span>
                     </div>
-                    <p className="text-xs font-sans font-medium text-neutral-900 dark:text-white">
-                      {quickViewProject.role || 'Design & Dev Lead'}
+                    <p className="text-xs font-sans font-medium text-neutral-900 dark:text-white line-clamp-1">
+                      {quickViewProject.role || 'Design Lead'}
+                    </p>
+                  </div>
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-1.5 text-[10px] font-mono text-neutral-400 dark:text-neutral-500 uppercase">
+                      <Clock size={10} className="text-[#D12B2B]" />
+                      <span>Read Time</span>
+                    </div>
+                    <p className="text-xs font-sans font-bold text-[#D12B2B] line-clamp-1">
+                      {calculateReadingTime([
+                        quickViewProject.title,
+                        quickViewProject.subtitle,
+                        quickViewProject.overview,
+                        quickViewProject.challenge,
+                        quickViewProject.solution,
+                        quickViewProject.wireframesDescription,
+                        ...(quickViewProject.research || []),
+                        ...(quickViewProject.results || []),
+                        ...(quickViewProject.lessonsLearned || [])
+                      ]).text}
                     </p>
                   </div>
                 </div>

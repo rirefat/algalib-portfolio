@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { PROJECTS, TESTIMONIALS } from '../data/portfolioData';
 import galibImage from '@/assets/al-galib-image.png';
+import aboutImage from '@/assets/about-galib.jpg';
 
 interface ImagePreloaderProps {
   onComplete: () => void;
@@ -38,6 +39,10 @@ export const ImagePreloader: React.FC<ImagePreloaderProps> = ({ onComplete }) =>
     // Add Galib portrait
     if (galibImage) {
       urls.push(`${galibImage}?v=2`);
+    }
+    if (aboutImage) {
+      urls.push(`${aboutImage}?v=2`);
+      urls.push(aboutImage);
     }
 
     // De-duplicate URLs

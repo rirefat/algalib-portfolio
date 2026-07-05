@@ -1,16 +1,38 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { usePortfolioStore } from '../../hooks/usePortfolioStore';
 import { PROJECTS } from '../../data/portfolioData';
-import { ArrowLeft, ArrowRight, CheckCircle, HelpCircle, Layers, BookOpen, Compass, Shield, ArrowUpRight } from 'lucide-react';
+import { ArrowLeft, ArrowRight, CheckCircle, HelpCircle, Layers, BookOpen, Compass, Shield, ArrowUpRight, Clock } from 'lucide-react';
+import { calculateReadingTime } from '../../utils/readingTime';
 
 export const ProjectDetailView: React.FC = () => {
   const { activeProject, setActiveProject, setCurrentView, setCursorMode, setCustomCursorText } = usePortfolioStore();
   const [sliderPosition, setSliderPosition] = useState(50); // percentage (0 to 100)
+  const [scrollProgress, setScrollProgress] = useState(0);
   const isDragging = useRef(false);
   const sliderContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     window.scrollTo({ top: 0 });
+  }, [activeProject]);
+
+  useEffect(() => {
+    if (!activeProject) {
+      setScrollProgress(0);
+      return;
+    }
+
+    const handleScroll = () => {
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (totalHeight > 0) {
+        const progress = (window.scrollY / totalHeight) * 100;
+        setScrollProgress(progress);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [activeProject]);
 
   if (!activeProject) {
@@ -86,6 +108,13 @@ export const ProjectDetailView: React.FC = () => {
 
   return (
     <div className="space-y-24 pb-24 select-none">
+      {/* Scroll progress indicator */}
+      <div className="fixed top-0 left-0 right-0 h-1.5 bg-neutral-200 dark:bg-neutral-800 z-[120] pointer-events-none">
+        <div 
+          className="h-full bg-[#D12B2B] transition-all duration-75"
+          style={{ width: `${scrollProgress}%` }}
+        />
+      </div>
       
       {/* 1. Large Hero Header Cover */}
       <section className="relative h-[65vh] md:h-[80vh] w-full overflow-hidden flex items-end">
@@ -129,7 +158,7 @@ export const ProjectDetailView: React.FC = () => {
           </div>
 
           {/* Core Case Spec Indices details bar */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 border-t border-white/10 max-w-4xl text-left">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-6 pt-8 border-t border-white/10 max-w-4xl text-left">
             <div>
               <span className="text-[10px] font-mono text-neutral-400 uppercase tracking-widest block">CLIENT ASSOCIATED</span>
               <span className="text-sm font-sans font-bold text-neutral-200">{activeProject.client}</span>
@@ -141,6 +170,25 @@ export const ProjectDetailView: React.FC = () => {
             <div>
               <span className="text-[10px] font-mono text-neutral-400 uppercase tracking-widest block">CHRONO YEAR</span>
               <span className="text-sm font-sans font-bold text-neutral-200">{activeProject.year}</span>
+            </div>
+            <div>
+              <span className="text-[10px] font-mono text-neutral-400 uppercase tracking-widest block">EST. READ TIME</span>
+              <span className="text-sm font-sans font-bold text-[#D12B2B] flex items-center gap-1">
+                <Clock className="w-3.5 h-3.5" />
+                <span>
+                  {calculateReadingTime([
+                    activeProject.title,
+                    activeProject.subtitle,
+                    activeProject.overview,
+                    activeProject.challenge,
+                    activeProject.solution,
+                    activeProject.wireframesDescription,
+                    ...(activeProject.research || []),
+                    ...(activeProject.results || []),
+                    ...(activeProject.lessonsLearned || [])
+                  ]).text}
+                </span>
+              </span>
             </div>
             <div>
               <span className="text-[10px] font-mono text-neutral-400 uppercase tracking-widest block">VENTURE BUDGET</span>
