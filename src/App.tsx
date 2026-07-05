@@ -19,6 +19,7 @@ import { ProjectDetailView } from './components/views/ProjectDetailView';
 import { PrivacyView } from './components/views/PrivacyView';
 
 import { ArrowUpRight } from 'lucide-react';
+import { ImagePreloader } from './components/ImagePreloader';
 
 function PortfolioLayout() {
   const { currentView, setCurrentView, setCursorMode, setActiveProject } = usePortfolioStore();
@@ -263,9 +264,14 @@ function PortfolioLayout() {
 }
 
 export default function App() {
+  const [isPreloaded, setIsPreloaded] = React.useState(false);
   return (
     <PortfolioProvider>
-      <PortfolioLayout />
+      {!isPreloaded ? (
+        <ImagePreloader onComplete={() => setIsPreloaded(true)} />
+      ) : (
+        <PortfolioLayout />
+      )}
     </PortfolioProvider>
   );
 }

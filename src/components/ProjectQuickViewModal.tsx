@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence, useMotionValue, useSpring } from 'motion/react';
 import { usePortfolioStore } from '../hooks/usePortfolioStore';
 import { X, ArrowRight, Calendar, User, Briefcase, Tag } from 'lucide-react';
 
@@ -11,6 +11,24 @@ export const ProjectQuickViewModal: React.FC = () => {
     setCurrentView,
     setCursorMode
   } = usePortfolioStore();
+
+  const rawX = useMotionValue(typeof window !== 'undefined' ? window.innerWidth / 2 : 500);
+  const rawY = useMotionValue(typeof window !== 'undefined' ? window.innerHeight / 2 : 400);
+
+  const mouseX = useSpring(rawX, { stiffness: 45, damping: 20 });
+  const mouseY = useSpring(rawY, { stiffness: 45, damping: 20 });
+
+  useEffect(() => {
+    if (!quickViewProject) return;
+
+    const handleMouseMove = (e: MouseEvent) => {
+      rawX.set(e.clientX);
+      rawY.set(e.clientY);
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, [quickViewProject, rawX, rawY]);
 
   // Close modal on Escape keypress
   useEffect(() => {
@@ -41,7 +59,7 @@ export const ProjectQuickViewModal: React.FC = () => {
   return (
     <AnimatePresence>
       {quickViewProject && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6 lg:p-12">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6 lg:p-12 overflow-hidden">
           {/* Backdrop Blur Overlay */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -50,6 +68,29 @@ export const ProjectQuickViewModal: React.FC = () => {
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             onClick={handleClose}
             className="absolute inset-0 bg-neutral-950/80 backdrop-blur-2xl cursor-pointer"
+          />
+
+          {/* Radial Soft Glow 'Bloom' Behind Content Container */}
+          <motion.div
+            style={{
+              x: mouseX,
+              y: mouseY,
+              translateX: '-50%',
+              translateY: '-50%',
+              position: 'fixed',
+              left: 0,
+              top: 0,
+            }}
+            animate={{
+              scale: [0.85, 1.15, 0.85],
+              opacity: [0.4, 0.8, 0.4],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+            className="pointer-events-none w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle_at_center,_rgba(209,43,43,0.18)_0%,_rgba(209,43,43,0.04)_45%,_transparent_70%)] dark:bg-[radial-gradient(circle_at_center,_rgba(209,43,43,0.22)_0%,_rgba(209,43,43,0.05)_50%,_transparent_70%)] mix-blend-screen blur-3xl z-0"
           />
 
           {/* Modal Container */}

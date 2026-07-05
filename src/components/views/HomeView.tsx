@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { usePortfolioStore } from '../../hooks/usePortfolioStore';
+import { VelocityHeading } from '../VelocityHeading';
+import galibImage from '@/assets/al-galib-image.png';
 import { PROJECTS, CLIENTS, AWARDS, TESTIMONIALS, JOURNAL_POSTS } from '../../data/portfolioData';
 import { ProjectCard } from '../ProjectCard';
 import { ArrowDown, ArrowUpRight, Compass, Layers, Feather, Package, ChevronLeft, ChevronRight, Award, Quote } from 'lucide-react';
@@ -180,7 +182,7 @@ export const HomeView: React.FC = () => {
                 </span>
               </div>
               {/* Core Huge Narrative Typography with Editorial Clip-Path Reveal */}
-              <h1 className="text-fluid-hero tracking-tight text-neutral-900 dark:text-white leading-[0.82] uppercase font-display flex flex-col gap-1 md:gap-2">
+              <VelocityHeading as="h1" maxSkew={6} maxX={10} className="text-fluid-hero tracking-tight text-neutral-900 dark:text-white leading-[0.82] uppercase font-display flex flex-col gap-1 md:gap-2 w-full">
                 <div className="overflow-hidden block h-fit pb-1 md:pb-2">
                   <motion.span 
                     variants={charContainerVariants}
@@ -225,7 +227,7 @@ export const HomeView: React.FC = () => {
                     ))}
                   </motion.span>
                 </div>
-              </h1>
+              </VelocityHeading>
             </motion.div>
 
             {/* Creative Sub-headline with artistic left border and clip reveal */}
@@ -312,19 +314,16 @@ export const HomeView: React.FC = () => {
                 {/* 1. Underlying Base Layer: Soft-Focus Blurred Crimson-Tinted Portrait */}
                 <div className="absolute inset-0 overflow-hidden">
                   <img
-                    src="https://images.unsplash.com/photo-1607990283143-e81e7a2c93ab?auto=format&fit=crop&w=800&q=80"
+                    src={`${galibImage}?v=2`}
                     alt="Abdullah Al Galib Portrait - Soft Focus Base"
+                    referrerPolicy="no-referrer"
                     className="absolute inset-0 w-full h-full object-cover filter blur-[3px] opacity-75 contrast-[1.1] brightness-[0.75] saturate-150 transition-transform duration-500 group-hover:scale-[1.02]"
                   />
                   {/* Crimson color overlay for deep luxury portrait tint */}
                   <div className="absolute inset-0 bg-[#4c0d15]/40 mix-blend-color" />
-                  
-                  {/* Custom Concentric Spiral Textured Overlays (mimics Galib's original photo background) */}
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(209,43,43,0.3)_0%,_transparent_70%)] mix-blend-screen pointer-events-none" />
-                  <div className="absolute inset-0 bg-[repeating-radial-gradient(circle_at_center,_rgba(209,43,43,0.25)_0px,_rgba(209,43,43,0.25)_2px,_transparent_2px,_transparent_9px)] mix-blend-overlay opacity-80 pointer-events-none" />
                 </div>
 
-                {/* 2. Overlay Layer: Sharp Grayscale/Slight-Warm High-Contrast Portrait (Clipped dynamically) */}
+                {/* 2. Overlay Layer: Sharp Full-Color Portrait (Clipped dynamically) */}
                 <div 
                   className="absolute inset-0 overflow-hidden transition-all duration-75"
                   style={{
@@ -332,14 +331,11 @@ export const HomeView: React.FC = () => {
                   }}
                 >
                   <img
-                    src="https://images.unsplash.com/photo-1607990283143-e81e7a2c93ab?auto=format&fit=crop&w=800&q=80"
+                    src={`${galibImage}?v=2`}
                     alt="Abdullah Al Galib Portrait - Sharp Focus Overlay"
-                    className="absolute inset-0 w-full h-full object-cover filter grayscale contrast-[1.3] brightness-95 transition-transform duration-500 group-hover:scale-[1.02]"
+                    referrerPolicy="no-referrer"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                   />
-                  
-                  {/* Red/Crimson accents and spiral even on grayscale clip path to maintain branding harmony */}
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(209,43,43,0.15)_0%,_transparent_75%)] mix-blend-screen pointer-events-none" />
-                  <div className="absolute inset-0 bg-[repeating-radial-gradient(circle_at_center,_rgba(255,255,255,0.05)_0px,_rgba(255,255,255,0.05)_2px,_transparent_2px,_transparent_9px)] mix-blend-overlay opacity-40 pointer-events-none" />
                 </div>
 
                 {/* 3. Interactive Split Slider Dividers & Hubs */}
@@ -430,9 +426,9 @@ export const HomeView: React.FC = () => {
               <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-[#D12B2B]">
                 CURATED EXPEDITIONS — 01
               </span>
-              <h2 className="text-fluid-h1 font-light font-serif italic text-neutral-900 dark:text-white">
+              <VelocityHeading as="h2" direction="right" className="text-fluid-h1 font-light font-serif italic text-neutral-900 dark:text-white">
                 Selected Works
-              </h2>
+              </VelocityHeading>
             </div>
             <button
               onClick={() => {
@@ -472,9 +468,9 @@ export const HomeView: React.FC = () => {
             <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-[#D12B2B]">
               CORE PRINCIPLES — 02
             </span>
-            <h3 className="text-fluid-h2 font-light font-serif italic text-neutral-900 dark:text-[#F5F5F4]">
+            <VelocityHeading as="h3" direction="left" className="text-fluid-h2 font-light font-serif italic text-neutral-900 dark:text-[#F5F5F4]">
               The Philosophy of Absolute Subtraction.
-            </h3>
+            </VelocityHeading>
             <p className="text-xs font-mono text-zinc-500 dark:text-zinc-500">
               "We strip the ornament to expose the ultimate structural truth."
             </p>
@@ -498,9 +494,9 @@ export const HomeView: React.FC = () => {
               <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-[#D12B2B]">
                 CAPABILITIES — 03
               </span>
-              <h2 className="text-fluid-h1 font-light font-serif italic text-neutral-900 dark:text-white">
+              <VelocityHeading as="h2" direction="right" className="text-fluid-h1 font-light font-serif italic text-neutral-900 dark:text-white">
                 Design Services
-              </h2>
+              </VelocityHeading>
             </div>
             <button
               onClick={() => {
@@ -658,9 +654,9 @@ export const HomeView: React.FC = () => {
             <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-[#D12B2B]">
               ACCOLADES & VERDICTS — 05
             </span>
-            <h2 className="text-fluid-h2 font-light font-serif italic text-neutral-900 dark:text-white">
+            <VelocityHeading as="h2" direction="left" className="text-fluid-h2 font-light font-serif italic text-neutral-900 dark:text-white">
               Selected Accolades
-            </h2>
+            </VelocityHeading>
           </div>
 
           <div className="divide-y divide-neutral-200/40 dark:divide-white/5">
@@ -701,9 +697,9 @@ export const HomeView: React.FC = () => {
             <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-[#D12B2B]">
               COMMENCE THE JOURNEY
             </span>
-            <h2 className="text-fluid-h1 font-light font-serif italic text-[#F5F5F4] leading-tight">
+            <VelocityHeading as="h2" direction="right" className="text-fluid-h1 font-light font-serif italic text-[#F5F5F4] leading-tight">
               Have a premium concept you wish to bring to life?
-            </h2>
+            </VelocityHeading>
             <p className="text-sm text-zinc-400 font-sans">
               I collaborate with luxury creators and avant-garde technology labs globally to design absolute visual dominance. Let’s start the blueprint.
             </p>

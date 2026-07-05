@@ -1,5 +1,7 @@
 import React from 'react';
 import { usePortfolioStore } from '../../hooks/usePortfolioStore';
+import { VelocityHeading } from '../VelocityHeading';
+import galibImage from '@/assets/al-galib-image.png';
 import { Award, Code, CheckCircle, Lightbulb, Coffee, Compass } from 'lucide-react';
 
 export const AboutView: React.FC = () => {
@@ -42,9 +44,9 @@ export const AboutView: React.FC = () => {
         <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-[#D12B2B]">
           THE ARTISAN BEHIND THE SCREENS
         </span>
-        <h1 className="text-fluid-h1 font-light font-serif italic text-neutral-900 dark:text-white leading-[1.05]">
+        <VelocityHeading as="h1" direction="right" className="text-fluid-h1 font-light font-serif italic text-neutral-900 dark:text-white leading-[1.05]">
           A Creative Mind Sculpting Visual Legacies.
-        </h1>
+        </VelocityHeading>
         <p className="text-lg md:text-xl text-neutral-600 dark:text-zinc-300 font-sans font-light leading-relaxed">
           I am Abdullah Al Galib (Al Galib). I combine the analytical precision of digital <strong className="font-semibold text-neutral-900 dark:text-[#F5F5F4]">Product Design</strong> with the emotional gravity of editorial <strong className="font-semibold text-neutral-900 dark:text-[#F5F5F4]">Graphic Design</strong>.
         </p>
@@ -58,20 +60,13 @@ export const AboutView: React.FC = () => {
           <div className="absolute inset-0 technical-grid opacity-30 z-10 pointer-events-none" />
           
           <img
-            src="https://images.unsplash.com/photo-1607990283143-e81e7a2c93ab?auto=format&fit=crop&w=800&q=80"
+            src={`${galibImage}?v=2`}
             alt="Abdullah Al Galib portrait"
             referrerPolicy="no-referrer"
-            className="w-full h-full object-cover filter grayscale contrast-[1.2] brightness-90 group-hover:scale-105 group-hover:filter-none group-hover:brightness-100 transition-all duration-700"
+            className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
           />
           
-          {/* Subtle crimson overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#100204] via-[#4c0d15]/20 to-transparent opacity-80 pointer-events-none z-15" />
-          
-          {/* Custom Concentric Spiral Textured Overlays (mimics Galib's original photo background) */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(209,43,43,0.35)_0%,_transparent_75%)] mix-blend-screen pointer-events-none z-15" />
-          <div className="absolute inset-0 bg-[repeating-radial-gradient(circle_at_center,_rgba(209,43,43,0.25)_0px,_rgba(209,43,43,0.25)_2px,_transparent_2px,_transparent_9px)] mix-blend-overlay opacity-80 pointer-events-none z-15" />
-          
-          <div className="absolute bottom-6 left-6 text-white space-y-1 z-20">
+          <div className="absolute bottom-6 left-6 text-white space-y-1 z-20 bg-black/40 backdrop-blur-xs p-2 rounded-xs">
             <span className="text-[10px] font-mono tracking-widest uppercase text-[#D12B2B] font-bold">
               AL GALIB
             </span>
@@ -81,9 +76,9 @@ export const AboutView: React.FC = () => {
 
         {/* Narrative blocks */}
         <div className="lg:col-span-7 space-y-8 text-neutral-600 dark:text-zinc-400 font-sans text-base leading-relaxed font-light">
-          <h3 className="text-xl md:text-2xl font-bold font-serif italic text-neutral-900 dark:text-white tracking-tight">
+          <VelocityHeading as="h3" direction="left" className="text-xl md:text-2xl font-bold font-serif italic text-neutral-900 dark:text-white tracking-tight">
             Bridging Physical Sensation & Weightless Software.
-          </h3>
+          </VelocityHeading>
           <p>
             My journey began at the intersection of paper weights, ink absorptions, and typography scales. I spent years study Dutch and Swiss graphic masters, discovering how layouts guide attention, build authority, and evoke trust.
           </p>
@@ -116,9 +111,9 @@ export const AboutView: React.FC = () => {
           <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-[#D12B2B]">
             EXPERTISE BLUEPRINT
           </span>
-          <h2 className="text-fluid-h2 font-light font-serif italic text-neutral-900 dark:text-white">
+          <VelocityHeading as="h2" direction="right" className="text-fluid-h2 font-light font-serif italic text-neutral-900 dark:text-white">
             Curated Skill Groups
-          </h2>
+          </VelocityHeading>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -151,9 +146,9 @@ export const AboutView: React.FC = () => {
           <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-[#D12B2B]">
             BEYOND WORK — PERSONAL HABITS
           </span>
-          <h3 className="text-2xl md:text-4xl font-bold font-serif italic leading-tight text-[#F5F5F4]">
+          <VelocityHeading as="h3" direction="left" className="text-2xl md:text-4xl font-bold font-serif italic leading-tight text-[#F5F5F4]">
             Some Curiosities & Values I Live By.
-          </h3>
+          </VelocityHeading>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
             {funFacts.map((fact, i) => {
@@ -176,9 +171,9 @@ export const AboutView: React.FC = () => {
 
       {/* 5. Direct CTA board */}
       <section className="text-center space-y-6 max-w-xl mx-auto">
-        <h3 className="text-2xl font-bold font-serif italic text-neutral-900 dark:text-white">
+        <VelocityHeading as="h3" direction="right" className="text-2xl font-bold font-serif italic text-neutral-900 dark:text-white">
           Want to discover my career timeline?
-        </h3>
+        </VelocityHeading>
         <p className="text-sm text-neutral-500 dark:text-zinc-400 font-sans font-light">
           Review my professional coordinates, companies I helped scale, and milestones I conquered on the Experience page.
         </p>
