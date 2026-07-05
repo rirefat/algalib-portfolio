@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { usePortfolioStore } from '../../hooks/usePortfolioStore';
 import { VelocityHeading } from '../VelocityHeading';
 import { ArtistAvatar } from '../ArtistAvatar';
+import { CreativeButton } from '../CreativeButton';
 import { Award, Code, CheckCircle, Lightbulb, Coffee, Compass } from 'lucide-react';
 import aboutImage from '@/assets/about-galib.jpg';
 
@@ -207,17 +208,16 @@ export const AboutView: React.FC = () => {
           Review my professional coordinates, companies I helped scale, and milestones I conquered on the Experience page.
         </p>
         <div>
-          <button
+          <CreativeButton
+            variant="primary"
+            index="03"
             onClick={() => {
               setCurrentView('experience');
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            onMouseEnter={() => setCursorMode('hover')}
-            onMouseLeave={() => setCursorMode('default')}
-            className="px-8 py-3.5 bg-neutral-900 text-white dark:bg-white dark:text-black font-mono text-xs uppercase tracking-widest rounded-full hover:bg-[#D12B2B] dark:hover:bg-[#D12B2B] dark:hover:text-white transition-all shadow-md font-bold"
           >
             EXPLORE CAREER EXPEDITIONS
-          </button>
+          </CreativeButton>
         </div>
       </section>
 

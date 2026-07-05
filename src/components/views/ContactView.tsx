@@ -225,25 +225,37 @@ export const ContactView: React.FC = () => {
                 />
               </div>
 
-              {/* Submit Trigger button */}
+              {/* Submit Trigger button with premium sliding track & crosshair aesthetic */}
               <button
                 type="submit"
                 disabled={isLoading}
                 onMouseEnter={() => setCursorMode('hover')}
                 onMouseLeave={() => setCursorMode('default')}
-                className="w-full py-4 bg-[#D12B2B] hover:bg-[#b02222] text-white font-mono text-xs uppercase tracking-[0.2em] rounded-sm transition-all shadow-md flex items-center justify-center gap-2.5 disabled:opacity-50"
+                className="relative group overflow-hidden w-full py-4.5 bg-[#D12B2B] text-white font-mono text-xs uppercase tracking-[0.25em] rounded-sm transition-all duration-500 ease-[0.16,1,0.3,1] shadow-lg shadow-[#D12B2B]/10 flex items-center justify-center disabled:opacity-50"
               >
-                {isLoading ? (
-                  <>
-                    <div className="w-4 h-4 rounded-full border-2 border-white/30 border-t-white animate-spin" />
-                    <span>ORCHESTRATING SECURE TRANSFERS...</span>
-                  </>
-                ) : (
-                  <>
-                    <Send className="w-4 h-4" />
-                    <span>SUBMIT DESIGN BRIEF</span>
-                  </>
-                )}
+                {/* Slid-over background overlay */}
+                <div className="absolute inset-0 bg-neutral-950 dark:bg-white -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-[0.16,1,0.3,1] z-0" />
+
+                {/* Content wrapper */}
+                <div className="relative z-10 flex items-center justify-center gap-3 transition-colors duration-500 group-hover:text-white group-hover:dark:text-neutral-950">
+                  {isLoading ? (
+                    <>
+                      <div className="w-4 h-4 rounded-full border-2 border-current border-t-transparent animate-spin" />
+                      <span>ORCHESTRATING SECURE TRANSFERS...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-3.5 h-3.5 transform transition-transform duration-500 ease-[0.16,1,0.3,1] group-hover:translate-x-1 group-hover:-translate-y-0.5" />
+                      <span>SUBMIT DESIGN BRIEF</span>
+                    </>
+                  )}
+                </div>
+
+                {/* Corner Technical Bracket Ticks */}
+                <div className="absolute top-1 left-1 w-1.5 h-1.5 border-t border-l border-white/20 group-hover:border-[#D12B2B]/60 transition-colors duration-500" />
+                <div className="absolute top-1 right-1 w-1.5 h-1.5 border-t border-r border-white/20 group-hover:border-[#D12B2B]/60 transition-colors duration-500" />
+                <div className="absolute bottom-1 left-1 w-1.5 h-1.5 border-b border-l border-white/20 group-hover:border-[#D12B2B]/60 transition-colors duration-500" />
+                <div className="absolute bottom-1 right-1 w-1.5 h-1.5 border-b border-r border-white/20 group-hover:border-[#D12B2B]/60 transition-colors duration-500" />
               </button>
             </form>
           )}

@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { usePortfolioStore } from '../../hooks/usePortfolioStore';
 import { VelocityHeading } from '../VelocityHeading';
 import { ArtistAvatar } from '../ArtistAvatar';
+import { CreativeButton } from '../CreativeButton';
 import galibImage from '@/assets/about-galib.jpg';
 import { PROJECTS, CLIENTS, AWARDS, TESTIMONIALS, JOURNAL_POSTS } from '../../data/portfolioData';
 import { ProjectCard } from '../ProjectCard';
@@ -246,28 +247,26 @@ export const HomeView: React.FC = () => {
               variants={itemVariants}
               className="flex flex-wrap items-center gap-4 pt-2"
             >
-              <button
+              <CreativeButton
+                variant="primary"
+                index="01"
                 onClick={() => {
                   setCurrentView('works');
                   window.scrollTo({ top: window.innerHeight - 80, behavior: 'smooth' });
                 }}
-                onMouseEnter={() => setCursorMode('hover')}
-                onMouseLeave={() => setCursorMode('default')}
-                className="px-8 py-3.5 text-xs font-mono tracking-widest uppercase rounded-full bg-[#D12B2B] text-white hover:bg-neutral-950 dark:hover:bg-white dark:hover:text-[#100204] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg shadow-[#D12B2B]/20 font-bold"
               >
                 SELECTED WORKS
-              </button>
-              <button
+              </CreativeButton>
+              <CreativeButton
+                variant="secondary"
+                index="02"
                 onClick={() => {
                   setCurrentView('contact');
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
-                onMouseEnter={() => setCursorMode('hover')}
-                onMouseLeave={() => setCursorMode('default')}
-                className="px-8 py-3.5 text-xs font-mono tracking-widest uppercase rounded-full border border-neutral-300 dark:border-white/10 text-neutral-800 dark:text-zinc-300 hover:bg-[#D12B2B] hover:text-white hover:border-transparent hover:scale-[1.02] active:scale-[0.98] transition-all"
               >
                 INITIATE VENTURE
-              </button>
+              </CreativeButton>
             </motion.div>
 
             {/* Counter stats segment directly below, matching the design specifications */}

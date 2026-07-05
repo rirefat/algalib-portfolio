@@ -85,94 +85,116 @@ export const GlassNavigation: React.FC = () => {
             onClick={() => handleNavClick('home')}
             onMouseEnter={() => setCursorMode('hover')}
             onMouseLeave={() => setCursorMode('default')}
-            className="flex items-center gap-3.5 group font-sans text-xl md:text-2xl font-bold tracking-tight text-neutral-900 dark:text-white"
+            className="flex items-center gap-3 group select-none text-left"
           >
-            {/* Custom SVG Drafting-Engine Emblem */}
-            <div className="relative w-10 h-10 flex-shrink-0 flex items-center justify-center group/logo bg-neutral-50 dark:bg-[#0E0E0E] rounded-md border border-neutral-200/50 dark:border-white/5 shadow-sm overflow-hidden">
-              {/* Fine technical background grid lines */}
-              <div className="absolute inset-0 opacity-[0.08] dark:opacity-[0.05] bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:6px_6px]" />
+            {/* Sophisticated Custom-Designed SVG luxury mark */}
+            <div className="relative w-11 h-11 flex-shrink-0 flex items-center justify-center bg-transparent">
+              {/* Outer glowing aura on hover */}
+              <div className="absolute inset-0 bg-[#D12B2B]/5 dark:bg-[#D12B2B]/10 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
               
+              {/* Fine concentric layout lines */}
               <svg
-                width="40"
-                height="40"
+                width="44"
+                height="44"
                 viewBox="0 0 100 100"
-                className="relative z-10 w-full h-full"
+                className="relative z-10 w-full h-full text-neutral-800 dark:text-neutral-100"
               >
                 <defs>
-                  <linearGradient id="logoCrimsonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#FF4D4D" />
-                    <stop offset="100%" stopColor="#990000" />
+                  {/* Premium Metallic Gradient */}
+                  <linearGradient id="luxuryGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#FFFFFF" />
+                    <stop offset="30%" stopColor="#F5E3C3" />
+                    <stop offset="70%" stopColor="#D12B2B" />
+                    <stop offset="100%" stopColor="#1A1A1A" />
+                  </linearGradient>
+                  
+                  <linearGradient id="luxuryCrimson" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#FF5252" />
+                    <stop offset="50%" stopColor="#D12B2B" />
+                    <stop offset="100%" stopColor="#7A0E0E" />
                   </linearGradient>
                 </defs>
 
-                {/* Rotating technical gauge elements */}
+                {/* Outer Luxury Dial - rotating extremely slow */}
                 <motion.circle
                   cx="50"
                   cy="50"
-                  r="40"
+                  r="45"
                   fill="none"
                   stroke="#D12B2B"
-                  strokeWidth="1"
-                  strokeDasharray="4 16 12 16"
+                  strokeWidth="0.75"
+                  strokeDasharray="2 8"
                   opacity="0.3"
                   animate={{ rotate: 360 }}
-                  transition={{ repeat: Infinity, duration: 15, ease: "linear" }}
+                  transition={{ repeat: Infinity, duration: 40, ease: "linear" }}
                 />
 
-                <motion.circle
-                  cx="50"
-                  cy="50"
-                  r="34"
+                {/* Middle Hexagonal Framing */}
+                <motion.polygon
+                  points="50,12 83,31 83,69 50,88 17,69 17,31"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="0.5"
-                  strokeDasharray="1 3"
-                  className="text-neutral-300 dark:text-neutral-700"
+                  opacity="0.15"
                   animate={{ rotate: -360 }}
-                  transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
+                  transition={{ repeat: Infinity, duration: 60, ease: "linear" }}
                 />
 
-                {/* Geometric bespoke 'aG' letterforms */}
-                {/* The 'a' circle and vertical bar */}
-                <path
-                  d="M 42,55 A 8,8 0 1,1 42,39 A 8,8 0 0,1 42,55 Z M 50,39 L 50,55"
+                {/* Inner Compass Axes */}
+                <line x1="50" y1="18" x2="50" y2="82" stroke="currentColor" strokeWidth="0.25" opacity="0.2" />
+                <line x1="18" y1="50" x2="82" y2="50" stroke="currentColor" strokeWidth="0.25" opacity="0.2" />
+
+                {/* Custom Monogram 'aG' Crafted with Premium Geometry */}
+                {/* The 'a' fluid modern drop shape */}
+                <motion.path
+                  d="M 45,58 A 8.5,8.5 0 1,1 45,41 A 8.5,8.5 0 0,1 45,58 Z M 53.5,41 L 53.5,58"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="2.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  className="text-neutral-800 dark:text-neutral-200 transition-colors"
+                  className="text-neutral-950 dark:text-neutral-100 transition-colors duration-500 group-hover:text-white"
+                  transition={{ duration: 0.5 }}
                 />
 
-                {/* The 'G' custom outer vector segment */}
-                <path
-                  d="M 64,36 C 60,30 52,28 46,30 C 36,33 32,44 36,54 C 40,64 52,68 60,62 C 64,58 66,52 66,48 L 54,48"
+                {/* The 'G' flowing luxury crimson sweep */}
+                <motion.path
+                  d="M 68,36 C 63,29 53,27 45.5,30 C 33,35 28.5,49 33.5,60.5 C 38.5,72 53.5,75.5 63,68 C 68,64 70.5,57.5 70.5,51.5 L 53.5,51.5"
                   fill="none"
-                  stroke="url(#logoCrimsonGrad)"
-                  strokeWidth="2.5"
+                  stroke="url(#luxuryCrimson)"
+                  strokeWidth="2.75"
                   strokeLinecap="round"
                   strokeLinejoin="round"
+                  initial={{ pathLength: 0.9 }}
+                  whileHover={{ pathLength: 1, strokeWidth: 3 }}
+                  transition={{ duration: 0.8, ease: "easeInOut" }}
                 />
 
-                {/* Precision drafting corner reticles */}
-                <path d="M 10 10 L 16 10" stroke="#D12B2B" strokeWidth="1" opacity="0.4" />
-                <path d="M 10 10 L 10 16" stroke="#D12B2B" strokeWidth="1" opacity="0.4" />
-                <path d="M 90 90 L 84 90" stroke="#D12B2B" strokeWidth="1" opacity="0.4" />
-                <path d="M 90 90 L 90 84" stroke="#D12B2B" strokeWidth="1" opacity="0.4" />
+                {/* Central Core Origin Point */}
+                <circle cx="50" cy="50" r="1.5" fill="#D12B2B" />
               </svg>
 
-              {/* Shimmer overlay animation on hover */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/logo:animate-[shimmer_1s_infinite] transition-all pointer-events-none" />
+              {/* Shimmer overlay animation */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent rounded-full -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
             </div>
 
-            {/* Structured Swiss Modernist typography */}
-            <div className="flex flex-col items-start leading-none gap-0.5 select-none text-left">
-              <span className="text-[13px] md:text-[14px] font-sans font-black tracking-[0.22em] uppercase text-neutral-950 dark:text-white transition-colors duration-300 group-hover:text-[#D12B2B]">
-                al<span className="text-neutral-400 dark:text-neutral-500 font-light">Galib</span>
-              </span>
-              <span className="text-[7.5px] font-mono tracking-[0.38em] uppercase text-neutral-400 dark:text-neutral-500 transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-neutral-600 dark:group-hover:text-neutral-300">
-                Design / Dir
-              </span>
+            {/* Refined Luxury Typography */}
+            <div className="flex flex-col items-start leading-none gap-0.5">
+              <div className="flex items-baseline">
+                {/* Italian/Swiss luxury aesthetic styling */}
+                <span className="text-[14px] font-serif italic font-medium tracking-[0.05em] text-neutral-400 dark:text-neutral-400 group-hover:text-neutral-300 transition-colors duration-500">
+                  al
+                </span>
+                <span className="text-[15px] font-sans font-black tracking-[0.25em] uppercase text-neutral-950 dark:text-white ml-1 transition-all duration-500 group-hover:text-[#D12B2B] group-hover:tracking-[0.28em]">
+                  GALIB
+                </span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <span className="h-[1px] w-2 bg-[#D12B2B]/40 group-hover:w-4 transition-all duration-500" />
+                <span className="text-[7.5px] font-mono tracking-[0.45em] uppercase text-neutral-400 dark:text-neutral-500 group-hover:text-neutral-300 transition-colors duration-500">
+                  STUDIO
+                </span>
+              </div>
             </div>
           </button>
 
