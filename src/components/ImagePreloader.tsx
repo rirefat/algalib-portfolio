@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { PROJECTS, TESTIMONIALS } from '../data/portfolioData';
-const galibImage = '/al-galib-image.png';
+const galibImage = 'https://i.ibb.co.com/tMNC5hMv/al-galib-image.png';
 const aboutImage = '/about-galib.jpg';
 
 interface ImagePreloaderProps {
