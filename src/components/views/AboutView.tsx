@@ -5,7 +5,7 @@ import { VelocityHeading } from '../VelocityHeading';
 import { ArtistAvatar } from '../ArtistAvatar';
 import { CreativeButton } from '../CreativeButton';
 import { Award, Code, CheckCircle, Lightbulb, Coffee, Compass } from 'lucide-react';
-const aboutImage = '/about-galib.jpg';
+import aboutImage from '@/assets/about-galib.jpg';
 
 export const AboutView: React.FC = () => {
   const { setCurrentView, setCursorMode } = usePortfolioStore();

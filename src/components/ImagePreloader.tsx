@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { PROJECTS, TESTIMONIALS } from '../data/portfolioData';
-const galibImage = 'https://i.ibb.co.com/tMNC5hMv/al-galib-image.png';
-const aboutImage = '/about-galib.jpg';
+import galibImage from '@/assets/al-galib-image.png';
+import aboutImage from '@/assets/about-galib.jpg';
 
 interface ImagePreloaderProps {
   onComplete: () => void;
