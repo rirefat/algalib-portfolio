@@ -38,10 +38,9 @@ export const ImagePreloader: React.FC<ImagePreloaderProps> = ({ onComplete }) =>
 
     // Add Galib portrait
     if (galibImage) {
-      urls.push(`${galibImage}?v=2`);
+      urls.push(galibImage);
     }
     if (aboutImage) {
-      urls.push(`${aboutImage}?v=2`);
       urls.push(aboutImage);
     }
 

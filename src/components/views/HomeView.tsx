@@ -314,7 +314,7 @@ export const HomeView: React.FC = () => {
                 {/* 1. Underlying Base Layer: Soft-Focus Blurred Crimson-Tinted Portrait */}
                 <div className="absolute inset-0 overflow-hidden">
                   <img
-                    src={`${galibImage}?v=2`}
+                    src={galibImage}
                     alt="Abdullah Al Galib Portrait - Soft Focus Base"
                     referrerPolicy="no-referrer"
                     className="absolute inset-0 w-full h-full object-cover filter blur-[3px] opacity-75 contrast-[1.1] brightness-[0.75] saturate-150 transition-transform duration-500 group-hover:scale-[1.02]"
@@ -331,7 +331,7 @@ export const HomeView: React.FC = () => {
                   }}
                 >
                   <img
-                    src={`${galibImage}?v=2`}
+                    src={galibImage}
                     alt="Abdullah Al Galib Portrait - Sharp Focus Overlay"
                     referrerPolicy="no-referrer"
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"

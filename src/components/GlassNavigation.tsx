@@ -3,7 +3,6 @@ import { motion } from 'motion/react';
 import { usePortfolioStore } from '../hooks/usePortfolioStore';
 import { ViewMode } from '../types';
 import { Sun, Moon, Menu, X, ArrowUpRight } from 'lucide-react';
-import galibImage from '@/assets/al-galib-image.png';
 
 export const GlassNavigation: React.FC = () => {
   const {
