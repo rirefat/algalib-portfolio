@@ -58,7 +58,7 @@ export const AboutView: React.FC = () => {
           <div className="absolute inset-0 technical-grid opacity-30 z-10 pointer-events-none" />
           
           <img
-            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=700&q=80"
+            src="https://images.unsplash.com/photo-1607990283143-e81e7a2c93ab?auto=format&fit=crop&w=800&q=80"
             alt="Abdullah Al Galib portrait"
             referrerPolicy="no-referrer"
             className="w-full h-full object-cover filter grayscale contrast-[1.2] brightness-90 group-hover:scale-105 group-hover:filter-none group-hover:brightness-100 transition-all duration-700"
@@ -66,6 +66,10 @@ export const AboutView: React.FC = () => {
           
           {/* Subtle crimson overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-[#100204] via-[#4c0d15]/20 to-transparent opacity-80 pointer-events-none z-15" />
+          
+          {/* Custom Concentric Spiral Textured Overlays (mimics Galib's original photo background) */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(209,43,43,0.35)_0%,_transparent_75%)] mix-blend-screen pointer-events-none z-15" />
+          <div className="absolute inset-0 bg-[repeating-radial-gradient(circle_at_center,_rgba(209,43,43,0.25)_0px,_rgba(209,43,43,0.25)_2px,_transparent_2px,_transparent_9px)] mix-blend-overlay opacity-80 pointer-events-none z-15" />
           
           <div className="absolute bottom-6 left-6 text-white space-y-1 z-20">
             <span className="text-[10px] font-mono tracking-widest uppercase text-[#D12B2B] font-bold">

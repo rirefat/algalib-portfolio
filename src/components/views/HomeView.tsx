@@ -53,6 +53,50 @@ const maskTextVariants = {
   }
 };
 
+const charContainerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.04,
+    }
+  }
+};
+
+const charVariants = {
+  hidden: { y: "115%" },
+  visible: {
+    y: 0,
+    transition: {
+      duration: 1.1,
+      ease: [0.16, 1, 0.3, 1],
+    }
+  }
+};
+
+const cardScrollContainerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.18,
+      delayChildren: 0.1,
+    }
+  }
+};
+
+const cardScrollRevealVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 1.0,
+      ease: [0.16, 1, 0.3, 1],
+    }
+  }
+};
+
 export const HomeView: React.FC = () => {
   const { setCurrentView, setActiveProject, setCursorMode, setCustomCursorText } = usePortfolioStore();
   const [activeTestimonial, setActiveTestimonial] = useState(0);
@@ -136,21 +180,49 @@ export const HomeView: React.FC = () => {
                 </span>
               </div>
               {/* Core Huge Narrative Typography with Editorial Clip-Path Reveal */}
-              <h1 className="text-fluid-hero tracking-tight text-neutral-900 dark:text-white leading-[0.82] uppercase font-display">
-                <div className="overflow-hidden block h-fit pb-2">
+              <h1 className="text-fluid-hero tracking-tight text-neutral-900 dark:text-white leading-[0.82] uppercase font-display flex flex-col gap-1 md:gap-2">
+                <div className="overflow-hidden block h-fit pb-1 md:pb-2">
                   <motion.span 
-                    variants={maskTextVariants}
-                    className="block font-medium tracking-[0.03em] origin-bottom"
+                    variants={charContainerVariants}
+                    className="flex flex-wrap font-medium tracking-[0.03em]"
                   >
-                    ABDULLAH
+                    {"ABDULLAH".split("").map((char, index) => (
+                      <span key={index} className="inline-block overflow-hidden pb-1">
+                        <motion.span
+                          variants={charVariants}
+                          className="inline-block origin-bottom"
+                        >
+                          {char}
+                        </motion.span>
+                      </span>
+                    ))}
                   </motion.span>
                 </div>
-                <div className="overflow-hidden block h-fit pb-2">
+                <div className="overflow-hidden block h-fit pb-1 md:pb-2">
                   <motion.span 
-                    variants={maskTextVariants}
-                    className="block text-zinc-400 dark:text-zinc-500 font-serif italic font-light lowercase origin-bottom"
+                    variants={charContainerVariants}
+                    className="flex flex-wrap items-baseline"
                   >
-                    al <span className="uppercase font-display font-extrabold text-neutral-900 dark:text-white tracking-tight">GALIB</span>
+                    {"al ".split("").map((char, index) => (
+                      <span key={`al-${index}`} className="inline-block overflow-hidden pb-1">
+                        <motion.span
+                          variants={charVariants}
+                          className="inline-block text-zinc-400 dark:text-zinc-500 font-serif italic font-light lowercase origin-bottom"
+                        >
+                          {char === " " ? "\u00A0" : char}
+                        </motion.span>
+                      </span>
+                    ))}
+                    {"GALIB".split("").map((char, index) => (
+                      <span key={`galib-${index}`} className="inline-block overflow-hidden pb-1">
+                        <motion.span
+                          variants={charVariants}
+                          className="inline-block uppercase font-display font-extrabold text-neutral-900 dark:text-white tracking-tight origin-bottom"
+                        >
+                          {char}
+                        </motion.span>
+                      </span>
+                    ))}
                   </motion.span>
                 </div>
               </h1>
@@ -240,12 +312,16 @@ export const HomeView: React.FC = () => {
                 {/* 1. Underlying Base Layer: Soft-Focus Blurred Crimson-Tinted Portrait */}
                 <div className="absolute inset-0 overflow-hidden">
                   <img
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80"
+                    src="https://images.unsplash.com/photo-1607990283143-e81e7a2c93ab?auto=format&fit=crop&w=800&q=80"
                     alt="Abdullah Al Galib Portrait - Soft Focus Base"
                     className="absolute inset-0 w-full h-full object-cover filter blur-[3px] opacity-75 contrast-[1.1] brightness-[0.75] saturate-150 transition-transform duration-500 group-hover:scale-[1.02]"
                   />
                   {/* Crimson color overlay for deep luxury portrait tint */}
                   <div className="absolute inset-0 bg-[#4c0d15]/40 mix-blend-color" />
+                  
+                  {/* Custom Concentric Spiral Textured Overlays (mimics Galib's original photo background) */}
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(209,43,43,0.3)_0%,_transparent_70%)] mix-blend-screen pointer-events-none" />
+                  <div className="absolute inset-0 bg-[repeating-radial-gradient(circle_at_center,_rgba(209,43,43,0.25)_0px,_rgba(209,43,43,0.25)_2px,_transparent_2px,_transparent_9px)] mix-blend-overlay opacity-80 pointer-events-none" />
                 </div>
 
                 {/* 2. Overlay Layer: Sharp Grayscale/Slight-Warm High-Contrast Portrait (Clipped dynamically) */}
@@ -256,10 +332,14 @@ export const HomeView: React.FC = () => {
                   }}
                 >
                   <img
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80"
+                    src="https://images.unsplash.com/photo-1607990283143-e81e7a2c93ab?auto=format&fit=crop&w=800&q=80"
                     alt="Abdullah Al Galib Portrait - Sharp Focus Overlay"
                     className="absolute inset-0 w-full h-full object-cover filter grayscale contrast-[1.3] brightness-95 transition-transform duration-500 group-hover:scale-[1.02]"
                   />
+                  
+                  {/* Red/Crimson accents and spiral even on grayscale clip path to maintain branding harmony */}
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(209,43,43,0.15)_0%,_transparent_75%)] mix-blend-screen pointer-events-none" />
+                  <div className="absolute inset-0 bg-[repeating-radial-gradient(circle_at_center,_rgba(255,255,255,0.05)_0px,_rgba(255,255,255,0.05)_2px,_transparent_2px,_transparent_9px)] mix-blend-overlay opacity-40 pointer-events-none" />
                 </div>
 
                 {/* 3. Interactive Split Slider Dividers & Hubs */}
@@ -368,12 +448,20 @@ export const HomeView: React.FC = () => {
             </button>
           </div>
 
-          {/* Cards Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10">
+          {/* Cards Grid with Framer Motion on-scroll stagger reveal */}
+          <motion.div
+            variants={cardScrollContainerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+            className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10"
+          >
             {featuredProjects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
+              <motion.div key={project.id} variants={cardScrollRevealVariants}>
+                <ProjectCard project={project} />
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 

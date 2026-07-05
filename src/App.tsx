@@ -3,6 +3,8 @@ import { PortfolioProvider, usePortfolioStore } from './hooks/usePortfolioStore'
 import { CustomCursor } from './components/CustomCursor';
 import { InteractiveCanvas } from './components/InteractiveCanvas';
 import { GlassNavigation } from './components/GlassNavigation';
+import { ProjectQuickViewModal } from './components/ProjectQuickViewModal';
+import { TransitionCurtain } from './components/TransitionCurtain';
 import Lenis from 'lenis';
 
 // View modules
@@ -95,6 +97,12 @@ function PortfolioLayout() {
     <div className="min-h-screen text-neutral-800 dark:text-neutral-200 selection:bg-red-500/20 font-sans transition-colors duration-500 flex flex-col justify-between relative overflow-x-hidden">
       {/* Cinematic Custom Follower Cursor */}
       <CustomCursor />
+
+      {/* Global Glassmorphic Quick View Overlay Modal */}
+      <ProjectQuickViewModal />
+
+      {/* Global Slide-In Editorial Transition Curtain */}
+      <TransitionCurtain />
 
       {/* Fluid Dynamic Ambient Math Canvas Background */}
       <InteractiveCanvas />

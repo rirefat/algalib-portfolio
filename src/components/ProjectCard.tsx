@@ -8,7 +8,7 @@ interface ProjectCardProps {
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
-  const { setCurrentView, setActiveProject, setCursorMode, setCustomCursorText } = usePortfolioStore();
+  const { setCursorMode, setCustomCursorText, setQuickViewProject } = usePortfolioStore();
   const cardRef = useRef<HTMLDivElement>(null);
   const [tiltStyle, setTiltStyle] = useState<React.CSSProperties>({});
   const [glowStyle, setGlowStyle] = useState<React.CSSProperties>({});
@@ -60,9 +60,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   };
 
   const handleCardClick = () => {
-    setActiveProject(project);
-    setCurrentView('project-detail');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setQuickViewProject(project);
   };
 
   return (

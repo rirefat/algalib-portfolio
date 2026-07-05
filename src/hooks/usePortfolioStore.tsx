@@ -9,6 +9,8 @@ interface PortfolioContextType {
   setCurrentView: (view: ViewMode) => void;
   activeProject: Project | null;
   setActiveProject: (project: Project | null) => void;
+  quickViewProject: Project | null;
+  setQuickViewProject: (project: Project | null) => void;
   reducedMotion: boolean;
   toggleReducedMotion: () => void;
   favorites: string[];
@@ -17,6 +19,11 @@ interface PortfolioContextType {
   setCustomCursorText: (text: string) => void;
   cursorMode: 'default' | 'hover' | 'magnetic' | 'text' | 'drag' | 'view';
   setCursorMode: (mode: 'default' | 'hover' | 'magnetic' | 'text' | 'drag' | 'view') => void;
+  isTransitioning: boolean;
+  setIsTransitioning: (val: boolean) => void;
+  pendingView: ViewMode | null;
+  setPendingView: (view: ViewMode | null) => void;
+  setActualView: (view: ViewMode) => void;
 }
 
 const PortfolioContext = createContext<PortfolioContextType | undefined>(undefined);
@@ -34,10 +41,6 @@ export const PortfolioProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     return 'dark'; // Premium default
   });
 
-  // Navigation state
-  const [currentView, setCurrentView] = useState<ViewMode>('home');
-  const [activeProject, setActiveProject] = useState<Project | null>(null);
-
   // Preference state
   const [reducedMotion, setReducedMotion] = useState<boolean>(() => {
     if (typeof window !== 'undefined') {
@@ -47,6 +50,23 @@ export const PortfolioProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     }
     return false;
   });
+
+  // Navigation state
+  const [currentView, setActualView] = useState<ViewMode>('home');
+  const [pendingView, setPendingView] = useState<ViewMode | null>(null);
+  const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
+  const [activeProject, setActiveProject] = useState<Project | null>(null);
+  const [quickViewProject, setQuickViewProject] = useState<Project | null>(null);
+
+  const setCurrentView = (view: ViewMode) => {
+    if (view === currentView) return;
+    if (reducedMotion) {
+      setActualView(view);
+      return;
+    }
+    setPendingView(view);
+    setIsTransitioning(true);
+  };
 
   // Favorites state (future ready)
   const [favorites, setFavorites] = useState<string[]>(() => {
@@ -118,6 +138,8 @@ export const PortfolioProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         setCurrentView,
         activeProject,
         setActiveProject,
+        quickViewProject,
+        setQuickViewProject,
         reducedMotion,
         toggleReducedMotion,
         favorites,
@@ -126,6 +148,11 @@ export const PortfolioProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         setCustomCursorText,
         cursorMode,
         setCursorMode,
+        isTransitioning,
+        setIsTransitioning,
+        pendingView,
+        setPendingView,
+        setActualView,
       }}
     >
       {children}
