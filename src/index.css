@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Syne:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-display: "Syne", sans-serif;
+  --font-condensed: "Space Grotesk", sans-serif;
+  
+  --color-brand-red: #D12B2B;
+  --color-crimson-black: #100204;
+  --color-crimson-950: #1a0407;
+  --color-crimson-900: #2c070c;
+  --color-crimson-850: #3c0910;
+  --color-crimson-800: #4c0d15;
+  --color-crimson-700: #6a141e;
+  --color-crimson-600: #8c1d29;
+}
+
+@layer utilities {
+  .text-fluid-hero {
+    font-size: clamp(2.5rem, 8vw + 0.5rem, 5.5rem);
+  }
+  .text-fluid-h1 {
+    font-size: clamp(1.875rem, 5vw + 0.5rem, 3.75rem);
+  }
+  .text-fluid-h2 {
+    font-size: clamp(1.5rem, 3.5vw + 0.25rem, 2.5rem);
+  }
+  .text-fluid-h3 {
+    font-size: clamp(1.25rem, 2.5vw + 0.25rem, 1.875rem);
+  }
+
+  .technical-grid {
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+  
+  .technical-grid-light {
+    background-image: 
+      linear-gradient(to right, rgba(13, 13, 13, 0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(13, 13, 13, 0.035) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  .text-shadow-crimson {
+    text-shadow: 0 0 20px rgba(209, 43, 43, 0.35);
+  }
+}
+
+/* Custom transitions and utility enhancements */
+::selection {
+  background-color: rgba(209, 43, 43, 0.25);
+  color: #ffffff;
+}
+
+.animate-grid-drift {
+  animation: gridDrift 40s linear infinite;
+}
+
+@keyframes gridDrift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100px 100px;
+  }
+}
+
+/* Lenis Smooth Scroll Recommended Base Configuration */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis-scrolling iframe {
+  pointer-events: none;
+}
+

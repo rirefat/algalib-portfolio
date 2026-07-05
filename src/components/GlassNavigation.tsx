@@ -1,0 +1,228 @@
+import React, { useState, useEffect } from 'react';
+import { usePortfolioStore } from '../hooks/usePortfolioStore';
+import { ViewMode } from '../types';
+import { Sun, Moon, Menu, X, ArrowUpRight } from 'lucide-react';
+
+export const GlassNavigation: React.FC = () => {
+  const {
+    theme,
+    toggleTheme,
+    currentView,
+    setCurrentView,
+    setActiveProject,
+    setCursorMode
+  } = usePortfolioStore();
+
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // Monitor scrolling to hide/reveal nav
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Add background blur depth on scroll
+      if (currentScrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+
+      // Hide/show logic
+      if (currentScrollY > lastScrollY && currentScrollY > 150) {
+        setIsVisible(false); // Scrolling down, hide header
+      } else {
+        setIsVisible(true); // Scrolling up or near top, show header
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
+
+  const navItems: { label: string; view: ViewMode }[] = [
+    { label: 'Home', view: 'home' },
+    { label: 'Works', view: 'works' },
+    { label: 'About', view: 'about' },
+    { label: 'Services', view: 'services' },
+    { label: 'Experience', view: 'experience' },
+    { label: 'Journal', view: 'journal' },
+    { label: 'Contact', view: 'contact' },
+  ];
+
+  const handleNavClick = (view: ViewMode) => {
+    setCurrentView(view);
+    setActiveProject(null); // Clear selected project when hitting menu links
+    setMobileMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent, view: ViewMode) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      handleNavClick(view);
+    }
+  };
+
+  return (
+    <>
+      {/* Floating navigation wrap */}
+      <header
+        className={`fixed top-0 left-0 w-full z-[100] transition-transform duration-500 ease-in-out ${
+          isVisible ? 'translate-y-0' : '-translate-y-full'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-6 py-4 md:py-6 flex items-center justify-between">
+          
+          {/* Logo Brand */}
+          <button
+            onClick={() => handleNavClick('home')}
+            onMouseEnter={() => setCursorMode('hover')}
+            onMouseLeave={() => setCursorMode('default')}
+            className="flex items-center gap-4 group font-sans text-xl md:text-2xl font-bold tracking-tight text-neutral-900 dark:text-white"
+          >
+            <span className="w-10 h-10 bg-[#D12B2B] text-black rounded-full flex items-center justify-center font-black text-sm transition-transform duration-500 group-hover:rotate-12 shadow-md">
+              AG
+            </span>
+            <span className="text-sm tracking-[0.3em] font-serif italic text-neutral-900 dark:text-neutral-100 lowercase">
+              al <span className="font-sans uppercase font-extrabold tracking-[0.2em]">galib</span>
+            </span>
+          </button>
+
+          {/* Desktop Navigation Link Cluster */}
+          <nav className="hidden lg:flex items-center gap-2 p-1 bg-white/5 dark:bg-[#0A0A0A]/40 backdrop-blur-md rounded-full border border-neutral-200/30 dark:border-white/5 shadow-sm transition-all">
+            {navItems.map((item) => {
+              const isActive = currentView === item.view;
+              return (
+                <button
+                  key={item.view}
+                  onClick={() => handleNavClick(item.view)}
+                  onKeyDown={(e) => handleKeyPress(e, item.view)}
+                  onMouseEnter={() => setCursorMode('hover')}
+                  onMouseLeave={() => setCursorMode('default')}
+                  tabIndex={0}
+                  aria-label={`Go to ${item.label} section`}
+                  className={`px-5 py-2 rounded-full font-sans text-[11px] uppercase tracking-[0.15em] font-medium transition-all relative ${
+                    isActive
+                      ? 'text-neutral-900 dark:text-white font-bold'
+                      : 'text-neutral-600 dark:text-zinc-400 hover:text-neutral-900 dark:hover:text-white'
+                  }`}
+                >
+                  {item.label}
+                  {isActive && (
+                    <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#D12B2B]" />
+                  )}
+                </button>
+              );
+            })}
+          </nav>
+
+          {/* Action cluster (theme, download cv, contact triggers) */}
+          <div className="flex items-center gap-3">
+            {/* Language indicator / decor like design */}
+            <span className="hidden md:inline text-[10px] uppercase tracking-[0.15em] text-zinc-500 font-mono mr-2">EN / JP</span>
+            
+            {/* Theme Toggle */}
+            <button
+              onClick={toggleTheme}
+              onMouseEnter={() => setCursorMode('hover')}
+              onMouseLeave={() => setCursorMode('default')}
+              aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+              className="p-2.5 rounded-full bg-neutral-100/80 dark:bg-zinc-900/40 hover:bg-neutral-200/80 dark:hover:bg-zinc-800/40 border border-neutral-200/40 dark:border-white/5 text-neutral-800 dark:text-neutral-200 transition-all shadow-sm"
+            >
+              {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+            </button>
+
+            {/* Quick Resume Link (Aesthetic & functional PDF action) */}
+            <a
+              href="#resume"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick('experience');
+              }}
+              onMouseEnter={() => setCursorMode('hover')}
+              onMouseLeave={() => setCursorMode('default')}
+              className="hidden sm:flex items-center gap-1 px-4 py-2 text-[10px] uppercase tracking-widest font-mono font-medium rounded-full bg-neutral-900 text-white dark:bg-zinc-900 dark:text-zinc-200 border dark:border-white/5 hover:bg-[#D12B2B] dark:hover:bg-[#D12B2B] dark:hover:text-black transition-all shadow-md"
+            >
+              <span>Resume</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </a>
+
+            {/* Mobile Hamburg Trigger */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              onMouseEnter={() => setCursorMode('hover')}
+              onMouseLeave={() => setCursorMode('default')}
+              aria-expanded={mobileMenuOpen}
+              aria-label="Toggle mobile menu"
+              className="lg:hidden p-2.5 rounded-full bg-neutral-100/80 dark:bg-neutral-900/80 border border-neutral-200/40 dark:border-neutral-800/40 text-neutral-800 dark:text-neutral-200 hover:bg-neutral-200/80 dark:hover:bg-neutral-800/80 transition-all shadow-sm"
+            >
+              {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Mobile Glass Drawer Overlay */}
+      <div
+        className={`fixed inset-0 z-50 lg:hidden flex flex-col justify-center bg-white/95 dark:bg-neutral-950/98 backdrop-blur-xl transition-all duration-500 ease-in-out ${
+          mobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full pointer-events-none'
+        }`}
+      >
+        <div className="absolute top-6 right-6">
+          <button
+            onClick={() => setMobileMenuOpen(false)}
+            className="p-3 rounded-full bg-neutral-100 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 border border-neutral-200/50 dark:border-neutral-800/50"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        </div>
+
+        <nav className="flex flex-col items-center gap-6 px-8 max-w-md mx-auto w-full text-center">
+          <span className="text-[10px] uppercase font-mono tracking-widest text-neutral-400 dark:text-neutral-500">
+            INDEXED SECTIONS
+          </span>
+          <div className="flex flex-col gap-3 w-full">
+            {navItems.map((item, index) => {
+              const isActive = currentView === item.view;
+              return (
+                <button
+                  key={item.view}
+                  onClick={() => handleNavClick(item.view)}
+                  style={{ transitionDelay: `${index * 50}ms` }}
+                  className={`w-full py-3.5 text-2xl font-bold font-sans tracking-tight border-b border-neutral-100 dark:border-neutral-900 transition-all flex items-center justify-between px-2 ${
+                    isActive
+                      ? 'text-red-600 dark:text-red-500 translate-x-1'
+                      : 'text-neutral-800 dark:text-neutral-300 hover:text-red-600 dark:hover:text-red-500'
+                  }`}
+                >
+                  <span className="text-sm font-mono text-neutral-400 dark:text-neutral-600 mr-4">
+                    0{index + 1}
+                  </span>
+                  <span>{item.label}</span>
+                  <ArrowUpRight className="w-5 h-5 opacity-40 group-hover:opacity-100" />
+                </button>
+              );
+            })}
+          </div>
+
+          <a
+            href="#resume"
+            onClick={(e) => {
+              e.preventDefault();
+              handleNavClick('experience');
+            }}
+            className="mt-6 flex items-center justify-center gap-2 w-full py-4 text-sm font-semibold uppercase tracking-widest font-mono rounded-full bg-neutral-900 text-white dark:bg-white dark:text-black hover:bg-red-600 dark:hover:bg-red-500 transition-all shadow-md"
+          >
+            <span>DOWNLOAD PORTFOLIO RESUME</span>
+            <ArrowUpRight className="w-4 h-4" />
+          </a>
+        </nav>
+      </div>
+    </>
+  );
+};

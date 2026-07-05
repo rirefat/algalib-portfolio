@@ -1,0 +1,163 @@
+import React from 'react';
+import { EXPERIENCES, AWARDS } from '../../data/portfolioData';
+import { usePortfolioStore } from '../../hooks/usePortfolioStore';
+import { Calendar, Briefcase, Award, ArrowUpRight } from 'lucide-react';
+
+export const ExperienceView: React.FC = () => {
+  const { setCursorMode } = usePortfolioStore();
+
+  const handleDownloadCV = (e: React.MouseEvent) => {
+    e.preventDefault();
+    alert('Thank you for requesting Abdullah Al Galib\'s CV. The print-ready portfolio resume file generation pipeline is connected!');
+  };
+
+  return (
+    <div className="space-y-24 pb-24 px-6 max-w-7xl mx-auto pt-32 md:pt-40 lg:pt-44 select-none">
+      
+      {/* 1. Header and Quick Resume Link */}
+      <section className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-neutral-200/40 dark:border-white/5 pb-8">
+        <div className="space-y-4 max-w-2xl">
+          <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-[#D12B2B]">
+            CAREER CHRONICLES
+          </span>
+          <h1 className="text-fluid-h1 font-light font-serif italic text-neutral-900 dark:text-white leading-[1.05]">
+            Professional Milestones.
+          </h1>
+          <p className="text-sm md:text-base text-neutral-600 dark:text-zinc-400 font-sans leading-relaxed font-light">
+            Review my corporate tenure, creative leadership, design consulting engagements, and elite visual awards.
+          </p>
+        </div>
+
+        <div>
+          <button
+            onClick={handleDownloadCV}
+            onMouseEnter={() => setCursorMode('hover')}
+            onMouseLeave={() => setCursorMode('default')}
+            className="inline-flex items-center gap-2 px-6 py-3.5 border border-neutral-900 text-neutral-900 hover:bg-neutral-900 hover:text-white dark:border-white dark:text-white dark:hover:bg-[#D12B2B] dark:hover:border-[#D12B2B] dark:hover:text-white transition-all font-mono text-xs uppercase tracking-[0.2em] rounded-sm shadow-sm"
+          >
+            <span>DOWNLOAD PORTFOLIO RESUME</span>
+            <ArrowUpRight className="w-4 h-4" />
+          </button>
+        </div>
+      </section>
+
+      {/* 2. Interactive timeline cards */}
+      <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        {/* Left side: design values summary */}
+        <div className="lg:col-span-4 space-y-6 lg:sticky lg:top-24 bg-white/5 dark:bg-[#0A0A0A]/40 border border-neutral-200/40 dark:border-white/5 p-8 rounded-sm shadow-md">
+          <h3 className="text-lg font-bold font-serif italic text-neutral-900 dark:text-[#F5F5F4] tracking-tight border-b border-neutral-200/40 dark:border-white/5 pb-3">
+            Corporate Values
+          </h3>
+          <ul className="space-y-4 text-xs font-sans text-neutral-500 dark:text-zinc-400 leading-relaxed font-light">
+            <li>
+              <strong className="text-neutral-900 dark:text-[#F5F5F4] font-semibold">Strict Standard Guidelines:</strong> Standard layouts aligned with pixel-perfect ratios and accessible typography guides.
+            </li>
+            <li>
+              <strong className="text-neutral-900 dark:text-[#F5F5F4] font-semibold">Engineering Harmony:</strong> Communicating with developers using clean spec sheets, modular token frameworks, and responsive interactive structures.
+            </li>
+            <li>
+              <strong className="text-neutral-900 dark:text-[#F5F5F4] font-semibold">Autonomous Driving:</strong> Guiding client processes end-to-end, minimizing scope creep, and meeting extreme tight deadlines with design authority.
+            </li>
+          </ul>
+        </div>
+
+        {/* Right side: Core interactive list timeline */}
+        <div className="lg:col-span-8 space-y-10">
+          {EXPERIENCES.map((exp) => (
+            <div
+              key={exp.id}
+              className="p-8 rounded-sm bg-white/5 dark:bg-[#0A0A0A]/40 border border-neutral-200/40 dark:border-white/5 space-y-6 hover:border-[#D12B2B]/40 transition-all relative group shadow-md"
+            >
+              {/* Timeline dot highlighter */}
+              <div className="absolute top-8 -left-3 w-6 h-6 rounded-full bg-neutral-100 dark:bg-neutral-950 border border-neutral-200/40 dark:border-white/5 flex items-center justify-center hidden lg:flex group-hover:border-[#D12B2B] transition-all">
+                <div className="w-2.5 h-2.5 rounded-full bg-[#D12B2B]" />
+              </div>
+
+              {/* Company role header */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-neutral-200/40 dark:border-white/5 pb-4">
+                <div className="space-y-1">
+                  <h3 className="text-xl font-bold font-serif italic text-neutral-900 dark:text-[#F5F5F4] tracking-tight group-hover:text-[#D12B2B] transition-colors">
+                    {exp.role}
+                  </h3>
+                  <div className="flex items-center gap-2 text-xs font-mono text-neutral-400">
+                    <Briefcase className="w-3.5 h-3.5" />
+                    <span className="uppercase">{exp.company}</span>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-1.5 px-3.5 py-1 text-[10px] font-mono font-bold text-[#D12B2B] rounded-sm bg-[#D12B2B]/10 self-start sm:self-center border border-[#D12B2B]/20">
+                  <Calendar className="w-3 h-3" />
+                  <span>{exp.period}</span>
+                </div>
+              </div>
+
+              {/* Job narrative */}
+              <p className="text-sm text-neutral-600 dark:text-zinc-300 font-sans font-light leading-relaxed">
+                {exp.description}
+              </p>
+
+              {/* Target tags */}
+              <div className="space-y-2.5">
+                <span className="text-[9px] font-mono tracking-widest text-neutral-400 dark:text-neutral-500 uppercase block">
+                  EXPERTISE APPLIED
+                </span>
+                <div className="flex flex-wrap gap-2">
+                  {exp.skills.map((skill, index) => (
+                    <span
+                      key={index}
+                      className="px-3 py-1 text-[11px] font-mono text-neutral-600 dark:text-neutral-400 rounded-sm bg-neutral-100 dark:bg-neutral-950 border border-neutral-200/40 dark:border-white/5"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 3. Global Awards Board Recap */}
+      <section className="space-y-12">
+        <div className="border-b border-neutral-200/40 dark:border-white/5 pb-6">
+          <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-[#D12B2B]">
+            AESTHETIC ACCREDITATIONS
+          </span>
+          <h2 className="text-2xl md:text-4xl font-bold font-serif italic text-neutral-900 dark:text-white">
+            Honors & Global Awards
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {AWARDS.map((aw, i) => (
+            <div
+              key={i}
+              className="p-6 rounded-sm bg-white/5 dark:bg-[#0A0A0A]/40 border border-neutral-200/40 dark:border-white/5 backdrop-blur-sm flex gap-4 shadow-md"
+            >
+              <div className="w-12 h-12 rounded-sm bg-[#D12B2B]/10 text-[#D12B2B] flex items-center justify-center flex-shrink-0 border border-[#D12B2B]/20 animate-pulse">
+                <Award className="w-6 h-6" />
+              </div>
+              <div className="space-y-1.5">
+                <div className="flex items-center gap-3">
+                  <span className="font-mono text-xs font-bold text-[#D12B2B]">
+                    {aw.year}
+                  </span>
+                  <span className="text-[10px] uppercase font-mono tracking-[0.2em] text-neutral-400 dark:text-neutral-500">
+                    {aw.category}
+                  </span>
+                </div>
+                <h4 className="font-serif italic font-bold text-base text-neutral-900 dark:text-[#F5F5F4] tracking-tight">
+                  {aw.title}
+                </h4>
+                <p className="text-xs text-neutral-500 dark:text-zinc-400 font-sans font-light">
+                  Target: {aw.project}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+    </div>
+  );
+};
