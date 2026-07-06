@@ -61,7 +61,7 @@ export const ServicesView: React.FC = () => {
         {SERVICES.map((s) => (
           <div
             key={s.id}
-            className="flex flex-col md:flex-row items-stretch rounded-sm bg-gradient-to-br from-[#080808] via-[#050505] to-[#140204]/40 border border-white/5 backdrop-blur-md overflow-hidden group hover:border-[#7b2121]/30 hover:from-[#0d0d0d] hover:to-[#220408]/60 transition-all duration-700 shadow-2xl relative"
+            className="flex flex-col md:flex-row items-stretch rounded-sm bg-gradient-to-br from-[#080808] via-[#050505] to-[#140204]/40 border border-white/5 backdrop-blur-md overflow-hidden group hover:border-white/30 hover:from-[#0d0d0d] hover:to-[#220408]/60 transition-all duration-700 shadow-2xl relative"
           >
             {/* Top glowing crimson border */}
             <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-[#7b2121]/30 via-transparent to-transparent group-hover:from-[#7b2121]/70 transition-all duration-1000" />
@@ -144,7 +144,7 @@ export const ServicesView: React.FC = () => {
           {processSteps.map((step, index) => (
             <div key={index} className="space-y-4 relative group">
               {/* Step indicator */}
-              <div className="text-4xl font-black font-mono text-neutral-200 dark:text-neutral-200/60 transition-colors duration-300 group-hover:text-[#7b2121]/20">
+              <div className="text-4xl font-black font-mono text-neutral-200 dark:text-neutral-200/60 transition-colors duration-300 group-hover:text-white/20">
                 {step.step}
               </div>
               <h4 className="text-lg font-bold font-serif italic text-white tracking-tight">
@@ -163,10 +163,10 @@ export const ServicesView: React.FC = () => {
         <div className="relative w-full border border-white/10 bg-[#030303]/60 backdrop-blur-2xl p-8 md:p-14 lg:p-20 overflow-hidden group">
           
           {/* Viewfinder Corner Accents */}
-          <div className="absolute top-4 left-4 w-4 h-4 border-t border-l border-white/30 transition-all duration-700 group-hover:scale-110 group-hover:border-[#7b2121]" />
-          <div className="absolute top-4 right-4 w-4 h-4 border-t border-r border-white/30 transition-all duration-700 group-hover:scale-110 group-hover:border-[#7b2121]" />
-          <div className="absolute bottom-4 left-4 w-4 h-4 border-b border-l border-white/30 transition-all duration-700 group-hover:scale-110 group-hover:border-[#7b2121]" />
-          <div className="absolute bottom-4 right-4 w-4 h-4 border-b border-r border-white/30 transition-all duration-700 group-hover:scale-110 group-hover:border-[#7b2121]" />
+          <div className="absolute top-4 left-4 w-4 h-4 border-t border-l border-white/30 transition-all duration-700 group-hover:scale-110 group-hover:border-white" />
+          <div className="absolute top-4 right-4 w-4 h-4 border-t border-r border-white/30 transition-all duration-700 group-hover:scale-110 group-hover:border-white" />
+          <div className="absolute bottom-4 left-4 w-4 h-4 border-b border-l border-white/30 transition-all duration-700 group-hover:scale-110 group-hover:border-white" />
+          <div className="absolute bottom-4 right-4 w-4 h-4 border-b border-r border-white/30 transition-all duration-700 group-hover:scale-110 group-hover:border-white" />
 
           {/* Background elements */}
           <div className="absolute inset-0 bg-gradient-to-br from-[#7b2121]/5 via-transparent to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-1000" />
@@ -204,7 +204,7 @@ export const ServicesView: React.FC = () => {
                 }}
                 onMouseEnter={() => setCursorMode('hover')}
                 onMouseLeave={() => setCursorMode('default')}
-                className="group/btn relative w-36 h-36 md:w-44 md:h-44 rounded-full border border-white/10 flex items-center justify-center overflow-hidden transition-all duration-700 hover:border-[#7b2121]/50 bg-black/20 hover:shadow-[0_0_40px_rgba(123,33,33,0.2)]"
+                className="group/btn relative w-36 h-36 md:w-44 md:h-44 rounded-full border border-white/10 flex items-center justify-center overflow-hidden transition-all duration-700 hover:border-white/50 bg-black/20 hover:shadow-[0_0_40px_rgba(123,33,33,0.2)]"
               >
                 {/* Reveal Fill on Hover */}
                 <div className="absolute inset-0 bg-[#7b2121] translate-y-[101%] rounded-full group-hover/btn:translate-y-0 transition-transform duration-700 ease-[cubic-bezier(0.19,1,0.22,1)]" />

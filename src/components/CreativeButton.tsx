@@ -74,13 +74,13 @@ export const CreativeButton: React.FC<CreativeButtonProps> = ({
         onClick={onClick}
         onMouseEnter={() => setCursorMode('hover')}
         onMouseLeave={() => setCursorMode('default')}
-        className={`relative group select-none overflow-hidden font-mono text-[11.5px] font-medium tracking-[0.22em] uppercase px-8 py-4 bg-transparent text-neutral-200 dark:text-zinc-200 rounded-sm border border-neutral-300 dark:border-white/10 hover:border-[#7b2121] dark:hover:border-[#7b2121] transition-all duration-500 ease-[0.16,1,0.3,1] active:scale-[0.98] ${className}`}
+        className={`relative group select-none overflow-hidden font-mono text-[11.5px] font-medium tracking-[0.22em] uppercase px-8 py-4 bg-transparent text-neutral-200 dark:text-zinc-200 rounded-sm border border-neutral-300 dark:border-white/10 hover:border-white dark:hover:border-white transition-all duration-500 ease-[0.16,1,0.3,1] active:scale-[0.98] ${className}`}
       >
         {/* Red sliding track at the bottom */}
         <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#7b2121] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-[0.16,1,0.3,1] origin-left" />
 
         {/* Soft background glow */}
-        <div className="absolute inset-0 bg-[#7b2121]/0 group-hover:bg-[#7b2121]/[0.05] dark:group-hover:bg-[#7b2121]/[0.08] transition-colors duration-500" />
+        <div className="absolute inset-0 bg-[#7b2121]/0 group-hover:bg-white group-hover:text-black/[0.05] dark:group-hover:bg-white group-hover:text-black/[0.08] transition-colors duration-500" />
 
         {/* Content Wrapper */}
         <div className="relative z-10 flex items-center justify-center gap-2.5 transition-all duration-500 group-hover:text-white">
@@ -99,7 +99,7 @@ export const CreativeButton: React.FC<CreativeButtonProps> = ({
         </div>
 
         {/* Dynamic decorative red dot in top-right */}
-        <div className="absolute top-1.5 right-1.5 w-1 h-1 rounded-full bg-transparent group-hover:bg-[#7b2121] transition-colors duration-500" />
+        <div className="absolute top-1.5 right-1.5 w-1 h-1 rounded-full bg-transparent group-hover:bg-white group-hover:text-black transition-colors duration-500" />
       </button>
     );
   }

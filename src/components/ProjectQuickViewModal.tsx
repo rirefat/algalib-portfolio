@@ -131,7 +131,7 @@ export const ProjectQuickViewModal: React.FC = () => {
                 onClick={handleClose}
                 onMouseEnter={() => setCursorMode('hover')}
                 onMouseLeave={() => setCursorMode('default')}
-                className="absolute top-6 right-6 p-2 rounded-full border border-neutral-200/30 dark:border-white/15 bg-white/5 dark:bg-[#0A0A0A]/80 text-neutral-400 dark:text-zinc-300 hover:text-[#7b2121] dark:hover:text-[#7b2121] hover:border-black dark:hover:border-white transition-all duration-300 hover:scale-105 z-20"
+                className="absolute top-6 right-6 p-2 rounded-full border border-neutral-200/30 dark:border-white/15 bg-white/5 dark:bg-[#0A0A0A]/80 text-neutral-400 dark:text-zinc-300 hover:text-white dark:hover:text-white hover:border-black dark:hover:border-white transition-all duration-300 hover:scale-105 z-20"
                 aria-label="Close panel"
               >
                 <X size={18} />
@@ -221,7 +221,7 @@ export const ProjectQuickViewModal: React.FC = () => {
                   onClick={handleClose}
                   onMouseEnter={() => setCursorMode('hover')}
                   onMouseLeave={() => setCursorMode('default')}
-                  className="w-full sm:w-auto text-center py-2 text-neutral-400 dark:text-zinc-400 hover:text-[#7b2121] dark:hover:text-[#7b2121] font-mono text-[10px] tracking-wider uppercase transition-colors"
+                  className="w-full sm:w-auto text-center py-2 text-neutral-400 dark:text-zinc-400 hover:text-white dark:hover:text-white font-mono text-[10px] tracking-wider uppercase transition-colors"
                 >
                   Dismiss Overlay
                 </button>

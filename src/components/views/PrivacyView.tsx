@@ -14,7 +14,7 @@ export const PrivacyView: React.FC = () => {
           setCurrentView('home');
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }}
-        className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-neutral-400 hover:text-[#7b2121] transition-colors"
+        className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-neutral-400 hover:text-white transition-colors"
       >
         <ArrowLeft className="w-4 h-4" />
         <span>Return to home</span>
@@ -64,7 +64,7 @@ export const PrivacyView: React.FC = () => {
           4. Contact
         </h3>
         <p>
-          For questions, or to request complete deletion of any submitted creative briefs, email us at <strong className="text-white font-medium">rafiulrefat23@gmail.com</strong>.
+          For questions, or to request complete deletion of any submitted creative briefs, email us at <strong className="text-white font-medium">abdullahalgalib255@gmail.com</strong>.
         </p>
       </div>
 

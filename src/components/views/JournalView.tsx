@@ -87,7 +87,7 @@ export const JournalView: React.FC = () => {
                 onMouseLeave={() => setCursorMode('default')}
                 className="group inline-flex items-center gap-3 text-[10px] md:text-xs font-mono uppercase tracking-[0.3em] text-neutral-400 hover:text-white transition-colors mb-12 md:mb-16"
               >
-                <div className="w-8 h-[1px] bg-neutral-600 group-hover:w-12 group-hover:bg-[#7b2121] transition-all duration-500" />
+                <div className="w-8 h-[1px] bg-neutral-600 group-hover:w-12 group-hover:bg-white group-hover:text-black transition-all duration-500" />
                 <span>Return Index</span>
               </button>
 
@@ -131,15 +131,15 @@ export const JournalView: React.FC = () => {
                 <div className="space-y-4">
                   <span className="text-[9px] font-mono tracking-[0.3em] text-neutral-600 uppercase block">Share</span>
                   <div className="flex gap-3">
-                    <div className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center hover:border-[#7b2121] hover:text-white text-neutral-500 cursor-pointer transition-colors bg-[#030303]/50">
+                    <div className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center hover:border-white hover:text-white text-neutral-500 cursor-pointer transition-colors bg-[#030303]/50">
                       <span className="text-[10px] font-mono uppercase">X</span>
                     </div>
-                    <div className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center hover:border-[#7b2121] hover:text-white text-neutral-500 cursor-pointer transition-colors bg-[#030303]/50">
+                    <div className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center hover:border-white hover:text-white text-neutral-500 cursor-pointer transition-colors bg-[#030303]/50">
                       <span className="text-[10px] font-mono uppercase">In</span>
                     </div>
                     <div 
                       onClick={handleCopyLink}
-                      className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center hover:border-[#7b2121] hover:text-white text-neutral-500 cursor-pointer transition-colors bg-[#030303]/50 relative"
+                      className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center hover:border-white hover:text-white text-neutral-500 cursor-pointer transition-colors bg-[#030303]/50 relative"
                       title="Copy Link"
                     >
                       {isCopied ? <Check className="w-3.5 h-3.5 text-[#7b2121]" /> : <Link className="w-3.5 h-3.5" />}
@@ -185,7 +185,7 @@ export const JournalView: React.FC = () => {
                           if (!content) return null;
                           return (
                             <li key={liIndex} className="text-sm md:text-base flex items-start gap-4 group">
-                              <span className="w-1.5 h-1.5 rounded-full bg-[#7b2121]/40 mt-2.5 shrink-0 group-hover:bg-[#7b2121] transition-colors" />
+                              <span className="w-1.5 h-1.5 rounded-full bg-[#7b2121]/40 mt-2.5 shrink-0 group-hover:bg-white group-hover:text-black transition-colors" />
                               <span className="opacity-80 group-hover:opacity-100 transition-opacity duration-300" dangerouslySetInnerHTML={{ __html: content.replace(/\*\*(.*?)\*\*/g, '<strong class="text-white font-normal">$1</strong>') }} />
                             </li>
                           );
@@ -225,10 +225,10 @@ export const JournalView: React.FC = () => {
                   onClick={handleBack}
                   onMouseEnter={() => setCursorMode('hover')}
                   onMouseLeave={() => setCursorMode('default')}
-                  className="group relative px-8 py-4 border border-white/10 hover:border-[#7b2121]/50 overflow-hidden rounded-full transition-all duration-500 flex items-center gap-3 bg-[#030303] hover:shadow-[0_0_20px_rgba(123,33,33,0.1)]"
+                  className="group relative px-8 py-4 border border-white/10 hover:border-white/50 overflow-hidden rounded-full transition-all duration-500 flex items-center gap-3 bg-[#030303] hover:shadow-[0_0_20px_rgba(123,33,33,0.1)]"
                 >
                   <div className="absolute inset-0 bg-[#7b2121]/5 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]" />
-                  <ArrowLeft className="w-4 h-4 text-neutral-500 group-hover:text-[#7b2121] group-hover:-translate-x-1 transition-all duration-500 relative z-10" />
+                  <ArrowLeft className="w-4 h-4 text-neutral-500 group-hover:text-white group-hover:-translate-x-1 transition-all duration-500 relative z-10" />
                   <span className="text-[10px] font-mono tracking-[0.2em] uppercase text-neutral-400 group-hover:text-white transition-colors relative z-10">
                     Return to Index
                   </span>
@@ -295,7 +295,7 @@ export const JournalView: React.FC = () => {
                     
                     {/* Index Number */}
                     <div className="w-full md:w-[120px] shrink-0 mb-6 md:mb-0 relative z-10">
-                      <span className="text-4xl md:text-5xl font-light font-serif italic text-neutral-800 group-hover:text-[#7b2121] transition-colors duration-500">
+                      <span className="text-4xl md:text-5xl font-light font-serif italic text-neutral-800 group-hover:text-white transition-colors duration-500">
                         {numStr}
                       </span>
                     </div>
@@ -337,7 +337,7 @@ export const JournalView: React.FC = () => {
                         
                         <div className="flex items-center gap-4">
                           <div className="h-[1px] w-0 bg-[#7b2121] group-hover:w-12 transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)]" />
-                          <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:border-[#7b2121] group-hover:bg-[#7b2121] transition-all duration-500 text-white shadow-sm">
+                          <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:border-white group-hover:bg-white group-hover:text-black transition-all duration-500 text-white shadow-sm">
                             <ArrowUpRight className="w-5 h-5 group-hover:rotate-45 group-hover:scale-110 transition-transform duration-500" />
                           </div>
                         </div>

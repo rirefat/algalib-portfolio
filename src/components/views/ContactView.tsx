@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { usePortfolioStore } from '../../hooks/usePortfolioStore';
-import { Mail, Phone, MapPin, Check, Send, AlertTriangle, Calendar, Globe } from 'lucide-react';
+import { Check, ArrowUpRight, ArrowRight } from 'lucide-react';
 
 export const ContactView: React.FC = () => {
   const { setCursorMode } = usePortfolioStore();
@@ -8,9 +8,8 @@ export const ContactView: React.FC = () => {
   // Form states
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [subject, setSubject] = useState('Product Design Project');
   const [brief, setBrief] = useState('');
-  const [budget, setBudget] = useState('$5,000 — $10,000');
+  const [discipline, setDiscipline] = useState('Product Design');
   
   // Validation and process states
   const [errors, setErrors] = useState<string[]>([]);
@@ -22,9 +21,7 @@ export const ContactView: React.FC = () => {
 
   useEffect(() => {
     const updateTime = () => {
-      // Dhaka is UTC+6. Let's calculate based on current system time
       const date = new Date();
-      // Use Intl to format exactly in Dhaka timezone
       const formatter = new Intl.DateTimeFormat('en-US', {
         timeZone: 'Asia/Dhaka',
         hour: '2-digit',
@@ -70,308 +67,221 @@ export const ContactView: React.FC = () => {
     }, 1800);
   };
 
-  const budgets = [
-    '$2,500 — $5,000',
-    '$5,000 — $10,000',
-    '$10,000 — $25,000',
-    '$25,000+'
+  const disciplines = [
+    'Product Design',
+    'Brand Identity',
+    'Digital Experience',
+    'Art Direction'
   ];
 
   return (
-    <div className="space-y-16 pb-24 px-6 max-w-7xl mx-auto pt-32 md:pt-40 lg:pt-44 select-none">
+    <div className="min-h-screen pt-32 pb-24 px-6 md:px-12 lg:px-24 max-w-[1400px] mx-auto select-none relative">
       
-      {/* 1. Intro Header block */}
-      <section className="space-y-4 max-w-3xl border-b border-neutral-200/40 dark:border-white/5 pb-8">
-        
-        <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-neutral-400 block">
-          INITIATE CONTACT
-        </span>
-        <h1 className="text-fluid-h1 font-light font-serif italic text-white leading-[1.05]">
-          Let’s Formulate Sovereignty.
-        </h1>
-        <p className="text-sm md:text-base text-neutral-400 dark:text-zinc-400 font-sans max-w-xl leading-relaxed font-light">
-          Book an onboarding session, request capability sheets, or describe your project requirements in the direct pipeline below.
-        </p>
-      </section>
+      {/* Background glow */}
+      <div className="absolute top-40 right-20 w-[400px] h-[400px] bg-[#7b2121]/5 rounded-full blur-[100px] pointer-events-none" />
 
-      {/* 2. Form & Contacts details grids */}
-      <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      {/* Header */}
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-12 mb-24 lg:mb-32 relative z-10">
+        <div className="max-w-4xl">
+          <div className="flex items-center gap-6 mb-8">
+            <span className="w-16 h-[1px] bg-[#7b2121]/50"></span>
+            <span className="text-[10px] font-mono tracking-[0.4em] uppercase text-neutral-500">
+              Initiate Contact
+            </span>
+          </div>
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-light font-serif italic text-white leading-[1.05] tracking-tight">
+            Let's shape the <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7b2121] to-neutral-500">future</span>.
+          </h1>
+        </div>
+        <div className="max-w-xs hidden md:block">
+          <p className="text-sm font-sans text-neutral-400 font-light leading-relaxed">
+            Book an onboarding session, request capability sheets, or describe your project requirements.
+          </p>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 relative z-10">
         
-        {/* Left column: Direct Form portal */}
-        <div className="lg:col-span-7 bg-white/5 dark:bg-[#0A0A0A]/40 border border-neutral-200/40 dark:border-white/5 backdrop-blur-md p-8 md:p-12 rounded-sm relative shadow-md">
+        {/* Left Column: Contact Details */}
+        <div className="lg:col-span-4 flex flex-col gap-16 lg:gap-24">
           
+          {/* Local Time Widget */}
+          <div className="space-y-6">
+            <h3 className="text-[10px] font-mono tracking-[0.3em] uppercase text-neutral-600 mb-6 flex items-center gap-3">
+              <span className="w-3 h-[1px] bg-neutral-700"></span> Local Coordinates
+            </h3>
+            <div className="space-y-4">
+              <span className="text-sm md:text-base font-sans text-neutral-400 font-light">Dhaka, Bangladesh</span>
+              <div className="text-3xl lg:text-4xl font-light font-mono text-white tracking-widest">{dhakaTime || '00:00:00 PM'}</div>
+              <div className="flex items-center gap-3 pt-2 text-neutral-500">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500/50 animate-pulse"></span>
+                <span className="text-[9px] font-mono tracking-widest uppercase">Online & Active</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Direct Contacts */}
+          <div className="space-y-6">
+            <h3 className="text-[10px] font-mono tracking-[0.3em] uppercase text-neutral-600 mb-6 flex items-center gap-3">
+              <span className="w-3 h-[1px] bg-neutral-700"></span> Direct Channels
+            </h3>
+            
+            <a 
+              href="mailto:abdullahalgalib255@gmail.com" 
+              onMouseEnter={() => setCursorMode('hover')}
+              onMouseLeave={() => setCursorMode('default')}
+              className="group flex items-center justify-between pb-6 border-b border-white/5 hover:border-white/50 transition-colors"
+            >
+              <span className="text-sm md:text-base font-sans font-light text-neutral-300 group-hover:text-white transition-colors">abdullahalgalib255@gmail.com</span>
+              <ArrowUpRight className="w-4 h-4 text-neutral-600 group-hover:text-white group-hover:rotate-45 transition-all duration-300" />
+            </a>
+          </div>
+
+          {/* Socials */}
+          <div className="space-y-6">
+            <h3 className="text-[10px] font-mono tracking-[0.3em] uppercase text-neutral-600 mb-6 flex items-center gap-3">
+              <span className="w-3 h-[1px] bg-neutral-700"></span> Digital Presence
+            </h3>
+            <div className="flex flex-wrap gap-6">
+              {['LinkedIn', 'Dribbble', 'Behance'].map(social => (
+                <a 
+                  key={social} 
+                  href="#" 
+                  onMouseEnter={() => setCursorMode('hover')}
+                  onMouseLeave={() => setCursorMode('default')}
+                  className="group flex items-center gap-2 text-[10px] font-mono tracking-widest uppercase text-neutral-500 hover:text-white transition-colors"
+                >
+                  {social}
+                  <ArrowRight className="w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-[#7b2121]" />
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Right Column: Form */}
+        <div className="lg:col-span-8 lg:pl-12 xl:pl-24">
           {isSuccess ? (
-            /* Success confirmation panel */
-            <div className="py-12 text-center space-y-6 animate-fade-in">
-              <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500 text-emerald-500 flex items-center justify-center mx-auto">
-                <Check className="w-8 h-8" />
+            <div className="h-full flex flex-col justify-center items-start space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-1000">
+              <div className="w-20 h-20 rounded-full border border-emerald-500/30 flex items-center justify-center bg-emerald-500/5">
+                <Check className="w-8 h-8 text-emerald-500" />
               </div>
-              <div className="space-y-2">
-                <h3 className="text-2xl font-bold font-serif italic text-white">
-                  Transmission Cleared!
-                </h3>
-                <p className="text-xs text-neutral-400 dark:text-zinc-400 font-sans max-w-sm mx-auto font-light">
-                  Your brief has safely entered Abdullah Al Galib's design queue. Expect a formal response with calendar slots within 12 business hours.
-                </p>
-              </div>
+              <h3 className="text-4xl md:text-5xl font-light font-serif italic text-white leading-tight">
+                Transmission <br /> Cleared
+              </h3>
+              <p className="text-neutral-400 font-sans font-light leading-relaxed max-w-md">
+                Your brief has safely entered Abdullah Al Galib's design queue. Expect a formal response with calendar slots within 12 business hours.
+              </p>
               <button
                 onClick={() => setIsSuccess(false)}
-                className="px-6 py-2.5 text-xs font-mono tracking-[0.2em] uppercase rounded-sm border border-neutral-300 dark:border-neutral-850 text-neutral-300 dark:text-zinc-300 hover:bg-[#7b2121] hover:text-[#7b2121] hover:border-[#7b2121] transition-all"
+                onMouseEnter={() => setCursorMode('hover')}
+                onMouseLeave={() => setCursorMode('default')}
+                className="mt-8 px-8 py-4 text-[10px] font-mono tracking-[0.3em] uppercase rounded-full border border-white/10 text-neutral-300 hover:bg-white hover:text-black hover:border-white transition-all duration-500"
               >
-                Send another message
+                Send another
               </button>
             </div>
           ) : (
-            /* Contact Form inputs */
-            <form onSubmit={handleValidationAndSubmit} className="space-y-6">
-              
-              {/* Errors container list */}
+            <form onSubmit={handleValidationAndSubmit} className="space-y-12 lg:space-y-16">
+              {/* Errors */}
               {errors.length > 0 && (
-                <div className="p-4 rounded-sm bg-[#7b2121]/10 border border-[#7b2121]/30 text-white text-xs font-sans space-y-1.5 flex gap-2.5">
-                  <AlertTriangle className="w-4 h-4 flex-shrink-0" />
-                  <div className="flex-1">
-                    <p className="font-bold uppercase tracking-wider text-[10px]">CORRECTIONS NEEDED:</p>
-                    <ul className="list-disc list-inside space-y-0.5 pt-1">
-                      {errors.map((err, idx) => (
-                        <li key={idx}>{err}</li>
-                      ))}
-                    </ul>
-                  </div>
+                <div className="pb-6 border-b border-[#7b2121]/30">
+                  <p className="font-mono text-[10px] tracking-widest uppercase text-[#7b2121] mb-3">Corrections Needed:</p>
+                  <ul className="space-y-2">
+                    {errors.map((err, idx) => (
+                      <li key={idx} className="text-sm font-sans font-light text-neutral-400 flex items-start gap-3">
+                        <span className="w-1 h-1 rounded-full bg-[#7b2121] mt-2"></span>
+                        {err}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               )}
 
-              {/* Form inputs */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className="text-[10px] font-mono tracking-wider text-neutral-400 uppercase block">
-                    Your Name / Brand
-                  </label>
-                  <input
-                    type="text"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    placeholder="e.g. Helena / Aether Labs"
-                    className="w-full px-4 py-3 bg-neutral-100/40 dark:bg-neutral-950/40 border border-neutral-200/40 dark:border-white/5 rounded-sm text-white text-sm focus:outline-none focus:border-[#7b2121] transition-colors"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-[10px] font-mono tracking-wider text-neutral-400 uppercase block">
-                    Your Email Address
-                  </label>
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="e.g. client@brand.com"
-                    className="w-full px-4 py-3 bg-neutral-100/40 dark:bg-neutral-950/40 border border-neutral-200/40 dark:border-white/5 rounded-sm text-white text-sm focus:outline-none focus:border-[#7b2121] transition-colors"
-                  />
-                </div>
+              {/* Form Fields */}
+              <div className="relative group">
+                <input 
+                  type="text" 
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="What's your name?" 
+                  className="w-full bg-transparent border-b border-white/10 text-2xl md:text-3xl font-light font-serif italic text-white placeholder:text-neutral-500 placeholder:not-italic py-4 focus:outline-none focus:border-white transition-colors"
+                />
+                <span className="absolute left-0 -top-4 text-[9px] font-mono tracking-[0.3em] text-white uppercase opacity-0 group-focus-within:opacity-100 transition-opacity">Name / Brand</span>
+              </div>
+              
+              <div className="relative group">
+                <input 
+                  type="email" 
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="And your email?" 
+                  className="w-full bg-transparent border-b border-white/10 text-2xl md:text-3xl font-light font-serif italic text-white placeholder:text-neutral-500 placeholder:not-italic py-4 focus:outline-none focus:border-white transition-colors"
+                />
+                <span className="absolute left-0 -top-4 text-[9px] font-mono tracking-[0.3em] text-white uppercase opacity-0 group-focus-within:opacity-100 transition-opacity">Email Address</span>
               </div>
 
-              <div className="space-y-2">
-                <label className="text-[10px] font-mono tracking-wider text-neutral-400 uppercase block">
-                  Venture Focus Area
-                </label>
-                <select
-                  value={subject}
-                  onChange={(e) => setSubject(e.target.value)}
-                  className="w-full px-4 py-3 bg-neutral-100/40 dark:bg-neutral-950/40 border border-neutral-200/40 dark:border-white/5 rounded-sm text-white text-sm focus:outline-none focus:border-[#7b2121] transition-colors"
-                >
-                  <option value="Product Design Project">Product Design (Spatial/Digital Systems)</option>
-                  <option value="Brand Identity System">Brand Identity & Graphic Curation</option>
-                  <option value="Premium Packaging Venture">Premium Physical Packaging</option>
-                  <option value="Contract Creative Direction">Direct Creative Consulting</option>
-                </select>
-              </div>
-
-              {/* Budget slider choices */}
-              <div className="space-y-3">
-                <label className="text-[10px] font-mono tracking-wider text-neutral-400 uppercase block">
-                  Project Budget Index
-                </label>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-                  {budgets.map((b) => {
-                    const isSelected = budget === b;
+              <div className="space-y-6 pt-4">
+                <span className="text-[10px] font-mono tracking-[0.3em] text-neutral-600 uppercase block flex items-center gap-3">
+                  <span className="w-3 h-[1px] bg-neutral-700"></span> Primary Discipline
+                </span>
+                <div className="flex flex-wrap gap-4">
+                  {disciplines.map((d) => {
+                    const isSelected = discipline === d;
                     return (
                       <button
-                        key={b}
+                        key={d}
                         type="button"
-                        onClick={() => setBudget(b)}
+                        onClick={() => setDiscipline(d)}
                         onMouseEnter={() => setCursorMode('hover')}
                         onMouseLeave={() => setCursorMode('default')}
-                        className={`py-2 px-3 border rounded-sm text-center text-xs font-semibold tracking-wide transition-all ${
-                          isSelected
-                            ? 'bg-neutral-900 border-neutral-900 text-white dark:bg-[#7b2121] dark:border-[#7b2121] dark:text-white'
-                            : 'bg-neutral-100/40 dark:bg-neutral-950/40 border-neutral-200/40 dark:border-white/5 text-neutral-400 dark:text-neutral-400 hover:text-[#7b2121]'
+                        className={`px-6 py-3 rounded-full text-[10px] font-mono tracking-widest uppercase transition-all duration-300 ${
+                          isSelected 
+                            ? 'bg-[#7b2121] text-white border-transparent scale-105' 
+                            : 'bg-transparent border border-white/10 text-neutral-500 hover:border-white/50 hover:text-white'
                         }`}
                       >
-                        {b}
+                        {d}
                       </button>
                     );
                   })}
                 </div>
               </div>
 
-              <div className="space-y-2">
-                <label className="text-[10px] font-mono tracking-wider text-neutral-400 uppercase block">
-                  Creative Brief & Core Milestones
-                </label>
-                <textarea
-                  rows={5}
+              <div className="relative group pt-4">
+                <textarea 
+                  rows={4}
                   value={brief}
                   onChange={(e) => setBrief(e.target.value)}
-                  placeholder="Describe your goals, challenges, parameters, and timeline expectations..."
-                  className="w-full px-4 py-3 bg-neutral-100/40 dark:bg-neutral-950/40 border border-neutral-200/40 dark:border-white/5 rounded-sm text-white text-sm focus:outline-none focus:border-[#7b2121] transition-colors resize-none"
+                  placeholder="Tell me about your vision..." 
+                  className="w-full bg-transparent border-b border-white/10 text-lg md:text-xl font-light font-sans text-white placeholder:text-neutral-500 py-4 focus:outline-none focus:border-white transition-colors resize-none leading-relaxed"
                 />
+                <span className="absolute left-0 -top-4 text-[9px] font-mono tracking-[0.3em] text-white uppercase opacity-0 group-focus-within:opacity-100 transition-opacity">Project Details</span>
               </div>
 
-              {/* Submit Trigger button with premium sliding track & crosshair aesthetic */}
-              <button
-                type="submit"
-                disabled={isLoading}
-                onMouseEnter={() => setCursorMode('hover')}
-                onMouseLeave={() => setCursorMode('default')}
-                className="relative group overflow-hidden w-full py-4.5 bg-[#7b2121] text-white font-mono text-xs uppercase tracking-[0.25em] rounded-sm transition-all duration-500 ease-[0.16,1,0.3,1] shadow-lg shadow-[#7b2121]/10 flex items-center justify-center disabled:opacity-50"
-              >
-                {/* Slid-over background overlay */}
-                <div className="absolute inset-0 bg-neutral-950 dark:bg-white -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-[0.16,1,0.3,1] z-0" />
-
-                {/* Content wrapper */}
-                <div className="relative z-10 flex items-center justify-center gap-3 transition-colors duration-500 group-hover:text-[#7b2121] group-hover:dark:text-white">
-                  {isLoading ? (
-                    <>
-                      <div className="w-4 h-4 rounded-full border-2 border-current border-t-transparent animate-spin" />
-                      <span>ORCHESTRATING SECURE TRANSFERS...</span>
-                    </>
-                  ) : (
-                    <>
-                      <Send className="w-3.5 h-3.5 transform transition-transform duration-500 ease-[0.16,1,0.3,1] group-hover:translate-x-1 group-hover:-translate-y-0.5" />
-                      <span>SUBMIT DESIGN BRIEF</span>
-                    </>
+              <div className="pt-8 flex justify-start">
+                <button 
+                  type="submit"
+                  disabled={isLoading}
+                  onMouseEnter={() => setCursorMode('hover')}
+                  onMouseLeave={() => setCursorMode('default')}
+                  className="group relative overflow-hidden flex items-center justify-center gap-4 w-full md:w-auto px-12 py-5 bg-white text-[#030303] hover:text-white rounded-full transition-all duration-500 font-mono text-[10px] uppercase tracking-[0.3em] disabled:opacity-50"
+                >
+                  <div className="absolute inset-0 bg-[#7b2121] translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]" />
+                  
+                  <span className="relative z-10 transition-colors duration-500 group-hover:text-white">
+                    {isLoading ? 'Orchestrating...' : 'Send Transmission'}
+                  </span>
+                  
+                  {!isLoading && (
+                    <ArrowUpRight className="w-4 h-4 relative z-10 group-hover:rotate-45 group-hover:scale-110 transition-transform duration-500" />
                   )}
-                </div>
-
-                {/* Corner Technical Bracket Ticks */}
-                <div className="absolute top-1 left-1 w-1.5 h-1.5 border-t border-l border-white/20 group-hover:border-[#7b2121]/60 transition-colors duration-500" />
-                <div className="absolute top-1 right-1 w-1.5 h-1.5 border-t border-r border-white/20 group-hover:border-[#7b2121]/60 transition-colors duration-500" />
-                <div className="absolute bottom-1 left-1 w-1.5 h-1.5 border-b border-l border-white/20 group-hover:border-[#7b2121]/60 transition-colors duration-500" />
-                <div className="absolute bottom-1 right-1 w-1.5 h-1.5 border-b border-r border-white/20 group-hover:border-[#7b2121]/60 transition-colors duration-500" />
-              </button>
+                </button>
+              </div>
             </form>
           )}
         </div>
-
-        {/* Right column: Technical clocks, physical coords, calendar blocks */}
-        <div className="lg:col-span-5 space-y-8 lg:sticky lg:top-24">
-          
-          {/* Active Local Clock Widget (Dhaka) */}
-          <div className="p-8 bg-neutral-950 text-white border border-white/5 rounded-sm space-y-6 relative overflow-hidden shadow-md">
-            <div className="absolute top-0 right-0 w-24 h-24 bg-[#7b2121]/10 rounded-full blur-[40px] pointer-events-none" />
-            
-            <div className="flex items-center justify-between">
-              <span className="text-[10px] font-mono tracking-widest text-neutral-400 uppercase flex items-center gap-1.5">
-                <Globe className="w-3.5 h-3.5" />
-                <span>Dhaka (Bangladesh)</span>
-              </span>
-              <span className="px-2 py-0.5 text-[8px] font-mono font-bold bg-emerald-500/10 text-emerald-400 rounded-sm">
-                ● ACTIVE & GREEN
-              </span>
-            </div>
-
-            <div className="space-y-1">
-              <div className="text-3xl md:text-4xl font-mono font-bold text-neutral-100 select-none">
-                {dhakaTime || '00:00:00 PM'}
-              </div>
-              <p className="text-[11px] font-mono text-neutral-400">
-                ACTIVE COORDS: UTC+6 / DHAKA TIMEZONE
-              </p>
-            </div>
-
-            <p className="text-xs text-neutral-400 font-sans leading-relaxed font-light">
-              I align workflows directly across London, New York, Zurich, and Silicon Valley timelines. Feel free to initiate briefs regardless of local zone.
-            </p>
-          </div>
-
-          {/* Quick coordinates coordinates contact details list */}
-          <div className="p-8 bg-white/5 dark:bg-[#0A0A0A]/40 border border-neutral-200/40 dark:border-white/5 backdrop-blur-sm rounded-sm space-y-6 shadow-md">
-            <h3 className="text-sm font-bold font-serif italic text-white uppercase tracking-wider border-b border-neutral-200/40 dark:border-white/5 pb-3">
-              Direct Channels
-            </h3>
-            
-            <div className="space-y-4">
-              <a
-                href="mailto:rafiulrefat23@gmail.com"
-                className="flex items-center gap-4 text-neutral-400 hover:text-[#7b2121] dark:text-zinc-300 dark:hover:text-[#7b2121] transition-colors group"
-              >
-                <div className="w-10 h-10 rounded-sm bg-white/5 dark:bg-neutral-950 flex items-center justify-center group-hover:bg-[#7b2121]/10 border border-neutral-200/40 dark:border-white/5">
-                  <Mail className="w-4 h-4 text-neutral-400 dark:text-neutral-300" />
-                </div>
-                <div>
-                  <span className="text-[10px] font-mono text-neutral-400 uppercase block">DIRECT EMAIL</span>
-                  <span className="text-sm font-sans font-medium">rafiulrefat23@gmail.com</span>
-                </div>
-              </a>
-
-              <div className="flex items-center gap-4 text-neutral-400 dark:text-zinc-300">
-                <div className="w-10 h-10 rounded-sm bg-white/5 dark:bg-neutral-950 flex items-center justify-center border border-neutral-200/40 dark:border-white/5">
-                  <Phone className="w-4 h-4 text-neutral-400 dark:text-neutral-300" />
-                </div>
-                <div>
-                  <span className="text-[10px] font-mono text-neutral-400 uppercase block">ENCRYPTED SIGNAL</span>
-                  <span className="text-sm font-sans font-medium">+880 170 000 000</span>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4 text-neutral-400 dark:text-zinc-300">
-                <div className="w-10 h-10 rounded-sm bg-white/5 dark:bg-neutral-950 flex items-center justify-center border border-neutral-200/40 dark:border-white/5">
-                  <MapPin className="w-4 h-4 text-neutral-400 dark:text-neutral-300" />
-                </div>
-                <div>
-                  <span className="text-[10px] font-mono text-neutral-400 uppercase block">STUDIO COORDS</span>
-                  <span className="text-sm font-sans font-medium">Dhaka, Bangladesh</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Social connections lists */}
-          <div className="flex flex-wrap items-center gap-3">
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noreferrer"
-              onMouseEnter={() => setCursorMode('hover')}
-              onMouseLeave={() => setCursorMode('default')}
-              className="px-5 py-2.5 text-xs font-mono rounded-full bg-white/5 hover:bg-[#7b2121]/10 dark:bg-[#0A0A0A]/40 dark:hover:bg-neutral-800/40 border border-neutral-200/40 dark:border-white/5 text-neutral-400 dark:text-zinc-300 transition-all"
-            >
-              LINKEDIN
-            </a>
-            <a
-              href="https://dribbble.com"
-              target="_blank"
-              rel="noreferrer"
-              onMouseEnter={() => setCursorMode('hover')}
-              onMouseLeave={() => setCursorMode('default')}
-              className="px-5 py-2.5 text-xs font-mono rounded-full bg-white/5 hover:bg-[#7b2121]/10 dark:bg-[#0A0A0A]/40 dark:hover:bg-neutral-800/40 border border-neutral-200/40 dark:border-white/5 text-neutral-400 dark:text-zinc-300 transition-all"
-            >
-              DRIBBBLE
-            </a>
-            <a
-              href="https://behance.net"
-              target="_blank"
-              rel="noreferrer"
-              onMouseEnter={() => setCursorMode('hover')}
-              onMouseLeave={() => setCursorMode('default')}
-              className="px-5 py-2.5 text-xs font-mono rounded-full bg-white/5 hover:bg-[#7b2121]/10 dark:bg-[#0A0A0A]/40 dark:hover:bg-neutral-800/40 border border-neutral-200/40 dark:border-white/5 text-neutral-400 dark:text-zinc-300 transition-all"
-            >
-              BEHANCE
-            </a>
-          </div>
-
-        </div>
-      </section>
-
+      </div>
     </div>
   );
 };

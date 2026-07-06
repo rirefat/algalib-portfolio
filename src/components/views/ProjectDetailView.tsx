@@ -139,7 +139,7 @@ export const ProjectDetailView: React.FC = () => {
             }}
             onMouseEnter={() => setCursorMode('hover')}
             onMouseLeave={() => setCursorMode('default')}
-            className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-neutral-300 hover:text-[#7b2121] transition-colors bg-black/40 px-4 py-2 rounded-full backdrop-blur-sm border border-white/10"
+            className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-neutral-300 hover:text-white transition-colors bg-black/40 px-4 py-2 rounded-full backdrop-blur-sm border border-white/10"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Return to curations list</span>
@@ -514,7 +514,7 @@ export const ProjectDetailView: React.FC = () => {
           onClick={handleNextProject}
           onMouseEnter={() => setCursorMode('hover')}
           onMouseLeave={() => setCursorMode('default')}
-          className="p-8 md:p-16 rounded-sm bg-[#0A0A0A] border border-white/5 cursor-pointer text-center md:text-left hover:border-[#7b2121]/40 hover:bg-[#111] transition-all flex flex-col md:flex-row md:items-center justify-between gap-8 relative overflow-hidden group shadow-xl"
+          className="p-8 md:p-16 rounded-sm bg-[#0A0A0A] border border-white/5 cursor-pointer text-center md:text-left hover:border-white/40 hover:bg-[#111] transition-all flex flex-col md:flex-row md:items-center justify-between gap-8 relative overflow-hidden group shadow-xl"
         >
           <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-[#7b2121]/5 rounded-full blur-[80px] pointer-events-none" />
           
@@ -522,7 +522,7 @@ export const ProjectDetailView: React.FC = () => {
             <span className="text-[10px] font-mono tracking-[0.2em] text-white uppercase block">
               PROCEED TO THE NEXT ARCHITECTURAL EXPEDITION
             </span>
-            <h3 className="text-fluid-h2 font-light font-serif italic group-hover:text-[#7b2121] transition-colors">
+            <h3 className="text-fluid-h2 font-light font-serif italic group-hover:text-white transition-colors">
               Discover Next Curated Case study
             </h3>
             <p className="text-xs text-zinc-400 font-sans">
@@ -530,7 +530,7 @@ export const ProjectDetailView: React.FC = () => {
             </p>
           </div>
 
-          <div className="flex-shrink-0 w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mx-auto md:mx-0 group-hover:bg-[#7b2121] group-hover:border-transparent group-hover:scale-110 transition-all duration-300">
+          <div className="flex-shrink-0 w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mx-auto md:mx-0 group-hover:bg-white group-hover:text-black group-hover:border-transparent group-hover:scale-110 transition-all duration-300">
             <ArrowRight className="w-6 h-6 text-white transform group-hover:translate-x-1 transition-transform" />
           </div>
         </div>

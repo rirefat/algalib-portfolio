@@ -34,7 +34,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, isLast = fals
       {/* Timeline Sidebar (Desktop) */}
       <div className="hidden md:flex w-24 lg:w-32 shrink-0 items-start gap-4 relative">
         <div className="relative flex flex-col items-center h-full w-4 pt-4 z-10">
-          <div className="w-1.5 h-1.5 rounded-full bg-neutral-700 group-hover:bg-[#7b2121] group-hover:scale-[1.8] transition-all duration-700 z-10 relative" />
+          <div className="w-1.5 h-1.5 rounded-full bg-neutral-700 group-hover:bg-white group-hover:text-black group-hover:scale-[1.8] transition-all duration-700 z-10 relative" />
           {!isLast && (
             <div className="absolute top-[24px] bottom-[-30px] w-[1px] bg-gradient-to-b from-neutral-800 via-neutral-900 to-transparent group-hover:from-[#7b2121]/50 transition-colors duration-700" />
           )}
@@ -65,7 +65,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, isLast = fals
                   {project.client || "Self-Initiated"}
                 </span>
               </div>
-              <div className="hidden sm:flex text-[7px] font-mono text-neutral-700 tracking-widest uppercase items-center gap-1.5 group-hover:text-[#7b2121] transition-colors duration-500">
+              <div className="hidden sm:flex text-[7px] font-mono text-neutral-700 tracking-widest uppercase items-center gap-1.5 group-hover:text-white transition-colors duration-500">
                 <Zap className="w-2 h-2" />
                 IDX.{project.id.substring(0, 4)}
               </div>
@@ -87,7 +87,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, isLast = fals
             <span className="flex items-center gap-1.5">
               <span className="relative flex h-1 w-1">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#7b2121] opacity-40 group-hover:opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-1 w-1 bg-neutral-700 group-hover:bg-[#7b2121] transition-colors duration-500"></span>
+                <span className="relative inline-flex rounded-full h-1 w-1 bg-neutral-700 group-hover:bg-white group-hover:text-black transition-colors duration-500"></span>
               </span>
               VIEW
             </span>

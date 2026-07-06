@@ -382,7 +382,7 @@ export const HomeView: React.FC = () => {
                       }}
                       onMouseEnter={() => setCursorMode('hover')}
                       onMouseLeave={() => setCursorMode('default')}
-                      className="w-11 h-11 rounded-full border border-white/40 flex items-center justify-center text-white hover:bg-white hover:text-[#7b2121] hover:border-transparent hover:scale-110 transition-all duration-300 flex-shrink-0 cursor-pointer"
+                      className="w-11 h-11 rounded-full border border-white/40 flex items-center justify-center text-white hover:bg-white hover:text-black hover:border-transparent hover:scale-110 transition-all duration-300 flex-shrink-0 cursor-pointer"
                     >
                       <ChevronRight className="w-5 h-5 transform translate-x-[0.5px]" />
                     </button>
@@ -438,7 +438,7 @@ export const HomeView: React.FC = () => {
               }}
               onMouseEnter={() => setCursorMode('hover')}
               onMouseLeave={() => setCursorMode('default')}
-              className="group flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-zinc-200 hover:text-[#7b2121] dark:hover:text-[#7b2121] transition-colors"
+              className="group flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-zinc-200 hover:text-white dark:hover:text-white transition-colors"
             >
               <span>Explore All Works ({PROJECTS.length})</span>
               <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -508,7 +508,7 @@ export const HomeView: React.FC = () => {
               }}
               onMouseEnter={() => setCursorMode('hover')}
               onMouseLeave={() => setCursorMode('default')}
-              className="group flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-zinc-200 hover:text-[#7b2121] dark:hover:text-[#7b2121] transition-colors"
+              className="group flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-zinc-200 hover:text-white dark:hover:text-white transition-colors"
             >
               <span>Deep Capability Specs</span>
               <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -609,7 +609,7 @@ export const HomeView: React.FC = () => {
                 onClick={prevTestimonial}
                 onMouseEnter={() => setCursorMode('hover')}
                 onMouseLeave={() => setCursorMode('default')}
-                className="w-10 h-10 rounded-full border border-white/10 hover:border-white text-zinc-400 hover:text-[#7b2121] flex items-center justify-center transition-all bg-[#0A0A0A]"
+                className="w-10 h-10 rounded-full border border-white/10 hover:border-white text-zinc-400 hover:text-white flex items-center justify-center transition-all bg-[#0A0A0A]"
               >
                 <ChevronLeft className="w-4 h-4" />
               </button>
@@ -620,7 +620,7 @@ export const HomeView: React.FC = () => {
                 onClick={nextTestimonial}
                 onMouseEnter={() => setCursorMode('hover')}
                 onMouseLeave={() => setCursorMode('default')}
-                className="w-10 h-10 rounded-full border border-white/10 hover:border-white text-zinc-400 hover:text-[#7b2121] flex items-center justify-center transition-all bg-[#0A0A0A]"
+                className="w-10 h-10 rounded-full border border-white/10 hover:border-white text-zinc-400 hover:text-white flex items-center justify-center transition-all bg-[#0A0A0A]"
               >
                 <ChevronRight className="w-4 h-4" />
               </button>
@@ -639,7 +639,7 @@ export const HomeView: React.FC = () => {
             {CLIENTS.map((client, index) => (
               <div
                 key={index}
-                className="py-5 px-3 rounded-sm border border-neutral-200/40 dark:border-white/5 bg-white/5 dark:bg-[#0A0A0A]/20 backdrop-blur-sm flex items-center justify-center text-center text-xs font-mono font-medium tracking-wider text-neutral-400 dark:text-zinc-400 uppercase hover:text-[#7b2121] dark:hover:text-[#7b2121] transition-colors"
+                className="py-5 px-3 rounded-sm border border-neutral-200/40 dark:border-white/5 bg-white/5 dark:bg-[#0A0A0A]/20 backdrop-blur-sm flex items-center justify-center text-center text-xs font-mono font-medium tracking-wider text-neutral-400 dark:text-zinc-400 uppercase hover:text-white dark:hover:text-white transition-colors"
               >
                 {client}
               </div>
@@ -665,14 +665,14 @@ export const HomeView: React.FC = () => {
             {AWARDS.map((award, index) => (
               <div
                 key={index}
-                className="py-6 flex flex-col md:flex-row md:items-center justify-between gap-4 group hover:bg-[#7b2121]/5 px-4 rounded-sm transition-all"
+                className="py-6 flex flex-col md:flex-row md:items-center justify-between gap-4 group hover:bg-white hover:text-black/5 px-4 rounded-sm transition-all"
               >
                 <div className="flex items-center gap-4">
                   <span className="font-mono text-sm text-white font-bold">
                     {award.year}
                   </span>
                   <div>
-                    <h4 className="font-serif italic font-medium text-lg text-white group-hover:text-[#7b2121] transition-colors">
+                    <h4 className="font-serif italic font-medium text-lg text-white group-hover:text-white transition-colors">
                       {award.title}
                     </h4>
                     <p className="text-xs text-neutral-400 font-sans">
@@ -680,7 +680,7 @@ export const HomeView: React.FC = () => {
                     </p>
                   </div>
                 </div>
-                <div className="flex items-center gap-1.5 text-xs font-mono text-neutral-400 group-hover:text-[#7b2121] transition-colors">
+                <div className="flex items-center gap-1.5 text-xs font-mono text-neutral-400 group-hover:text-white transition-colors">
                   <span>FOR: {award.project}</span>
                   <Award className="w-3.5 h-3.5 text-zinc-500" />
                 </div>
@@ -695,10 +695,10 @@ export const HomeView: React.FC = () => {
         <div className="relative w-full border border-white/10 bg-[#030303]/60 backdrop-blur-2xl p-8 md:p-14 lg:p-20 overflow-hidden group">
           
           {/* Viewfinder Corner Accents */}
-          <div className="absolute top-4 left-4 w-4 h-4 border-t border-l border-white/30 transition-all duration-700 group-hover:scale-110 group-hover:border-[#7b2121]" />
-          <div className="absolute top-4 right-4 w-4 h-4 border-t border-r border-white/30 transition-all duration-700 group-hover:scale-110 group-hover:border-[#7b2121]" />
-          <div className="absolute bottom-4 left-4 w-4 h-4 border-b border-l border-white/30 transition-all duration-700 group-hover:scale-110 group-hover:border-[#7b2121]" />
-          <div className="absolute bottom-4 right-4 w-4 h-4 border-b border-r border-white/30 transition-all duration-700 group-hover:scale-110 group-hover:border-[#7b2121]" />
+          <div className="absolute top-4 left-4 w-4 h-4 border-t border-l border-white/30 transition-all duration-700 group-hover:scale-110 group-hover:border-white" />
+          <div className="absolute top-4 right-4 w-4 h-4 border-t border-r border-white/30 transition-all duration-700 group-hover:scale-110 group-hover:border-white" />
+          <div className="absolute bottom-4 left-4 w-4 h-4 border-b border-l border-white/30 transition-all duration-700 group-hover:scale-110 group-hover:border-white" />
+          <div className="absolute bottom-4 right-4 w-4 h-4 border-b border-r border-white/30 transition-all duration-700 group-hover:scale-110 group-hover:border-white" />
 
           {/* Background elements */}
           <div className="absolute inset-0 bg-gradient-to-br from-[#7b2121]/5 via-transparent to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-1000" />
@@ -736,7 +736,7 @@ export const HomeView: React.FC = () => {
                 }}
                 onMouseEnter={() => setCursorMode('hover')}
                 onMouseLeave={() => setCursorMode('default')}
-                className="group/btn relative w-36 h-36 md:w-44 md:h-44 rounded-full border border-white/10 flex items-center justify-center overflow-hidden transition-all duration-700 hover:border-[#7b2121]/50 bg-black/20 hover:shadow-[0_0_40px_rgba(123,33,33,0.2)]"
+                className="group/btn relative w-36 h-36 md:w-44 md:h-44 rounded-full border border-white/10 flex items-center justify-center overflow-hidden transition-all duration-700 hover:border-white/50 bg-black/20 hover:shadow-[0_0_40px_rgba(123,33,33,0.2)]"
               >
                 {/* Reveal Fill on Hover */}
                 <div className="absolute inset-0 bg-[#7b2121] translate-y-[101%] rounded-full group-hover/btn:translate-y-0 transition-transform duration-700 ease-[cubic-bezier(0.19,1,0.22,1)]" />

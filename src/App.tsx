@@ -169,9 +169,9 @@ function PortfolioLayout() {
                   </h2>
                 </div>
                 
-                <div className="mt-6 flex items-center gap-4 text-neutral-400 group-hover:text-[#7b2121] transition-colors duration-500">
+                <div className="mt-6 flex items-center gap-4 text-neutral-400 group-hover:text-white transition-colors duration-500">
                   <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-neutral-700 group-hover:border-white group-hover:bg-white flex items-center justify-center transition-all duration-500 shrink-0">
-                    <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5 group-hover:text-[#7b2121] group-hover:rotate-45 transition-all duration-500" />
+                    <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5 group-hover:text-black group-hover:rotate-45 transition-all duration-500" />
                   </div>
                   <span className="font-mono text-xs md:text-sm tracking-widest lowercase">abdullahalgalib255@gmail.com</span>
                 </div>
@@ -182,15 +182,15 @@ function PortfolioLayout() {
             <div className="flex gap-12 md:gap-24 text-sm font-sans w-full lg:w-auto justify-between lg:justify-end">
               <div className="flex flex-col gap-4">
                 <span className="text-[9px] font-mono uppercase tracking-[0.3em] text-neutral-400 mb-1">Navigation</span>
-                <button onClick={() => handleFooterNavClick('works')} onMouseEnter={() => setCursorMode('hover')} onMouseLeave={() => setCursorMode('default')} className="text-left text-neutral-400 hover:text-[#7b2121] transition-colors">Works</button>
-                <button onClick={() => handleFooterNavClick('services')} onMouseEnter={() => setCursorMode('hover')} onMouseLeave={() => setCursorMode('default')} className="text-left text-neutral-400 hover:text-[#7b2121] transition-colors">Capabilities</button>
-                <button onClick={() => handleFooterNavClick('about')} onMouseEnter={() => setCursorMode('hover')} onMouseLeave={() => setCursorMode('default')} className="text-left text-neutral-400 hover:text-[#7b2121] transition-colors">Studio</button>
+                <button onClick={() => handleFooterNavClick('works')} onMouseEnter={() => setCursorMode('hover')} onMouseLeave={() => setCursorMode('default')} className="text-left text-neutral-400 hover:text-white transition-colors">Works</button>
+                <button onClick={() => handleFooterNavClick('services')} onMouseEnter={() => setCursorMode('hover')} onMouseLeave={() => setCursorMode('default')} className="text-left text-neutral-400 hover:text-white transition-colors">Capabilities</button>
+                <button onClick={() => handleFooterNavClick('about')} onMouseEnter={() => setCursorMode('hover')} onMouseLeave={() => setCursorMode('default')} className="text-left text-neutral-400 hover:text-white transition-colors">Studio</button>
               </div>
               <div className="flex flex-col gap-4">
                 <span className="text-[9px] font-mono uppercase tracking-[0.3em] text-neutral-400 mb-1">Socials</span>
-                <a href="https://www.linkedin.com/in/rafiul-islam-refat-1875181b8/" target="_blank" rel="noopener noreferrer" onMouseEnter={() => setCursorMode('hover')} onMouseLeave={() => setCursorMode('default')} className="text-neutral-400 hover:text-[#7b2121] transition-colors flex items-center gap-2 group"><Linkedin className="w-3.5 h-3.5 group-hover:-translate-y-0.5 transition-transform" /> LinkedIn</a>
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" onMouseEnter={() => setCursorMode('hover')} onMouseLeave={() => setCursorMode('default')} className="text-neutral-400 hover:text-[#7b2121] transition-colors flex items-center gap-2 group"><Twitter className="w-3.5 h-3.5 group-hover:-translate-y-0.5 transition-transform" /> Twitter</a>
-                <a href="https://dribbble.com" target="_blank" rel="noopener noreferrer" onMouseEnter={() => setCursorMode('hover')} onMouseLeave={() => setCursorMode('default')} className="text-neutral-400 hover:text-[#7b2121] transition-colors flex items-center gap-2 group"><Dribbble className="w-3.5 h-3.5 group-hover:-translate-y-0.5 transition-transform" /> Dribbble</a>
+                <a href="https://www.linkedin.com/in/rafiul-islam-refat-1875181b8/" target="_blank" rel="noopener noreferrer" onMouseEnter={() => setCursorMode('hover')} onMouseLeave={() => setCursorMode('default')} className="text-neutral-400 hover:text-white transition-colors flex items-center gap-2 group"><Linkedin className="w-3.5 h-3.5 group-hover:-translate-y-0.5 transition-transform" /> LinkedIn</a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" onMouseEnter={() => setCursorMode('hover')} onMouseLeave={() => setCursorMode('default')} className="text-neutral-400 hover:text-white transition-colors flex items-center gap-2 group"><Twitter className="w-3.5 h-3.5 group-hover:-translate-y-0.5 transition-transform" /> Twitter</a>
+                <a href="https://dribbble.com" target="_blank" rel="noopener noreferrer" onMouseEnter={() => setCursorMode('hover')} onMouseLeave={() => setCursorMode('default')} className="text-neutral-400 hover:text-white transition-colors flex items-center gap-2 group"><Dribbble className="w-3.5 h-3.5 group-hover:-translate-y-0.5 transition-transform" /> Dribbble</a>
               </div>
             </div>
           </div>
@@ -199,7 +199,7 @@ function PortfolioLayout() {
           <div className="pt-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 md:gap-0 text-[10px] font-mono tracking-[0.2em] text-neutral-400">
             <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
                <span 
-                className="text-white font-italianno text-5xl font-normal tracking-normal normal-case cursor-pointer hover:text-[#7b2121] transition-colors -ml-2"
+                className="text-white font-italianno text-5xl font-normal tracking-normal normal-case cursor-pointer hover:text-white transition-colors -ml-2"
                 onClick={() => handleFooterNavClick('home')}
                 onMouseEnter={() => setCursorMode('hover')}
                 onMouseLeave={() => setCursorMode('default')}
@@ -211,7 +211,7 @@ function PortfolioLayout() {
             </div>
             
             <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-8 uppercase">
-              <button onClick={() => handleFooterNavClick('privacy')} onMouseEnter={() => setCursorMode('hover')} onMouseLeave={() => setCursorMode('default')} className="hover:text-[#7b2121] transition-colors">Privacy Policy</button>
+              <button onClick={() => handleFooterNavClick('privacy')} onMouseEnter={() => setCursorMode('hover')} onMouseLeave={() => setCursorMode('default')} className="hover:text-white transition-colors">Privacy Policy</button>
               <span className="hidden md:block w-1 h-1 rounded-full bg-neutral-700"></span>
               
               <div 

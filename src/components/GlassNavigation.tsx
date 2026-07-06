@@ -152,7 +152,7 @@ export const GlassNavigation: React.FC = () => {
                   strokeWidth="2.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  className="text-neutral-100 transition-colors duration-500 group-hover:text-[#7b2121]"
+                  className="text-neutral-100 transition-colors duration-500 group-hover:text-white"
                   transition={{ duration: 0.5 }}
                 />
 
@@ -184,7 +184,7 @@ export const GlassNavigation: React.FC = () => {
                 <span className="text-[14px] font-sans font-medium tracking-[0.05em] text-neutral-400 dark:text-neutral-400 group-hover:text-neutral-300 transition-colors duration-500">
                   al
                 </span>
-                <span className="text-[15px] font-sans font-black tracking-[0.25em] uppercase text-white ml-1 transition-all duration-500 group-hover:text-[#7b2121] group-hover:tracking-[0.28em]">
+                <span className="text-[15px] font-sans font-black tracking-[0.25em] uppercase text-white ml-1 transition-all duration-500 group-hover:text-white group-hover:tracking-[0.28em]">
                   GALIB
                 </span>
               </div>
@@ -213,7 +213,7 @@ export const GlassNavigation: React.FC = () => {
                   className={`px-5 py-2 rounded-full font-sans text-[11px] uppercase tracking-[0.15em] font-medium transition-all relative ${
                     isActive
                       ? 'text-white font-bold'
-                      : 'text-neutral-400 dark:text-zinc-400 hover:text-[#7b2121]'
+                      : 'text-neutral-400 dark:text-zinc-400 hover:text-white'
                   }`}
                 >
                   {item.label}
@@ -237,7 +237,7 @@ export const GlassNavigation: React.FC = () => {
               }}
               onMouseEnter={() => setCursorMode('hover')}
               onMouseLeave={() => setCursorMode('default')}
-              className="hidden sm:flex items-center gap-1 px-4 py-2 text-[10px] uppercase tracking-widest font-mono font-medium rounded-full bg-neutral-900 text-white dark:bg-zinc-900 dark:text-zinc-200 border dark:border-white/5 hover:bg-[#7b2121] dark:hover:bg-[#7b2121] dark:hover:text-[#7b2121] transition-all shadow-md"
+              className="hidden sm:flex items-center gap-1 px-4 py-2 text-[10px] uppercase tracking-widest font-mono font-medium rounded-full bg-neutral-900 text-white dark:bg-zinc-900 dark:text-zinc-200 border dark:border-white/5 hover:bg-white hover:text-black dark:hover:bg-white dark:hover:text-black transition-all shadow-md"
             >
               <span>Resume</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -288,7 +288,7 @@ export const GlassNavigation: React.FC = () => {
                   className={`w-full py-3.5 text-2xl font-bold font-sans tracking-tight border-b border-neutral-100 dark:border-neutral-900 transition-all flex items-center justify-between px-2 ${
                     isActive
                       ? 'text-white dark:text-white translate-x-1'
-                      : 'text-neutral-200 dark:text-neutral-300 hover:text-[#7b2121] dark:hover:text-[#7b2121]'
+                      : 'text-neutral-200 dark:text-neutral-300 hover:text-white dark:hover:text-white'
                   }`}
                 >
                   <span className="text-sm font-mono text-neutral-400 dark:text-neutral-400 mr-4">
@@ -307,7 +307,7 @@ export const GlassNavigation: React.FC = () => {
               e.preventDefault();
               handleNavClick('experience');
             }}
-            className="mt-6 flex items-center justify-center gap-2 w-full py-4 text-sm font-semibold uppercase tracking-widest font-mono rounded-full bg-neutral-900 text-white dark:bg-white/10 dark:text-white hover:bg-[#7b2121] dark:hover:bg-[#7b2121] transition-all shadow-md"
+            className="mt-6 flex items-center justify-center gap-2 w-full py-4 text-sm font-semibold uppercase tracking-widest font-mono rounded-full bg-neutral-900 text-white dark:bg-white/10 dark:text-white hover:bg-white hover:text-black dark:hover:bg-white dark:hover:text-black transition-all shadow-md"
           >
             <span>DOWNLOAD PORTFOLIO RESUME</span>
             <ArrowUpRight className="w-4 h-4" />

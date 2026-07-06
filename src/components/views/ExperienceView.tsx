@@ -34,7 +34,7 @@ export const ExperienceView: React.FC = () => {
             onClick={handleDownloadCV}
             onMouseEnter={() => setCursorMode('hover')}
             onMouseLeave={() => setCursorMode('default')}
-            className="inline-flex items-center gap-2 px-6 py-3.5 border border-white text-white hover:bg-[#7b2121] hover:border-[#7b2121] hover:text-[#7b2121] transition-all font-mono text-xs uppercase tracking-[0.2em] rounded-sm shadow-sm"
+            className="inline-flex items-center gap-2 px-6 py-3.5 border border-white text-white hover:bg-white hover:text-black hover:border-white transition-all font-mono text-xs uppercase tracking-[0.2em] rounded-sm shadow-sm"
           >
             <span>DOWNLOAD PORTFOLIO RESUME</span>
             <ArrowUpRight className="w-4 h-4" />
@@ -51,7 +51,7 @@ export const ExperienceView: React.FC = () => {
             <div className="absolute -top-20 -right-20 w-40 h-40 bg-[#7b2121]/10 rounded-full blur-[60px] pointer-events-none transition-transform duration-1000 group-hover:translate-x-5 group-hover:translate-y-5" />
             
             <div className="space-y-2 relative z-10 border-b border-white/5 pb-6">
-              <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-neutral-500 group-hover:text-[#7b2121] transition-colors duration-500">
+              <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-neutral-500 group-hover:text-white transition-colors duration-500">
                 Principles
               </span>
               <h3 className="text-2xl font-light font-serif italic text-white tracking-tight">
@@ -92,8 +92,8 @@ export const ExperienceView: React.FC = () => {
             </div>
             
             {/* Decorative Corner Elements */}
-            <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-white/20 transition-all duration-500 group-hover:border-[#7b2121]" />
-            <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-white/20 transition-all duration-500 group-hover:border-[#7b2121]" />
+            <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-white/20 transition-all duration-500 group-hover:border-white" />
+            <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-white/20 transition-all duration-500 group-hover:border-white" />
           </div>
         </div>
 
@@ -102,17 +102,17 @@ export const ExperienceView: React.FC = () => {
           {EXPERIENCES.map((exp) => (
             <div
               key={exp.id}
-              className="p-8 rounded-sm bg-white/5 dark:bg-[#0A0A0A]/40 border border-neutral-200/40 dark:border-white/5 space-y-6 hover:border-[#7b2121]/40 transition-all relative group shadow-md"
+              className="p-8 rounded-sm bg-white/5 dark:bg-[#0A0A0A]/40 border border-neutral-200/40 dark:border-white/5 space-y-6 hover:border-white/40 transition-all relative group shadow-md"
             >
               {/* Timeline dot highlighter */}
-              <div className="absolute top-8 -left-3 w-6 h-6 rounded-full bg-neutral-100 dark:bg-neutral-950 border border-neutral-200/40 dark:border-white/5 flex items-center justify-center hidden lg:flex group-hover:border-[#7b2121] transition-all">
+              <div className="absolute top-8 -left-3 w-6 h-6 rounded-full bg-neutral-100 dark:bg-neutral-950 border border-neutral-200/40 dark:border-white/5 flex items-center justify-center hidden lg:flex group-hover:border-white transition-all">
                 <div className="w-2.5 h-2.5 rounded-full bg-[#7b2121]" />
               </div>
 
               {/* Company role header */}
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-neutral-200/40 dark:border-white/5 pb-4">
                 <div className="space-y-1">
-                  <h3 className="text-xl font-bold font-serif italic text-white tracking-tight group-hover:text-[#7b2121] transition-colors">
+                  <h3 className="text-xl font-bold font-serif italic text-white tracking-tight group-hover:text-white transition-colors">
                     {exp.role}
                   </h3>
                   <div className="flex items-center gap-2 text-xs font-mono text-neutral-400">

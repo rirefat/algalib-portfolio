@@ -69,7 +69,7 @@ export const WorksView: React.FC = () => {
                     transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                   />
                 )}
-                <span className={isActive ? 'text-white' : 'text-neutral-400 hover:text-[#7b2121] transition-colors duration-200'}>
+                <span className={isActive ? 'text-white' : 'text-neutral-400 hover:text-white transition-colors duration-200'}>
                   {cat.label}
                 </span>
               </button>
