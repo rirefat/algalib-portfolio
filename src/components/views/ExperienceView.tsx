@@ -30,15 +30,17 @@ export const ExperienceView: React.FC = () => {
         </div>
 
         <div>
-          <button
-            onClick={handleDownloadCV}
+          <a
+            href="https://drive.google.com/file/d/15y7NWa7Rf2t0ntyevZ-eIlYHxc6YoSv6/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
             onMouseEnter={() => setCursorMode('hover')}
             onMouseLeave={() => setCursorMode('default')}
             className="inline-flex items-center gap-2 px-6 py-3.5 border border-white text-white hover:bg-white hover:text-black hover:border-white transition-all font-mono text-xs uppercase tracking-[0.2em] rounded-sm shadow-sm"
           >
             <span>DOWNLOAD PORTFOLIO RESUME</span>
             <ArrowUpRight className="w-4 h-4" />
-          </button>
+          </a>
         </div>
       </section>
 

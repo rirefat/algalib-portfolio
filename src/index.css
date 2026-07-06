@@ -66,6 +66,10 @@ button, a, [role="button"] {
   animation: gridDrift 40s linear infinite;
 }
 
+.animate-marquee-scroll {
+  animation: marquee-scroll 90s linear infinite;
+}
+
 @keyframes gridDrift {
   from {
     background-position: 0 0;
@@ -73,6 +77,11 @@ button, a, [role="button"] {
   to {
     background-position: 100px 100px;
   }
+}
+
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 /* Lenis Smooth Scroll Recommended Base Configuration */

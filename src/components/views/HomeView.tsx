@@ -5,7 +5,7 @@ import { VelocityHeading } from '../VelocityHeading';
 import { ArtistAvatar } from '../ArtistAvatar';
 import { CreativeButton } from '../CreativeButton';
 const galibImage = 'https://i.ibb.co.com/tMNC5hMv/al-galib-image.png';
-import { PROJECTS, CLIENTS, AWARDS, TESTIMONIALS, JOURNAL_POSTS } from '../../data/portfolioData';
+import { PROJECTS, AWARDS, TESTIMONIALS, JOURNAL_POSTS } from '../../data/portfolioData';
 import { ProjectCard } from '../ProjectCard';
 import { ArrowDown, ArrowUpRight, Compass, Layers, Feather, Package, ChevronLeft, ChevronRight, Award, Quote } from 'lucide-react';
 import { SkillsExpertise } from '../SkillsExpertise';
@@ -634,19 +634,28 @@ export const HomeView: React.FC = () => {
         </div>
       </section>
 
-      {/* 6. Selected Clients Bar */}
-      <section className="px-6 max-w-7xl mx-auto z-10 relative">
-        <div className="space-y-8">
-          <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-zinc-500 block text-center">
-            COLLABORATIONS & PATRONS
-          </span>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
-            {CLIENTS.map((client, index) => (
-              <div
-                key={index}
-                className="py-5 px-3 rounded-sm border border-neutral-200/40 dark:border-white/5 bg-white/5 dark:bg-[#0A0A0A]/20 backdrop-blur-sm flex items-center justify-center text-center text-xs font-mono font-medium tracking-wider text-neutral-400 dark:text-zinc-400 uppercase hover:text-white dark:hover:text-white transition-colors"
-              >
-                {client}
+      {/* 6. Marquee Stripes */}
+      <section className="w-full overflow-hidden py-16 md:py-24 z-10 relative select-none">
+        <div className="w-full [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)] flex overflow-hidden">
+          <div className="flex w-max animate-marquee-scroll hover:[animation-play-state:paused] opacity-80 cursor-default">
+            {[1, 2, 3, 4].map((group) => (
+              <div key={group} className="flex items-center space-x-12 md:space-x-24 px-6 md:px-12">
+                {[
+                  'User Experience',
+                  'Visual Identity',
+                  'Creative Direction',
+                  'Digital Illustration',
+                  'Interaction Design',
+                  'Spatial Experiences',
+                  'Typography Systems'
+                ].map((item, index) => (
+                  <div key={`${group}-${index}`} className="flex items-center space-x-12 md:space-x-24">
+                    <span className={`text-4xl md:text-6xl lg:text-7xl ${index % 2 === 0 ? 'font-serif italic text-white' : 'font-sans font-light tracking-tighter text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.3)] hover:[-webkit-text-stroke:1px_rgba(255,255,255,0.9)] transition-all duration-300'} whitespace-nowrap`}>
+                      {item}
+                    </span>
+                    <span className="w-2 h-2 md:w-3 md:h-3 rounded-full bg-neutral-800"></span>
+                  </div>
+                ))}
               </div>
             ))}
           </div>

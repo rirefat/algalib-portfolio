@@ -18,12 +18,13 @@ import { ContactView } from './components/views/ContactView';
 import { ProjectDetailView } from './components/views/ProjectDetailView';
 import { PrivacyView } from './components/views/PrivacyView';
 
-import { ArrowUpRight, Linkedin, Dribbble, Twitter } from 'lucide-react';
+import { ArrowUpRight, Linkedin, Dribbble, Twitter, Check } from 'lucide-react';
 import { ImagePreloader } from './components/ImagePreloader';
 import { ScrollToTopButton } from './components/ScrollToTopButton';
 
 function PortfolioLayout() {
   const { currentView, setCurrentView, setCursorMode, setActiveProject } = usePortfolioStore();
+  const [isCopied, setIsCopied] = React.useState(false);
   const lenisRef = React.useRef<Lenis | null>(null);
 
   React.useEffect(() => {
@@ -95,6 +96,13 @@ function PortfolioLayout() {
     }
   };
 
+  const handleCopyEmail = (e: React.MouseEvent) => {
+    e.preventDefault();
+    navigator.clipboard.writeText("abdullahalgalib255@gmail.com");
+    setIsCopied(true);
+    setTimeout(() => setIsCopied(false), 2000);
+  };
+
   return (
     <div className="bg-[#030303] min-h-screen text-neutral-200 selection:bg-[#7b2121]/20 font-sans transition-colors duration-500 flex flex-col justify-between relative overflow-x-clip">
       {/* Cinematic Custom Follower Cursor */}
@@ -158,6 +166,7 @@ function PortfolioLayout() {
               </span>
               <a
                 href="mailto:abdullahalgalib255@gmail.com"
+                onClick={handleCopyEmail}
                 onMouseEnter={() => setCursorMode('hover')}
                 onMouseLeave={() => setCursorMode('default')}
                 className="group relative flex flex-col items-start cursor-pointer"
@@ -173,11 +182,18 @@ function PortfolioLayout() {
                   </h2>
                 </div>
                 
-                <div className="mt-6 flex items-center gap-4 text-neutral-400 group-hover:text-white transition-colors duration-500">
-                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-neutral-700 group-hover:border-white group-hover:bg-white flex items-center justify-center transition-all duration-500 shrink-0">
-                    <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5 group-hover:text-black group-hover:rotate-45 transition-all duration-500" />
+                <div className="mt-6 flex items-center gap-4 text-neutral-400 group-hover:text-white transition-colors duration-500 relative">
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-neutral-700 group-hover:border-white group-hover:bg-white flex items-center justify-center transition-all duration-500 shrink-0 relative overflow-hidden">
+                    <div className={`absolute inset-0 flex items-center justify-center transition-transform duration-500 ${isCopied ? '-translate-y-full' : 'translate-y-0'}`}>
+                      <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5 group-hover:text-black group-hover:rotate-45 transition-all duration-500" />
+                    </div>
+                    <div className={`absolute inset-0 flex items-center justify-center bg-emerald-500 transition-transform duration-500 ${isCopied ? 'translate-y-0' : 'translate-y-full'}`}>
+                      <Check className="w-4 h-4 md:w-5 md:h-5 text-white" />
+                    </div>
                   </div>
-                  <span className="font-mono text-xs md:text-sm tracking-widest lowercase">abdullahalgalib255@gmail.com</span>
+                  <span className="font-mono text-xs md:text-sm tracking-widest lowercase">
+                    {isCopied ? 'copied to clipboard' : 'abdullahalgalib255@gmail.com'}
+                  </span>
                 </div>
               </a>
             </div>

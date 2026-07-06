@@ -245,6 +245,41 @@ export const ProjectDetailView: React.FC = () => {
         </div>
       </section>
 
+      {/* 2.5. Project Phases Timeline */}
+      <section className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 z-10 relative pt-16 md:pt-24 pb-8 md:pb-12">
+        <div className="lg:col-span-4 space-y-6 lg:sticky lg:top-24">
+          <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-neutral-400 block">
+            PROCESS
+          </span>
+          <h2 className="text-fluid-h2 font-light font-serif italic text-white">
+            Execution Timeline
+          </h2>
+          <p className="text-sm text-neutral-400 dark:text-zinc-400 font-sans leading-relaxed font-light">
+            A structured breakdown of the design lifecycle, from initial research to final deployment.
+          </p>
+        </div>
+
+        <div className="lg:col-span-8">
+          <div className="relative pl-6 md:pl-10 space-y-12 before:absolute before:inset-y-0 before:left-[11px] md:before:left-[19px] before:w-[1px] before:bg-white/10">
+            {[
+              { phase: 'Research', title: 'Discovery & Analysis', description: 'Deep diving into user needs, market landscape, and technical constraints to form a solid foundational strategy.' },
+              { phase: 'Design', title: 'Visual & Interaction Systems', description: 'Crafting the typographic hierarchy, spatial layouts, and interactive logic that define the core experience.' },
+              { phase: 'Prototyping', title: 'High-Fidelity Simulation', description: 'Building interactive models to test ocular scan pathways, gesture ergonomics, and micro-animations.' },
+              { phase: 'Launch', title: 'Deployment & Observation', description: 'Shipping the finalized product, monitoring analytics, and refining the experience based on real-world usage.' }
+            ].map((step, index) => (
+              <div key={index} className="relative group">
+                <div className="absolute -left-[30px] md:-left-[43px] top-1 w-3 h-3 rounded-full bg-neutral-900 border-2 border-white/30 group-hover:border-white group-hover:bg-white transition-all duration-300" />
+                <span className="text-[10px] font-mono text-neutral-500 uppercase tracking-widest block mb-2">{step.phase}</span>
+                <h4 className="text-xl font-serif italic text-white mb-3">{step.title}</h4>
+                <p className="text-sm text-neutral-400 dark:text-zinc-400 font-sans font-light leading-relaxed max-w-xl">
+                  {step.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* 3. Deep Research Milestones & Wireframe layouts */}
       <section className="bg-neutral-950 text-white py-16 md:py-24 px-6 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#7b2121]/5 rounded-full blur-[100px] pointer-events-none" />

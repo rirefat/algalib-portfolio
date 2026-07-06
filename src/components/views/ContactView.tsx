@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { usePortfolioStore } from '../../hooks/usePortfolioStore';
 import { Check, ArrowUpRight, ArrowRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 
 export const ContactView: React.FC = () => {
   const { setCursorMode } = usePortfolioStore();
@@ -166,30 +167,79 @@ export const ContactView: React.FC = () => {
         </div>
 
         {/* Right Column: Form */}
-        <div className="lg:col-span-8 lg:pl-12 xl:pl-24">
-          {isSuccess ? (
-            <div className="h-full flex flex-col justify-center items-start space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-1000">
-              <div className="w-20 h-20 rounded-full border border-emerald-500/30 flex items-center justify-center bg-emerald-500/5">
-                <Check className="w-8 h-8 text-emerald-500" />
-              </div>
-              <h3 className="text-4xl md:text-5xl font-light font-serif italic text-white leading-tight">
-                Transmission <br /> Cleared
-              </h3>
-              <p className="text-neutral-400 font-sans font-light leading-relaxed max-w-md">
-                Your brief has safely entered Abdullah Al Galib's design queue. Expect a formal response with calendar slots within 12 business hours.
-              </p>
-              <button
-                onClick={() => setIsSuccess(false)}
-                onMouseEnter={() => setCursorMode('hover')}
-                onMouseLeave={() => setCursorMode('default')}
-                className="mt-8 px-8 py-4 text-[10px] font-mono tracking-[0.3em] uppercase rounded-full border border-white/10 text-neutral-300 hover:bg-white hover:text-black hover:border-white transition-all duration-500"
+        <div className="lg:col-span-8 lg:pl-12 xl:pl-24 relative">
+          <AnimatePresence mode="wait">
+            {isSuccess ? (
+              <motion.div 
+                key="success"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                className="h-full flex flex-col justify-center items-start space-y-8"
               >
-                Send another
-              </button>
-            </div>
-          ) : (
-            <form onSubmit={handleValidationAndSubmit} className="space-y-12 lg:space-y-16">
-              {/* Errors */}
+                <div className="relative w-20 h-20">
+                  <motion.div 
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+                    className="absolute inset-0 rounded-full border border-emerald-500/30 bg-emerald-500/5"
+                  />
+                  <motion.div 
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ duration: 0.5, delay: 0.4, type: "spring", stiffness: 200, damping: 15 }}
+                    className="absolute inset-0 flex items-center justify-center"
+                  >
+                    <svg className="w-8 h-8 text-emerald-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <motion.path
+                        initial={{ pathLength: 0 }}
+                        animate={{ pathLength: 1 }}
+                        transition={{ duration: 0.6, delay: 0.6, ease: "easeInOut" }}
+                        d="M20 6L9 17l-5-5"
+                      />
+                    </svg>
+                  </motion.div>
+                </div>
+                <motion.h3 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                  className="text-4xl md:text-5xl font-light font-serif italic text-white leading-tight"
+                >
+                  Transmission <br /> Cleared
+                </motion.h3>
+                <motion.p 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  className="text-neutral-400 font-sans font-light leading-relaxed max-w-md"
+                >
+                  Your brief has safely entered Abdullah Al Galib's design queue. Expect a formal response with calendar slots within 12 business hours.
+                </motion.p>
+                <motion.button
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.5 }}
+                  onClick={() => setIsSuccess(false)}
+                  onMouseEnter={() => setCursorMode('hover')}
+                  onMouseLeave={() => setCursorMode('default')}
+                  className="mt-8 px-8 py-4 text-[10px] font-mono tracking-[0.3em] uppercase rounded-full border border-white/10 text-neutral-300 hover:bg-white hover:text-black hover:border-white transition-all duration-500"
+                >
+                  Send another
+                </motion.button>
+              </motion.div>
+            ) : (
+              <motion.form 
+                key="form"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                onSubmit={handleValidationAndSubmit} 
+                className="space-y-12 lg:space-y-16"
+              >
+                {/* Errors */}
               {errors.length > 0 && (
                 <div className="pb-6 border-b border-[#7b2121]/30">
                   <p className="font-mono text-[10px] tracking-widest uppercase text-[#7b2121] mb-3">Corrections Needed:</p>
@@ -284,8 +334,9 @@ export const ContactView: React.FC = () => {
                   )}
                 </button>
               </div>
-            </form>
+            </motion.form>
           )}
+          </AnimatePresence>
         </div>
       </div>
     </div>

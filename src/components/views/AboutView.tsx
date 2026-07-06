@@ -31,6 +31,39 @@ const AnimatedCounter = ({ value }: { value: string }) => {
   return <motion.span ref={ref}>{display}</motion.span>;
 };
 
+const FAQItem = ({ question, answer }: { question: string; answer: string }) => {
+  const [isOpen, ReactSetIsOpen] = React.useState(false);
+  const { setCursorMode } = usePortfolioStore();
+
+  return (
+    <div className="border-b border-neutral-200/40 dark:border-white/10 last:border-b-0 py-6">
+      <button 
+        onClick={() => ReactSetIsOpen(!isOpen)}
+        onMouseEnter={() => setCursorMode('hover')}
+        onMouseLeave={() => setCursorMode('default')}
+        className="w-full flex items-center justify-between text-left focus:outline-none group"
+      >
+        <h4 className="text-xl md:text-2xl font-serif italic text-neutral-800 dark:text-white pr-8 group-hover:text-[#7b2121] transition-colors duration-300">{question}</h4>
+        <div className={`w-8 h-8 rounded-full border flex items-center justify-center shrink-0 transition-all duration-300 ${isOpen ? 'border-[#7b2121] text-[#7b2121]' : 'border-neutral-300 dark:border-white/20 text-neutral-400 dark:text-white/50 group-hover:border-[#7b2121] group-hover:text-[#7b2121]'}`}>
+          <svg className={`w-4 h-4 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${isOpen ? 'rotate-180' : ''}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </div>
+      </button>
+      <motion.div
+        initial={false}
+        animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
+        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+        className="overflow-hidden"
+      >
+        <p className="pt-6 text-neutral-500 dark:text-neutral-400 font-sans font-light leading-relaxed max-w-2xl">
+          {answer}
+        </p>
+      </motion.div>
+    </div>
+  );
+};
+
 export const AboutView: React.FC = () => {
   const { setCurrentView, setCursorMode } = usePortfolioStore();
 
@@ -46,6 +79,13 @@ export const AboutView: React.FC = () => {
     'Obsessed with 1970s Milanese brutalist graphic grids and typesetting.',
     'Fueled by double shots of pure espresso and ambient synth loops under midnight grids.',
     'Drafts concepts with custom graphite pencils on heavy ivory sketchbooks before opening software.',
+  ];
+
+  const faqs = [
+    { question: "What is your typical design process?", answer: "I begin with deep research and conceptual framing, move into structural wireframing to test interaction logic, and finish with high-fidelity visual design focusing on typography, space, and motion. Every step is highly collaborative." },
+    { question: "Do you build the websites you design?", answer: "While my core expertise is in Product and Graphic Design, I frequently collaborate closely with engineering teams and provide highly detailed specifications, interactive prototypes, and production-ready assets to ensure pixel-perfect implementation." },
+    { question: "What industries do you usually work with?", answer: "I have partnered with clients across fintech, luxury goods, high-performance automotive, and digital tooling. My minimalist, high-contrast aesthetic adapts well to brands seeking a premium, structured identity." },
+    { question: "How long does a typical project take?", answer: "A comprehensive brand identity or core product design engagement usually ranges from 4 to 8 weeks, depending on the complexity of the domain and the required deliverables." }
   ];
 
   return (
@@ -187,8 +227,25 @@ export const AboutView: React.FC = () => {
         </div>
       </section>
 
+      {/* 4.5. FAQ Section */}
+      <section className="space-y-10 pt-16 border-t border-neutral-200/40 dark:border-white/10">
+        <div className="max-w-4xl space-y-10">
+          <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-neutral-400 block">
+            INQUIRIES
+          </span>
+          <VelocityHeading as="h3" direction="right" className="text-2xl md:text-4xl font-bold font-serif italic leading-tight text-white">
+            Common Client Questions.
+          </VelocityHeading>
+          <div className="pt-8">
+            {faqs.map((faq, index) => (
+              <FAQItem key={index} question={faq.question} answer={faq.answer} />
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* 5. Direct CTA board */}
-      <section className="text-center space-y-6 max-w-xl mx-auto">
+      <section className="text-center space-y-6 max-w-xl mx-auto pt-16">
         <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-neutral-400 block">
           EXPERIENCE
         </span>

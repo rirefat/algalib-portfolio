@@ -242,11 +242,9 @@ export const GlassNavigation: React.FC = () => {
 
             {/* Quick Resume Link (Aesthetic & functional PDF action) */}
             <a
-              href="#resume"
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavClick('experience');
-              }}
+              href="https://drive.google.com/file/d/15y7NWa7Rf2t0ntyevZ-eIlYHxc6YoSv6/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
               onMouseEnter={() => setCursorMode('hover')}
               onMouseLeave={() => setCursorMode('default')}
               className="hidden sm:flex items-center gap-1 px-4 py-2 text-[10px] uppercase tracking-widest font-mono font-medium rounded-full bg-neutral-900 text-white dark:bg-zinc-900 dark:text-zinc-200 border dark:border-white/5 hover:bg-white hover:text-black dark:hover:bg-white dark:hover:text-black transition-all shadow-md"
