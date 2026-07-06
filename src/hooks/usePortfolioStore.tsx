@@ -30,16 +30,8 @@ const PortfolioContext = createContext<PortfolioContextType | undefined>(undefin
 
 export const PortfolioProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   // Theme state
-  const [theme, setThemeState] = useState<Theme>(() => {
-    if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('algalib-theme');
-      if (saved === 'light' || saved === 'dark') return saved;
-      
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      return prefersDark ? 'dark' : 'light';
-    }
-    return 'dark'; // Premium default
-  });
+  const [theme, setThemeState] = useState<Theme>('dark');
+
 
   // Preference state
   const [reducedMotion, setReducedMotion] = useState<boolean>(() => {

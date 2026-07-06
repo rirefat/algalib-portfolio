@@ -44,14 +44,15 @@ export const AboutView: React.FC = () => {
       
       {/* 1. Header Hero block */}
       <section className="space-y-6 max-w-4xl">
-        <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-[#D12B2B]">
-          THE ARTISAN BEHIND THE SCREENS
+        
+        <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-neutral-400 block">
+          ABOUT THE DESIGNER
         </span>
-        <VelocityHeading as="h1" direction="right" className="text-fluid-h1 font-light font-serif italic text-neutral-900 dark:text-white leading-[1.05]">
+        <VelocityHeading as="h1" direction="right" className="text-fluid-h1 font-light font-serif italic text-white leading-[1.05]">
           A Creative Mind Sculpting Visual Legacies.
         </VelocityHeading>
-        <p className="text-lg md:text-xl text-neutral-600 dark:text-zinc-300 font-sans font-light leading-relaxed">
-          I am Abdullah Al Galib (Al Galib). I combine the analytical precision of digital <strong className="font-semibold text-neutral-900 dark:text-[#F5F5F4]">Product Design</strong> with the emotional gravity of editorial <strong className="font-semibold text-neutral-900 dark:text-[#F5F5F4]">Graphic Design</strong>.
+        <p className="text-lg md:text-xl text-neutral-400 dark:text-zinc-300 font-sans font-light leading-relaxed">
+          I am Abdullah Al Galib (Al Galib). I combine the analytical precision of digital <strong className="font-semibold text-white">Product Design</strong> with the emotional gravity of editorial <strong className="font-semibold text-white">Graphic Design</strong>.
         </p>
       </section>
 
@@ -76,10 +77,10 @@ export const AboutView: React.FC = () => {
             />
 
             {/* Swiss Precision Drafting Grid & Coordinate Overlays */}
-            <div className="absolute inset-0 pointer-events-none border border-[#D12B2B]/20 m-3 z-10" />
+            <div className="absolute inset-0 pointer-events-none border border-[#7b2121]/20 m-3 z-10" />
             
             {/* Tech-Spec Badges */}
-            <div className="absolute top-6 left-6 z-20 flex flex-col gap-1 font-mono text-[9px] uppercase tracking-widest text-[#D12B2B] bg-black/75 px-2 py-1.5 backdrop-blur-sm border border-[#D12B2B]/30 rounded-sm">
+            <div className="absolute top-6 left-6 z-20 flex flex-col gap-1 font-mono text-[9px] uppercase tracking-widest text-white bg-black/75 px-2 py-1.5 backdrop-blur-sm border border-[#7b2121]/30 rounded-sm">
               <span>REF: ABOUT_PORTRAIT_01</span>
               <span className="text-white">AL GALIB</span>
             </div>
@@ -90,23 +91,26 @@ export const AboutView: React.FC = () => {
             </div>
 
             {/* Precision Crosshair HUD Overlays */}
-            <div className="absolute top-1/2 left-6 right-6 h-[1px] bg-[#D12B2B]/15 z-10 pointer-events-none" />
-            <div className="absolute left-1/2 top-6 bottom-6 w-[1px] bg-[#D12B2B]/15 z-10 pointer-events-none" />
+            <div className="absolute top-1/2 left-6 right-6 h-[1px] bg-[#7b2121]/15 z-10 pointer-events-none" />
+            <div className="absolute left-1/2 top-6 bottom-6 w-[1px] bg-[#7b2121]/15 z-10 pointer-events-none" />
             
             {/* Dynamic visual framing rings */}
-            <div className="absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 border-[#D12B2B] z-20" />
-            <div className="absolute top-3 right-3 w-4 h-4 border-t-2 border-r-2 border-[#D12B2B] z-20" />
-            <div className="absolute bottom-3 left-3 w-4 h-4 border-b-2 border-l-2 border-[#D12B2B] z-20" />
-            <div className="absolute bottom-3 right-3 w-4 h-4 border-b-2 border-r-2 border-[#D12B2B] z-20" />
+            <div className="absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 border-[#7b2121] z-20" />
+            <div className="absolute top-3 right-3 w-4 h-4 border-t-2 border-r-2 border-[#7b2121] z-20" />
+            <div className="absolute bottom-3 left-3 w-4 h-4 border-b-2 border-l-2 border-[#7b2121] z-20" />
+            <div className="absolute bottom-3 right-3 w-4 h-4 border-b-2 border-r-2 border-[#7b2121] z-20" />
 
             {/* Holographic light refraction overlay on hover */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-[#D12B2B]/10 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-[#7b2121]/10 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10" />
           </motion.div>
         </div>
 
         {/* Narrative blocks */}
-        <div className="lg:col-span-7 space-y-8 text-neutral-600 dark:text-zinc-400 font-sans text-base leading-relaxed font-light">
-          <VelocityHeading as="h3" direction="left" className="text-xl md:text-2xl font-bold font-serif italic text-neutral-900 dark:text-white tracking-tight">
+        <div className="lg:col-span-7 space-y-8 text-neutral-400 dark:text-zinc-400 font-sans text-base leading-relaxed font-light">
+          <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-neutral-400 block">
+            MY JOURNEY
+          </span>
+          <VelocityHeading as="h3" direction="left" className="text-xl md:text-2xl font-bold font-serif italic text-white tracking-tight">
             Bridging Physical Sensation & Weightless Software.
           </VelocityHeading>
           <p>
@@ -123,7 +127,7 @@ export const AboutView: React.FC = () => {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-6 border-t border-neutral-200/40 dark:border-white/5">
             {stats.map((stat, i) => (
               <div key={i} className="space-y-1">
-                <span className="text-2xl md:text-3xl font-serif italic font-bold text-[#D12B2B] block">
+                <span className="text-2xl md:text-3xl font-sans font-bold text-white">
                   {stat.number}
                 </span>
                 <span className="text-[10px] uppercase font-mono tracking-widest text-zinc-500 block leading-tight">
@@ -138,10 +142,11 @@ export const AboutView: React.FC = () => {
       {/* 3. Skill Matrices groups */}
       <section className="space-y-12">
         <div className="border-b border-neutral-200/40 dark:border-white/5 pb-6">
-          <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-[#D12B2B]">
-            EXPERTISE BLUEPRINT
+          
+          <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-neutral-400 block">
+            CORE PROFICIENCIES
           </span>
-          <VelocityHeading as="h2" direction="right" className="text-fluid-h2 font-light font-serif italic text-neutral-900 dark:text-white">
+          <VelocityHeading as="h2" direction="right" className="text-fluid-h2 font-light font-serif italic text-white">
             Curated Skill Groups
           </VelocityHeading>
         </div>
@@ -152,13 +157,13 @@ export const AboutView: React.FC = () => {
               key={i}
               className="p-8 rounded-sm bg-white/5 dark:bg-[#0A0A0A]/40 border border-neutral-200/40 dark:border-white/5 backdrop-blur-md space-y-6 shadow-md"
             >
-              <h4 className="text-lg font-bold text-neutral-900 dark:text-white font-serif italic border-b border-neutral-200/40 dark:border-white/5 pb-3">
+              <h4 className="text-lg font-bold text-white font-serif italic border-b border-neutral-200/40 dark:border-white/5 pb-3">
                 {group.title}
               </h4>
               <ul className="space-y-3.5">
                 {group.skills.map((skill, skIndex) => (
-                  <li key={skIndex} className="flex items-center gap-3 text-sm text-neutral-600 dark:text-zinc-400 font-sans">
-                    <CheckCircle className="w-4 h-4 text-[#D12B2B] flex-shrink-0" />
+                  <li key={skIndex} className="flex items-center gap-3 text-sm text-neutral-400 dark:text-zinc-400 font-sans">
+                    <CheckCircle className="w-4 h-4 text-white flex-shrink-0" />
                     <span>{skill}</span>
                   </li>
                 ))}
@@ -170,11 +175,12 @@ export const AboutView: React.FC = () => {
 
       {/* 4. Personality / Personal facts */}
       <section className="space-y-10 bg-[#0A0A0A] text-white rounded-sm p-8 md:p-16 border border-white/5 relative overflow-hidden shadow-2xl">
-        <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-[#D12B2B]/5 rounded-full blur-[80px] pointer-events-none" />
+        <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-[#7b2121]/5 rounded-full blur-[80px] pointer-events-none" />
         
         <div className="max-w-4xl space-y-10 relative z-10">
-          <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-[#D12B2B]">
-            BEYOND WORK — PERSONAL HABITS
+          
+          <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-neutral-400 block">
+            GUIDING PRINCIPLES
           </span>
           <VelocityHeading as="h3" direction="left" className="text-2xl md:text-4xl font-bold font-serif italic leading-tight text-[#F5F5F4]">
             Some Curiosities & Values I Live By.
@@ -186,7 +192,7 @@ export const AboutView: React.FC = () => {
               const IconComp = icons[i % icons.length];
               return (
                 <div key={i} className="flex gap-4 items-start">
-                  <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 text-[#D12B2B]">
+                  <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 text-white">
                     <IconComp className="w-5 h-5" />
                   </div>
                   <p className="text-sm font-sans text-zinc-400 leading-relaxed pt-1.5 font-light">
@@ -201,10 +207,13 @@ export const AboutView: React.FC = () => {
 
       {/* 5. Direct CTA board */}
       <section className="text-center space-y-6 max-w-xl mx-auto">
-        <VelocityHeading as="h3" direction="right" className="text-2xl font-bold font-serif italic text-neutral-900 dark:text-white">
+        <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-neutral-400 block">
+          EXPERIENCE
+        </span>
+        <VelocityHeading as="h3" direction="right" className="text-2xl font-bold font-serif italic text-white">
           Want to discover my career timeline?
         </VelocityHeading>
-        <p className="text-sm text-neutral-500 dark:text-zinc-400 font-sans font-light">
+        <p className="text-sm text-neutral-400 dark:text-zinc-400 font-sans font-light">
           Review my professional coordinates, companies I helped scale, and milestones I conquered on the Experience page.
         </p>
         <div>

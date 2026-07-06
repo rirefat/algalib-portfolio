@@ -13,17 +13,17 @@ export const ArtistAvatar: React.FC = () => {
 
       {/* 3. Outer Decorative Compass Frame */}
       <div className="absolute inset-4 border border-white/5 rounded-xs pointer-events-none z-10" />
-      <div className="absolute inset-6 border border-dashed border-[#D12B2B]/10 rounded-xs pointer-events-none z-10" />
+      <div className="absolute inset-6 border border-dashed border-[#7b2121]/10 rounded-xs pointer-events-none z-10" />
 
       {/* Crosshair Target Marks */}
-      <div className="absolute top-2 left-2 text-[#D12B2B]/30 font-mono text-[9px] pointer-events-none">+[00, 00]</div>
-      <div className="absolute top-2 right-2 text-[#D12B2B]/30 font-mono text-[9px] pointer-events-none">+[10, 00]</div>
-      <div className="absolute bottom-2 left-2 text-[#D12B2B]/30 font-mono text-[9px] pointer-events-none">+[00, 10]</div>
-      <div className="absolute bottom-2 right-2 text-[#D12B2B]/30 font-mono text-[9px] pointer-events-none">SYS_ACTIVE</div>
+      <div className="absolute top-2 left-2 text-white/30 font-mono text-[9px] pointer-events-none">+[00, 00]</div>
+      <div className="absolute top-2 right-2 text-white/30 font-mono text-[9px] pointer-events-none">+[10, 00]</div>
+      <div className="absolute bottom-2 left-2 text-white/30 font-mono text-[9px] pointer-events-none">+[00, 10]</div>
+      <div className="absolute bottom-2 right-2 text-white/30 font-mono text-[9px] pointer-events-none">SYS_ACTIVE</div>
 
       {/* 4. Rotating Swiss Mechanical Gear & Drafting Circles in background */}
       <motion.svg
-        className="absolute w-72 h-72 text-[#D12B2B]/10 pointer-events-none z-0"
+        className="absolute w-72 h-72 text-white/10 pointer-events-none z-0"
         viewBox="0 0 200 200"
         animate={{ rotate: 360 }}
         transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
@@ -48,8 +48,8 @@ export const ArtistAvatar: React.FC = () => {
       </motion.svg>
 
       {/* Floating Design Calipers/Compass Line */}
-      <div className="absolute top-[10%] left-[15%] w-[1px] h-[80%] bg-[#D12B2B]/10 pointer-events-none z-0" />
-      <div className="absolute top-[50%] left-[5%] right-[5%] h-[1px] bg-[#D12B2B]/10 pointer-events-none z-0" />
+      <div className="absolute top-[10%] left-[15%] w-[1px] h-[80%] bg-[#7b2121]/10 pointer-events-none z-0" />
+      <div className="absolute top-[50%] left-[5%] right-[5%] h-[1px] bg-[#7b2121]/10 pointer-events-none z-0" />
 
       {/* 5. Master SVG Geometric Artist Avatar */}
       <motion.div
@@ -140,7 +140,7 @@ export const ArtistAvatar: React.FC = () => {
             strokeWidth="1"
           />
           {/* Collar Line / Contrast stitching */}
-          <path d="M 85 160 L 100 176 L 115 160" fill="none" stroke="#D12B2B" strokeWidth="1" opacity="0.6" />
+          <path d="M 85 160 L 100 176 L 115 160" fill="none" stroke="#7b2121" strokeWidth="1" opacity="0.6" />
 
           {/* REAL PORTRAIT LENS OVERLAY (Swiss Mechanical Watch Concept) */}
           <g>
@@ -161,13 +161,13 @@ export const ArtistAvatar: React.FC = () => {
 
             {/* Futuristic tactical UI glass gauge rings overlay */}
             <circle cx="100" cy="100" r="57" fill="none" stroke="rgba(255, 255, 255, 0.1)" strokeWidth="1" />
-            <circle cx="100" cy="100" r="52" fill="none" stroke="#D12B2B" strokeWidth="0.5" strokeDasharray="3 6" opacity="0.45" />
+            <circle cx="100" cy="100" r="52" fill="none" stroke="#7b2121" strokeWidth="0.5" strokeDasharray="3 6" opacity="0.45" />
             
             {/* Precision Crosshair Target Mark directly over lens */}
-            <line x1="100" y1="36" x2="100" y2="40" stroke="#D12B2B" strokeWidth="1" opacity="0.6" />
-            <line x1="100" y1="160" x2="100" y2="164" stroke="#D12B2B" strokeWidth="1" opacity="0.6" />
-            <line x1="36" y1="100" x2="40" y2="100" stroke="#D12B2B" strokeWidth="1" opacity="0.6" />
-            <line x1="160" y1="100" x2="164" y2="100" stroke="#D12B2B" strokeWidth="1" opacity="0.6" />
+            <line x1="100" y1="36" x2="100" y2="40" stroke="#7b2121" strokeWidth="1" opacity="0.6" />
+            <line x1="100" y1="160" x2="100" y2="164" stroke="#7b2121" strokeWidth="1" opacity="0.6" />
+            <line x1="36" y1="100" x2="40" y2="100" stroke="#7b2121" strokeWidth="1" opacity="0.6" />
+            <line x1="160" y1="100" x2="164" y2="100" stroke="#7b2121" strokeWidth="1" opacity="0.6" />
             
             {/* Glass Lens Light Refraction/Shimmer Reflection */}
             <circle cx="100" cy="100" r="57" fill="url(#shimmer)" pointerEvents="none" />
@@ -178,7 +178,7 @@ export const ArtistAvatar: React.FC = () => {
         <motion.div
           className="absolute -bottom-4 bg-black/90 px-3 py-1 border border-white/10 rounded-full shadow-lg text-[9px] font-mono tracking-widest text-white uppercase"
           variants={{
-            hover: { scale: 1.05, borderColor: '#D12B2B' }
+            hover: { scale: 1.05, borderColor: '#7b2121' }
           }}
           transition={{ duration: 0.3 }}
         >
@@ -188,7 +188,7 @@ export const ArtistAvatar: React.FC = () => {
 
       {/* 6. Technical Floating Metrics Panels */}
       <div className="absolute top-6 left-6 flex flex-col gap-1 text-[8px] font-mono tracking-widest text-zinc-500 max-w-[120px] pointer-events-none">
-        <span className="text-zinc-400 font-bold text-[9px] text-[#D12B2B]">SYS_SPEC //</span>
+        <span className="text-zinc-400 font-bold text-[9px] text-white">SYS_SPEC //</span>
         <span>RESOLUTION: SCALE</span>
         <span>ROT_ANGLE: DYNAMIC</span>
         <span>GRID_LOCK: TRUE</span>
@@ -198,7 +198,7 @@ export const ArtistAvatar: React.FC = () => {
         <span className="text-zinc-400 font-bold text-[9px]">ENGINE_OP //</span>
         <span>RENDER: VECTOR</span>
         <span>FPS: CAP_60</span>
-        <span className="text-[#D12B2B]">CRAFT_FACTOR: 1.00</span>
+        <span className="text-white">CRAFT_FACTOR: 1.00</span>
       </div>
     </div>
   );

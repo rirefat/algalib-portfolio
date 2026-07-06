@@ -8,7 +8,7 @@
   --font-display: "Syne", sans-serif;
   --font-condensed: "Space Grotesk", sans-serif;
   
-  --color-brand-red: #D12B2B;
+  --color-brand-red: #7b2121;
   --color-crimson-black: #100204;
   --color-crimson-950: #1a0407;
   --color-crimson-900: #2c070c;
@@ -47,13 +47,16 @@
   }
 
   .text-shadow-crimson {
-    text-shadow: 0 0 20px rgba(209, 43, 43, 0.35);
+    text-shadow: 0 0 20px rgba(123, 33, 33, 0.35);
   }
 }
 
 /* Custom transitions and utility enhancements */
+button, a, [role="button"] {
+  cursor: pointer;
+}
 ::selection {
-  background-color: rgba(209, 43, 43, 0.25);
+  background-color: rgba(123, 33, 33, 0.25);
   color: #ffffff;
 }
 
@@ -90,5 +93,33 @@ html.lenis, html.lenis body {
 .lenis-scrolling iframe {
   pointer-events: none;
 }
+
+/* Custom Sleek Scrollbar (Dark Black & Dark Crimson Red Combination) */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #030303; /* Dark black */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4c0d15; /* Dark crimson red */
+  border-radius: 9999px;
+  border: 1px solid #030303; /* Sleek boundary to make it look clean */
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7b2121; /* Interactive brand red on hover */
+}
+
+/* Firefox scrollbar support */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #4c0d15 #030303;
+}
+
 
 

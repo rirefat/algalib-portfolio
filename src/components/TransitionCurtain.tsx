@@ -48,12 +48,12 @@ export const TransitionCurtain: React.FC = () => {
             }}
             className="text-center space-y-3 select-none"
           >
-            <div className="font-serif italic text-3xl md:text-4xl text-[#F5F5F4] tracking-tight">
-              G. Al Galib
+            <div className="font-sans text-3xl md:text-4xl text-[#F5F5F4] tracking-tight">
+              Abdullah Al Galib
             </div>
-            <div className="h-[1px] w-12 bg-red-500/50 mx-auto" />
+            <div className="h-[1px] w-12 bg-[#7b2121]/50 mx-auto" />
             <div className="text-[10px] tracking-[0.35em] font-mono text-zinc-500 uppercase">
-              STUDIO ARCHITECTURE
+              Visual Experience Architect
             </div>
           </motion.div>
         </motion.div>

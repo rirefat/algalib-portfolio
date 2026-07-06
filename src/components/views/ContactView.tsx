@@ -82,13 +82,14 @@ export const ContactView: React.FC = () => {
       
       {/* 1. Intro Header block */}
       <section className="space-y-4 max-w-3xl border-b border-neutral-200/40 dark:border-white/5 pb-8">
-        <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-[#D12B2B]">
-          CHANNELS & NETWORKS
+        
+        <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-neutral-400 block">
+          INITIATE CONTACT
         </span>
-        <h1 className="text-fluid-h1 font-light font-serif italic text-neutral-900 dark:text-white leading-[1.05]">
+        <h1 className="text-fluid-h1 font-light font-serif italic text-white leading-[1.05]">
           Let’s Formulate Sovereignty.
         </h1>
-        <p className="text-sm md:text-base text-neutral-600 dark:text-zinc-400 font-sans max-w-xl leading-relaxed font-light">
+        <p className="text-sm md:text-base text-neutral-400 dark:text-zinc-400 font-sans max-w-xl leading-relaxed font-light">
           Book an onboarding session, request capability sheets, or describe your project requirements in the direct pipeline below.
         </p>
       </section>
@@ -106,16 +107,16 @@ export const ContactView: React.FC = () => {
                 <Check className="w-8 h-8" />
               </div>
               <div className="space-y-2">
-                <h3 className="text-2xl font-bold font-serif italic text-neutral-900 dark:text-white">
+                <h3 className="text-2xl font-bold font-serif italic text-white">
                   Transmission Cleared!
                 </h3>
-                <p className="text-xs text-neutral-500 dark:text-zinc-400 font-sans max-w-sm mx-auto font-light">
+                <p className="text-xs text-neutral-400 dark:text-zinc-400 font-sans max-w-sm mx-auto font-light">
                   Your brief has safely entered Abdullah Al Galib's design queue. Expect a formal response with calendar slots within 12 business hours.
                 </p>
               </div>
               <button
                 onClick={() => setIsSuccess(false)}
-                className="px-6 py-2.5 text-xs font-mono tracking-[0.2em] uppercase rounded-sm border border-neutral-300 dark:border-neutral-850 text-neutral-700 dark:text-zinc-300 hover:bg-[#D12B2B] hover:text-white hover:border-[#D12B2B] transition-all"
+                className="px-6 py-2.5 text-xs font-mono tracking-[0.2em] uppercase rounded-sm border border-neutral-300 dark:border-neutral-850 text-neutral-300 dark:text-zinc-300 hover:bg-[#7b2121] hover:text-[#7b2121] hover:border-[#7b2121] transition-all"
               >
                 Send another message
               </button>
@@ -126,7 +127,7 @@ export const ContactView: React.FC = () => {
               
               {/* Errors container list */}
               {errors.length > 0 && (
-                <div className="p-4 rounded-sm bg-[#D12B2B]/10 border border-[#D12B2B]/30 text-[#D12B2B] text-xs font-sans space-y-1.5 flex gap-2.5">
+                <div className="p-4 rounded-sm bg-[#7b2121]/10 border border-[#7b2121]/30 text-white text-xs font-sans space-y-1.5 flex gap-2.5">
                   <AlertTriangle className="w-4 h-4 flex-shrink-0" />
                   <div className="flex-1">
                     <p className="font-bold uppercase tracking-wider text-[10px]">CORRECTIONS NEEDED:</p>
@@ -142,7 +143,7 @@ export const ContactView: React.FC = () => {
               {/* Form inputs */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label className="text-[10px] font-mono tracking-wider text-neutral-500 uppercase block">
+                  <label className="text-[10px] font-mono tracking-wider text-neutral-400 uppercase block">
                     Your Name / Brand
                   </label>
                   <input
@@ -150,12 +151,12 @@ export const ContactView: React.FC = () => {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="e.g. Helena / Aether Labs"
-                    className="w-full px-4 py-3 bg-neutral-100/40 dark:bg-neutral-950/40 border border-neutral-200/40 dark:border-white/5 rounded-sm text-neutral-900 dark:text-white text-sm focus:outline-none focus:border-[#D12B2B] transition-colors"
+                    className="w-full px-4 py-3 bg-neutral-100/40 dark:bg-neutral-950/40 border border-neutral-200/40 dark:border-white/5 rounded-sm text-white text-sm focus:outline-none focus:border-[#7b2121] transition-colors"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] font-mono tracking-wider text-neutral-500 uppercase block">
+                  <label className="text-[10px] font-mono tracking-wider text-neutral-400 uppercase block">
                     Your Email Address
                   </label>
                   <input
@@ -163,19 +164,19 @@ export const ContactView: React.FC = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="e.g. client@brand.com"
-                    className="w-full px-4 py-3 bg-neutral-100/40 dark:bg-neutral-950/40 border border-neutral-200/40 dark:border-white/5 rounded-sm text-neutral-900 dark:text-white text-sm focus:outline-none focus:border-[#D12B2B] transition-colors"
+                    className="w-full px-4 py-3 bg-neutral-100/40 dark:bg-neutral-950/40 border border-neutral-200/40 dark:border-white/5 rounded-sm text-white text-sm focus:outline-none focus:border-[#7b2121] transition-colors"
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <label className="text-[10px] font-mono tracking-wider text-neutral-500 uppercase block">
+                <label className="text-[10px] font-mono tracking-wider text-neutral-400 uppercase block">
                   Venture Focus Area
                 </label>
                 <select
                   value={subject}
                   onChange={(e) => setSubject(e.target.value)}
-                  className="w-full px-4 py-3 bg-neutral-100/40 dark:bg-neutral-950/40 border border-neutral-200/40 dark:border-white/5 rounded-sm text-neutral-900 dark:text-white text-sm focus:outline-none focus:border-[#D12B2B] transition-colors"
+                  className="w-full px-4 py-3 bg-neutral-100/40 dark:bg-neutral-950/40 border border-neutral-200/40 dark:border-white/5 rounded-sm text-white text-sm focus:outline-none focus:border-[#7b2121] transition-colors"
                 >
                   <option value="Product Design Project">Product Design (Spatial/Digital Systems)</option>
                   <option value="Brand Identity System">Brand Identity & Graphic Curation</option>
@@ -186,7 +187,7 @@ export const ContactView: React.FC = () => {
 
               {/* Budget slider choices */}
               <div className="space-y-3">
-                <label className="text-[10px] font-mono tracking-wider text-neutral-500 uppercase block">
+                <label className="text-[10px] font-mono tracking-wider text-neutral-400 uppercase block">
                   Project Budget Index
                 </label>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
@@ -201,8 +202,8 @@ export const ContactView: React.FC = () => {
                         onMouseLeave={() => setCursorMode('default')}
                         className={`py-2 px-3 border rounded-sm text-center text-xs font-semibold tracking-wide transition-all ${
                           isSelected
-                            ? 'bg-neutral-900 border-neutral-900 text-white dark:bg-[#D12B2B] dark:border-[#D12B2B] dark:text-white'
-                            : 'bg-neutral-100/40 dark:bg-neutral-950/40 border-neutral-200/40 dark:border-white/5 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white'
+                            ? 'bg-neutral-900 border-neutral-900 text-white dark:bg-[#7b2121] dark:border-[#7b2121] dark:text-white'
+                            : 'bg-neutral-100/40 dark:bg-neutral-950/40 border-neutral-200/40 dark:border-white/5 text-neutral-400 dark:text-neutral-400 hover:text-[#7b2121]'
                         }`}
                       >
                         {b}
@@ -213,7 +214,7 @@ export const ContactView: React.FC = () => {
               </div>
 
               <div className="space-y-2">
-                <label className="text-[10px] font-mono tracking-wider text-neutral-500 uppercase block">
+                <label className="text-[10px] font-mono tracking-wider text-neutral-400 uppercase block">
                   Creative Brief & Core Milestones
                 </label>
                 <textarea
@@ -221,7 +222,7 @@ export const ContactView: React.FC = () => {
                   value={brief}
                   onChange={(e) => setBrief(e.target.value)}
                   placeholder="Describe your goals, challenges, parameters, and timeline expectations..."
-                  className="w-full px-4 py-3 bg-neutral-100/40 dark:bg-neutral-950/40 border border-neutral-200/40 dark:border-white/5 rounded-sm text-neutral-900 dark:text-white text-sm focus:outline-none focus:border-[#D12B2B] transition-colors resize-none"
+                  className="w-full px-4 py-3 bg-neutral-100/40 dark:bg-neutral-950/40 border border-neutral-200/40 dark:border-white/5 rounded-sm text-white text-sm focus:outline-none focus:border-[#7b2121] transition-colors resize-none"
                 />
               </div>
 
@@ -231,13 +232,13 @@ export const ContactView: React.FC = () => {
                 disabled={isLoading}
                 onMouseEnter={() => setCursorMode('hover')}
                 onMouseLeave={() => setCursorMode('default')}
-                className="relative group overflow-hidden w-full py-4.5 bg-[#D12B2B] text-white font-mono text-xs uppercase tracking-[0.25em] rounded-sm transition-all duration-500 ease-[0.16,1,0.3,1] shadow-lg shadow-[#D12B2B]/10 flex items-center justify-center disabled:opacity-50"
+                className="relative group overflow-hidden w-full py-4.5 bg-[#7b2121] text-white font-mono text-xs uppercase tracking-[0.25em] rounded-sm transition-all duration-500 ease-[0.16,1,0.3,1] shadow-lg shadow-[#7b2121]/10 flex items-center justify-center disabled:opacity-50"
               >
                 {/* Slid-over background overlay */}
                 <div className="absolute inset-0 bg-neutral-950 dark:bg-white -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-[0.16,1,0.3,1] z-0" />
 
                 {/* Content wrapper */}
-                <div className="relative z-10 flex items-center justify-center gap-3 transition-colors duration-500 group-hover:text-white group-hover:dark:text-neutral-950">
+                <div className="relative z-10 flex items-center justify-center gap-3 transition-colors duration-500 group-hover:text-[#7b2121] group-hover:dark:text-white">
                   {isLoading ? (
                     <>
                       <div className="w-4 h-4 rounded-full border-2 border-current border-t-transparent animate-spin" />
@@ -252,10 +253,10 @@ export const ContactView: React.FC = () => {
                 </div>
 
                 {/* Corner Technical Bracket Ticks */}
-                <div className="absolute top-1 left-1 w-1.5 h-1.5 border-t border-l border-white/20 group-hover:border-[#D12B2B]/60 transition-colors duration-500" />
-                <div className="absolute top-1 right-1 w-1.5 h-1.5 border-t border-r border-white/20 group-hover:border-[#D12B2B]/60 transition-colors duration-500" />
-                <div className="absolute bottom-1 left-1 w-1.5 h-1.5 border-b border-l border-white/20 group-hover:border-[#D12B2B]/60 transition-colors duration-500" />
-                <div className="absolute bottom-1 right-1 w-1.5 h-1.5 border-b border-r border-white/20 group-hover:border-[#D12B2B]/60 transition-colors duration-500" />
+                <div className="absolute top-1 left-1 w-1.5 h-1.5 border-t border-l border-white/20 group-hover:border-[#7b2121]/60 transition-colors duration-500" />
+                <div className="absolute top-1 right-1 w-1.5 h-1.5 border-t border-r border-white/20 group-hover:border-[#7b2121]/60 transition-colors duration-500" />
+                <div className="absolute bottom-1 left-1 w-1.5 h-1.5 border-b border-l border-white/20 group-hover:border-[#7b2121]/60 transition-colors duration-500" />
+                <div className="absolute bottom-1 right-1 w-1.5 h-1.5 border-b border-r border-white/20 group-hover:border-[#7b2121]/60 transition-colors duration-500" />
               </button>
             </form>
           )}
@@ -266,7 +267,7 @@ export const ContactView: React.FC = () => {
           
           {/* Active Local Clock Widget (Dhaka) */}
           <div className="p-8 bg-neutral-950 text-white border border-white/5 rounded-sm space-y-6 relative overflow-hidden shadow-md">
-            <div className="absolute top-0 right-0 w-24 h-24 bg-[#D12B2B]/10 rounded-full blur-[40px] pointer-events-none" />
+            <div className="absolute top-0 right-0 w-24 h-24 bg-[#7b2121]/10 rounded-full blur-[40px] pointer-events-none" />
             
             <div className="flex items-center justify-between">
               <span className="text-[10px] font-mono tracking-widest text-neutral-400 uppercase flex items-center gap-1.5">
@@ -294,17 +295,17 @@ export const ContactView: React.FC = () => {
 
           {/* Quick coordinates coordinates contact details list */}
           <div className="p-8 bg-white/5 dark:bg-[#0A0A0A]/40 border border-neutral-200/40 dark:border-white/5 backdrop-blur-sm rounded-sm space-y-6 shadow-md">
-            <h3 className="text-sm font-bold font-serif italic text-neutral-900 dark:text-[#F5F5F4] uppercase tracking-wider border-b border-neutral-200/40 dark:border-white/5 pb-3">
+            <h3 className="text-sm font-bold font-serif italic text-white uppercase tracking-wider border-b border-neutral-200/40 dark:border-white/5 pb-3">
               Direct Channels
             </h3>
             
             <div className="space-y-4">
               <a
                 href="mailto:rafiulrefat23@gmail.com"
-                className="flex items-center gap-4 text-neutral-600 hover:text-[#D12B2B] dark:text-zinc-300 dark:hover:text-[#D12B2B] transition-colors group"
+                className="flex items-center gap-4 text-neutral-400 hover:text-[#7b2121] dark:text-zinc-300 dark:hover:text-[#7b2121] transition-colors group"
               >
-                <div className="w-10 h-10 rounded-sm bg-white/5 dark:bg-neutral-950 flex items-center justify-center group-hover:bg-[#D12B2B]/10 border border-neutral-200/40 dark:border-white/5">
-                  <Mail className="w-4 h-4 text-neutral-600 dark:text-neutral-300" />
+                <div className="w-10 h-10 rounded-sm bg-white/5 dark:bg-neutral-950 flex items-center justify-center group-hover:bg-[#7b2121]/10 border border-neutral-200/40 dark:border-white/5">
+                  <Mail className="w-4 h-4 text-neutral-400 dark:text-neutral-300" />
                 </div>
                 <div>
                   <span className="text-[10px] font-mono text-neutral-400 uppercase block">DIRECT EMAIL</span>
@@ -312,9 +313,9 @@ export const ContactView: React.FC = () => {
                 </div>
               </a>
 
-              <div className="flex items-center gap-4 text-neutral-600 dark:text-zinc-300">
+              <div className="flex items-center gap-4 text-neutral-400 dark:text-zinc-300">
                 <div className="w-10 h-10 rounded-sm bg-white/5 dark:bg-neutral-950 flex items-center justify-center border border-neutral-200/40 dark:border-white/5">
-                  <Phone className="w-4 h-4 text-neutral-600 dark:text-neutral-300" />
+                  <Phone className="w-4 h-4 text-neutral-400 dark:text-neutral-300" />
                 </div>
                 <div>
                   <span className="text-[10px] font-mono text-neutral-400 uppercase block">ENCRYPTED SIGNAL</span>
@@ -322,9 +323,9 @@ export const ContactView: React.FC = () => {
                 </div>
               </div>
 
-              <div className="flex items-center gap-4 text-neutral-600 dark:text-zinc-300">
+              <div className="flex items-center gap-4 text-neutral-400 dark:text-zinc-300">
                 <div className="w-10 h-10 rounded-sm bg-white/5 dark:bg-neutral-950 flex items-center justify-center border border-neutral-200/40 dark:border-white/5">
-                  <MapPin className="w-4 h-4 text-neutral-600 dark:text-neutral-300" />
+                  <MapPin className="w-4 h-4 text-neutral-400 dark:text-neutral-300" />
                 </div>
                 <div>
                   <span className="text-[10px] font-mono text-neutral-400 uppercase block">STUDIO COORDS</span>
@@ -342,7 +343,7 @@ export const ContactView: React.FC = () => {
               rel="noreferrer"
               onMouseEnter={() => setCursorMode('hover')}
               onMouseLeave={() => setCursorMode('default')}
-              className="px-5 py-2.5 text-xs font-mono rounded-full bg-white/5 hover:bg-[#D12B2B]/10 dark:bg-[#0A0A0A]/40 dark:hover:bg-neutral-800/40 border border-neutral-200/40 dark:border-white/5 text-neutral-600 dark:text-zinc-300 transition-all"
+              className="px-5 py-2.5 text-xs font-mono rounded-full bg-white/5 hover:bg-[#7b2121]/10 dark:bg-[#0A0A0A]/40 dark:hover:bg-neutral-800/40 border border-neutral-200/40 dark:border-white/5 text-neutral-400 dark:text-zinc-300 transition-all"
             >
               LINKEDIN
             </a>
@@ -352,7 +353,7 @@ export const ContactView: React.FC = () => {
               rel="noreferrer"
               onMouseEnter={() => setCursorMode('hover')}
               onMouseLeave={() => setCursorMode('default')}
-              className="px-5 py-2.5 text-xs font-mono rounded-full bg-white/5 hover:bg-[#D12B2B]/10 dark:bg-[#0A0A0A]/40 dark:hover:bg-neutral-800/40 border border-neutral-200/40 dark:border-white/5 text-neutral-600 dark:text-zinc-300 transition-all"
+              className="px-5 py-2.5 text-xs font-mono rounded-full bg-white/5 hover:bg-[#7b2121]/10 dark:bg-[#0A0A0A]/40 dark:hover:bg-neutral-800/40 border border-neutral-200/40 dark:border-white/5 text-neutral-400 dark:text-zinc-300 transition-all"
             >
               DRIBBBLE
             </a>
@@ -362,7 +363,7 @@ export const ContactView: React.FC = () => {
               rel="noreferrer"
               onMouseEnter={() => setCursorMode('hover')}
               onMouseLeave={() => setCursorMode('default')}
-              className="px-5 py-2.5 text-xs font-mono rounded-full bg-white/5 hover:bg-[#D12B2B]/10 dark:bg-[#0A0A0A]/40 dark:hover:bg-neutral-800/40 border border-neutral-200/40 dark:border-white/5 text-neutral-600 dark:text-zinc-300 transition-all"
+              className="px-5 py-2.5 text-xs font-mono rounded-full bg-white/5 hover:bg-[#7b2121]/10 dark:bg-[#0A0A0A]/40 dark:hover:bg-neutral-800/40 border border-neutral-200/40 dark:border-white/5 text-neutral-400 dark:text-zinc-300 transition-all"
             >
               BEHANCE
             </a>

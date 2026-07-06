@@ -38,10 +38,10 @@ export const ProjectDetailView: React.FC = () => {
   if (!activeProject) {
     return (
       <div className="py-32 text-center space-y-4">
-        <p className="text-neutral-500 font-sans">No project selected.</p>
+        <p className="text-neutral-400 font-sans">No project selected.</p>
         <button
           onClick={() => setCurrentView('works')}
-          className="px-6 py-2.5 rounded-full bg-[#D12B2B] text-white font-mono text-xs uppercase"
+          className="px-6 py-2.5 rounded-full bg-[#7b2121] text-white font-mono text-xs uppercase"
         >
           Explore Works
         </button>
@@ -111,7 +111,7 @@ export const ProjectDetailView: React.FC = () => {
       {/* Scroll progress indicator */}
       <div className="fixed top-0 left-0 right-0 h-1.5 bg-neutral-200 dark:bg-neutral-800 z-[120] pointer-events-none">
         <div 
-          className="h-full bg-[#D12B2B] transition-all duration-75"
+          className="h-full bg-[#7b2121] transition-all duration-75"
           style={{ width: `${scrollProgress}%` }}
         />
       </div>
@@ -139,14 +139,14 @@ export const ProjectDetailView: React.FC = () => {
             }}
             onMouseEnter={() => setCursorMode('hover')}
             onMouseLeave={() => setCursorMode('default')}
-            className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-neutral-300 hover:text-[#D12B2B] transition-colors bg-black/40 px-4 py-2 rounded-full backdrop-blur-sm border border-white/10"
+            className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-neutral-300 hover:text-[#7b2121] transition-colors bg-black/40 px-4 py-2 rounded-full backdrop-blur-sm border border-white/10"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Return to curations list</span>
           </button>
 
           <div className="space-y-4 max-w-4xl pt-6">
-            <span className="px-3.5 py-1 text-[10px] font-mono font-bold uppercase tracking-wider rounded-full bg-[#D12B2B] text-white">
+            <span className="px-3.5 py-1 text-[10px] font-mono font-bold uppercase tracking-wider rounded-full bg-[#7b2121] text-white">
               {activeProject.category}
             </span>
             <h1 className="text-fluid-h1 font-light font-serif italic leading-[1.05]">
@@ -173,7 +173,7 @@ export const ProjectDetailView: React.FC = () => {
             </div>
             <div>
               <span className="text-[10px] font-mono text-neutral-400 uppercase tracking-widest block">EST. READ TIME</span>
-              <span className="text-sm font-sans font-bold text-[#D12B2B] flex items-center gap-1">
+              <span className="text-sm font-sans font-bold text-white flex items-center gap-1">
                 <Clock className="w-3.5 h-3.5" />
                 <span>
                   {calculateReadingTime([
@@ -201,44 +201,45 @@ export const ProjectDetailView: React.FC = () => {
       {/* 2. Overview, Problem & Solution Case briefs */}
       <section className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 z-10 relative">
         <div className="lg:col-span-4 space-y-6 lg:sticky lg:top-24">
-          <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-[#D12B2B] block">
-            THE BRIEF INDEX
+          
+          <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-neutral-400 block">
+            BRIEF
           </span>
-          <h2 className="text-fluid-h2 font-light font-serif italic text-neutral-900 dark:text-white">
+          <h2 className="text-fluid-h2 font-light font-serif italic text-white">
             Context & Foundations
           </h2>
-          <p className="text-sm text-neutral-500 dark:text-zinc-400 font-sans leading-relaxed font-light">
+          <p className="text-sm text-neutral-400 dark:text-zinc-400 font-sans leading-relaxed font-light">
             Every elite product is anchored in solving heavy commercial or spatial challenges. Read the strategic breakdown.
           </p>
         </div>
 
         <div className="lg:col-span-8 space-y-10">
           <div className="p-8 rounded-sm bg-white/5 dark:bg-[#0A0A0A]/40 border border-neutral-200/40 dark:border-white/5 backdrop-blur-sm space-y-4 shadow-md">
-            <h4 className="text-lg font-bold text-neutral-900 dark:text-[#F5F5F4] font-serif italic flex items-center gap-2.5">
-              <BookOpen className="w-5 h-5 text-[#D12B2B]" />
+            <h4 className="text-lg font-bold text-white font-serif italic flex items-center gap-2.5">
+              <BookOpen className="w-5 h-5 text-white" />
               <span>Project Overview</span>
             </h4>
-            <p className="text-sm text-neutral-600 dark:text-zinc-400 font-sans leading-relaxed font-light">
+            <p className="text-sm text-neutral-400 dark:text-zinc-400 font-sans leading-relaxed font-light">
               {activeProject.overview}
             </p>
           </div>
 
           <div className="p-8 rounded-sm bg-white/5 dark:bg-[#0A0A0A]/40 border border-neutral-200/40 dark:border-white/5 backdrop-blur-sm space-y-4 shadow-md">
-            <h4 className="text-lg font-bold text-neutral-900 dark:text-[#F5F5F4] font-serif italic flex items-center gap-2.5">
-              <HelpCircle className="w-5 h-5 text-[#D12B2B]" />
+            <h4 className="text-lg font-bold text-white font-serif italic flex items-center gap-2.5">
+              <HelpCircle className="w-5 h-5 text-white" />
               <span>The Commercial Challenge</span>
             </h4>
-            <p className="text-sm text-neutral-600 dark:text-zinc-400 font-sans leading-relaxed font-light">
+            <p className="text-sm text-neutral-400 dark:text-zinc-400 font-sans leading-relaxed font-light">
               {activeProject.challenge}
             </p>
           </div>
 
           <div className="p-8 rounded-sm bg-white/5 dark:bg-[#0A0A0A]/40 border border-neutral-200/40 dark:border-white/5 backdrop-blur-sm space-y-4 shadow-md">
-            <h4 className="text-lg font-bold text-neutral-900 dark:text-[#F5F5F4] font-serif italic flex items-center gap-2.5">
-              <Layers className="w-5 h-5 text-[#D12B2B]" />
+            <h4 className="text-lg font-bold text-white font-serif italic flex items-center gap-2.5">
+              <Layers className="w-5 h-5 text-white" />
               <span>Subtractive Final Solution</span>
             </h4>
-            <p className="text-sm text-neutral-600 dark:text-zinc-400 font-sans leading-relaxed font-light">
+            <p className="text-sm text-neutral-400 dark:text-zinc-400 font-sans leading-relaxed font-light">
               {activeProject.solution}
             </p>
           </div>
@@ -247,13 +248,14 @@ export const ProjectDetailView: React.FC = () => {
 
       {/* 3. Deep Research Milestones & Wireframe layouts */}
       <section className="bg-neutral-950 text-white py-16 md:py-24 px-6 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#D12B2B]/5 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#7b2121]/5 rounded-full blur-[100px] pointer-events-none" />
         
         <div className="max-w-7xl mx-auto space-y-16 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="lg:col-span-5 space-y-6">
-              <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-[#D12B2B] block">
-                ANALYSIS MAP — STEP 01
+              
+              <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-neutral-400 block">
+                ANALYSIS
               </span>
               <h3 className="text-fluid-h2 font-light font-serif italic">
                 Meticulous Research & User Interviews
@@ -266,7 +268,7 @@ export const ProjectDetailView: React.FC = () => {
             <div className="lg:col-span-7 space-y-4 pt-4 lg:pt-0">
               {activeProject.research.map((r, idx) => (
                 <div key={idx} className="flex gap-4 items-start p-6 rounded-sm bg-white/5 border border-white/10">
-                  <span className="font-mono text-sm font-bold text-[#D12B2B]">
+                  <span className="font-mono text-sm font-bold text-white">
                     0{idx + 1}
                   </span>
                   <p className="text-xs md:text-sm text-neutral-300 font-sans font-light leading-relaxed">
@@ -279,8 +281,9 @@ export const ProjectDetailView: React.FC = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 border-t border-white/10 pt-16">
             <div className="lg:col-span-5 space-y-4">
-              <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-[#D12B2B] block">
-                STRUCTURAL SCHEMATICS — STEP 02
+              
+              <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-neutral-400 block">
+                ARCHITECTURE
               </span>
               <h3 className="text-fluid-h2 font-light font-serif italic">
                 Architectural Wireframes
@@ -291,7 +294,7 @@ export const ProjectDetailView: React.FC = () => {
             </div>
             <div className="lg:col-span-7 bg-white/5 border border-white/10 rounded-sm p-8 flex items-center justify-center text-center">
               <div className="space-y-4 max-w-md">
-                <Compass className="w-10 h-10 text-[#D12B2B] mx-auto animate-spin-slow" />
+                <Compass className="w-10 h-10 text-white mx-auto animate-spin-slow" />
                 <h5 className="font-serif italic font-bold text-base text-neutral-100">Functional Coordinate Blueprints</h5>
                 <p className="text-xs text-neutral-400 font-sans font-light leading-relaxed">
                   {activeProject.wireframesDescription}
@@ -305,10 +308,11 @@ export const ProjectDetailView: React.FC = () => {
       {/* 4. Beautiful Design Guidelines (Typography weights and Colors boxes) */}
       <section className="max-w-7xl mx-auto px-6 space-y-16 z-10 relative">
         <div className="border-b border-neutral-200/40 dark:border-white/5 pb-6">
-          <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-[#D12B2B] block">
-            VISUAL STANDARDS — STEP 03
+          
+          <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-neutral-400 block">
+            AESTHETICS
           </span>
-          <h2 className="text-fluid-h2 font-light font-serif italic text-neutral-900 dark:text-white">
+          <h2 className="text-fluid-h2 font-light font-serif italic text-white">
             Graphic Standards System
           </h2>
         </div>
@@ -316,14 +320,14 @@ export const ProjectDetailView: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Typography card */}
           <div className="p-8 md:p-12 rounded-sm bg-white/5 dark:bg-[#0A0A0A]/40 border border-neutral-200/40 dark:border-white/5 backdrop-blur-md space-y-8">
-            <h4 className="text-lg font-bold text-neutral-900 dark:text-[#F5F5F4] font-serif italic uppercase tracking-wider border-b border-neutral-200/40 dark:border-white/5 pb-3">
+            <h4 className="text-lg font-bold text-white font-serif italic uppercase tracking-wider border-b border-neutral-200/40 dark:border-white/5 pb-3">
               Typography Sheets
             </h4>
             <div className="space-y-6">
               {activeProject.typography.map((font, idx) => (
                 <div key={idx} className="flex items-center justify-between border-b border-neutral-200/40 dark:border-white/5 pb-3 last:border-0 last:pb-0">
                   <span className="text-xs font-mono text-neutral-400">INDEX: 0{idx + 1}</span>
-                  <span className="text-base font-bold font-sans text-neutral-900 dark:text-white">{font}</span>
+                  <span className="text-base font-bold font-sans text-white">{font}</span>
                 </div>
               ))}
             </div>
@@ -331,7 +335,7 @@ export const ProjectDetailView: React.FC = () => {
 
           {/* Custom color boxes card */}
           <div className="p-8 md:p-12 rounded-sm bg-white/5 dark:bg-[#0A0A0A]/40 border border-neutral-200/40 dark:border-white/5 backdrop-blur-md space-y-8">
-            <h4 className="text-lg font-bold text-neutral-900 dark:text-[#F5F5F4] font-serif italic uppercase tracking-wider border-b border-neutral-200/40 dark:border-white/5 pb-3">
+            <h4 className="text-lg font-bold text-white font-serif italic uppercase tracking-wider border-b border-neutral-200/40 dark:border-white/5 pb-3">
               Curated Color Palette
             </h4>
             <div className="grid grid-cols-2 gap-4">
@@ -345,7 +349,7 @@ export const ProjectDetailView: React.FC = () => {
                     />
                     <div className="text-left leading-tight">
                       <span className="text-[10px] font-mono text-neutral-400 block">HEX KEY</span>
-                      <span className="text-xs font-mono font-bold text-neutral-900 dark:text-white">{colorStr}</span>
+                      <span className="text-xs font-mono font-bold text-white">{colorStr}</span>
                     </div>
                   </div>
                 );
@@ -358,13 +362,14 @@ export const ProjectDetailView: React.FC = () => {
       {/* 5. BEFORE/AFTER INTERACTIVE HORIZONTAL DRAG COMPARISON SLIDER */}
       <section className="max-w-7xl mx-auto px-6 space-y-8 z-10 relative">
         <div className="border-b border-neutral-200/40 dark:border-white/5 pb-6 text-center md:text-left">
-          <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-[#D12B2B] block">
-            RECONCILIATION SLIDER
+          
+          <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-neutral-400 block">
+            REFINEMENT
           </span>
-          <h2 className="text-fluid-h2 font-light font-serif italic text-neutral-900 dark:text-white">
+          <h2 className="text-fluid-h2 font-light font-serif italic text-white">
             Design Evolution: Before & After
           </h2>
-          <p className="text-xs md:text-sm text-neutral-500 dark:text-zinc-400 font-sans mt-2 font-light">
+          <p className="text-xs md:text-sm text-neutral-400 dark:text-zinc-400 font-sans mt-2 font-light">
             Drag the divider handle horizontally to compare the raw legacy prototype with our polished premium redesign.
           </p>
         </div>
@@ -402,7 +407,7 @@ export const ProjectDetailView: React.FC = () => {
                 className="w-full h-full object-cover filter brightness-100"
                 style={{ width: sliderContainerRef.current?.getBoundingClientRect().width }}
               />
-              <div className="absolute bottom-6 right-6 px-4 py-2 bg-[#D12B2B] border border-white/10 text-[10px] font-mono text-white rounded-sm tracking-widest uppercase backdrop-blur-sm z-10">
+              <div className="absolute bottom-6 right-6 px-4 py-2 bg-[#7b2121] border border-white/10 text-[10px] font-mono text-white rounded-sm tracking-widest uppercase backdrop-blur-sm z-10">
                 Al Galib Redesign (After)
               </div>
             </div>
@@ -410,10 +415,10 @@ export const ProjectDetailView: React.FC = () => {
 
           {/* Interactive Drag Divider Handle Line */}
           <div
-            className="absolute top-0 bottom-0 w-1 bg-[#D12B2B] pointer-events-none transition-all duration-75"
+            className="absolute top-0 bottom-0 w-1 bg-[#7b2121] pointer-events-none transition-all duration-75"
             style={{ left: `${sliderPosition}%` }}
           >
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#D12B2B] text-white flex items-center justify-center shadow-lg border-2 border-white select-none pointer-events-none">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#7b2121] text-white flex items-center justify-center shadow-lg border-2 border-white select-none pointer-events-none">
               <span className="text-xs font-mono font-bold">↔</span>
             </div>
           </div>
@@ -423,10 +428,11 @@ export const ProjectDetailView: React.FC = () => {
       {/* 6. High-end Results Metrics list & Lessons Learned */}
       <section className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 z-10 relative">
         <div className="lg:col-span-4 space-y-4">
-          <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-[#D12B2B] block">
-            VERDICTS & RETROSPECTIVE
+          
+          <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-neutral-400 block">
+            CONCLUSION
           </span>
-          <h2 className="text-fluid-h2 font-light font-serif italic text-neutral-900 dark:text-white">
+          <h2 className="text-fluid-h2 font-light font-serif italic text-white">
             Deliveries & Lessons
           </h2>
         </div>
@@ -434,13 +440,13 @@ export const ProjectDetailView: React.FC = () => {
         <div className="lg:col-span-8 space-y-10">
           {/* Results Checklist */}
           <div className="p-8 md:p-12 bg-white/5 dark:bg-[#0A0A0A]/40 border border-neutral-200/40 dark:border-white/5 backdrop-blur-md rounded-sm space-y-6 shadow-md">
-            <h4 className="text-lg font-bold font-serif italic text-neutral-900 dark:text-[#F5F5F4] uppercase tracking-wider border-b border-neutral-200/40 dark:border-white/5 pb-3">
+            <h4 className="text-lg font-bold font-serif italic text-white uppercase tracking-wider border-b border-neutral-200/40 dark:border-white/5 pb-3">
               Commercial Deliveries
             </h4>
             <div className="space-y-4">
               {activeProject.results.map((r, i) => (
-                <div key={i} className="flex gap-4 items-start text-sm text-neutral-600 dark:text-zinc-400 font-sans font-light">
-                  <CheckCircle className="w-5 h-5 text-[#D12B2B] flex-shrink-0 mt-0.5" />
+                <div key={i} className="flex gap-4 items-start text-sm text-neutral-400 dark:text-zinc-400 font-sans font-light">
+                  <CheckCircle className="w-5 h-5 text-white flex-shrink-0 mt-0.5" />
                   <p className="leading-relaxed">
                     {r}
                   </p>
@@ -451,13 +457,13 @@ export const ProjectDetailView: React.FC = () => {
 
           {/* Lessons list */}
           <div className="p-8 md:p-12 bg-white/5 dark:bg-[#0A0A0A]/40 border border-neutral-200/40 dark:border-white/5 backdrop-blur-md rounded-sm space-y-6 shadow-md">
-            <h4 className="text-lg font-bold font-serif italic text-neutral-900 dark:text-[#F5F5F4] uppercase tracking-wider border-b border-neutral-200/40 dark:border-white/5 pb-3">
+            <h4 className="text-lg font-bold font-serif italic text-white uppercase tracking-wider border-b border-neutral-200/40 dark:border-white/5 pb-3">
               Architectural Lessons Learned
             </h4>
             <div className="space-y-4">
               {activeProject.lessonsLearned.map((l, i) => (
-                <div key={i} className="flex gap-4 items-start text-sm text-neutral-600 dark:text-zinc-400 font-sans font-light">
-                  <span className="font-mono text-xs font-bold text-[#D12B2B] pt-0.5">
+                <div key={i} className="flex gap-4 items-start text-sm text-neutral-400 dark:text-zinc-400 font-sans font-light">
+                  <span className="font-mono text-xs font-bold text-white pt-0.5">
                     0{i + 1}
                   </span>
                   <p className="leading-relaxed">
@@ -473,23 +479,30 @@ export const ProjectDetailView: React.FC = () => {
       {/* 7. Gallery Carousel display */}
       <section className="max-w-7xl mx-auto px-6 space-y-8 z-10 relative">
         <div className="border-b border-neutral-200/40 dark:border-white/5 pb-6">
-          <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-[#D12B2B] block">
-            VISUAL EXPOSITIONS
+          
+          <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-neutral-400 block">
+            VISUALS
           </span>
-          <h2 className="text-fluid-h2 font-light font-serif italic text-neutral-900 dark:text-white">
+          <h2 className="text-fluid-h2 font-light font-serif italic text-white">
             Case Gallery
           </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {activeProject.gallery.map((imgUrl, index) => (
-            <div key={index} className="overflow-hidden rounded-sm aspect-[4/3] bg-neutral-100 border border-neutral-200/40 dark:border-white/5 shadow-sm relative group">
+            <div key={index} className="overflow-hidden rounded-sm aspect-[4/3] bg-[#0A0A0A] border border-white/5 relative group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-500">
+              <div className="absolute inset-[1px] rounded-sm bg-gradient-to-br from-white/10 to-transparent z-[2] pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent opacity-80 z-10 pointer-events-none" />
               <img
                 src={imgUrl}
                 alt={`Gallery detail ${index + 1}`}
                 referrerPolicy="no-referrer"
-                className="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-all duration-700 filter brightness-95"
+                className="w-full h-full object-cover transform scale-[1.03] group-hover:scale-100 transition-all duration-[1.2s] ease-[cubic-bezier(0.16,1,0.3,1)] filter grayscale brightness-[0.75] group-hover:grayscale-0 group-hover:brightness-100"
               />
+              <div className="absolute bottom-5 left-5 z-20 pointer-events-none transform translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-[0.16,1,0.3,1] delay-75">
+                <span className="text-[9px] font-mono tracking-[0.25em] uppercase text-[#7b2121] block">FIG. 0{index + 1}</span>
+                <span className="text-sm md:text-base font-serif italic text-white mt-1 block">Visual Artifact</span>
+              </div>
             </div>
           ))}
         </div>
@@ -501,15 +514,15 @@ export const ProjectDetailView: React.FC = () => {
           onClick={handleNextProject}
           onMouseEnter={() => setCursorMode('hover')}
           onMouseLeave={() => setCursorMode('default')}
-          className="p-8 md:p-16 rounded-sm bg-[#0A0A0A] border border-white/5 cursor-pointer text-center md:text-left hover:border-[#D12B2B]/40 hover:bg-[#111] transition-all flex flex-col md:flex-row md:items-center justify-between gap-8 relative overflow-hidden group shadow-xl"
+          className="p-8 md:p-16 rounded-sm bg-[#0A0A0A] border border-white/5 cursor-pointer text-center md:text-left hover:border-[#7b2121]/40 hover:bg-[#111] transition-all flex flex-col md:flex-row md:items-center justify-between gap-8 relative overflow-hidden group shadow-xl"
         >
-          <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-[#D12B2B]/5 rounded-full blur-[80px] pointer-events-none" />
+          <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-[#7b2121]/5 rounded-full blur-[80px] pointer-events-none" />
           
           <div className="space-y-3 relative z-10">
-            <span className="text-[10px] font-mono tracking-[0.2em] text-[#D12B2B] uppercase block">
+            <span className="text-[10px] font-mono tracking-[0.2em] text-white uppercase block">
               PROCEED TO THE NEXT ARCHITECTURAL EXPEDITION
             </span>
-            <h3 className="text-fluid-h2 font-light font-serif italic group-hover:text-[#D12B2B] transition-colors">
+            <h3 className="text-fluid-h2 font-light font-serif italic group-hover:text-[#7b2121] transition-colors">
               Discover Next Curated Case study
             </h3>
             <p className="text-xs text-zinc-400 font-sans">
@@ -517,7 +530,7 @@ export const ProjectDetailView: React.FC = () => {
             </p>
           </div>
 
-          <div className="flex-shrink-0 w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mx-auto md:mx-0 group-hover:bg-[#D12B2B] group-hover:border-transparent group-hover:scale-110 transition-all duration-300">
+          <div className="flex-shrink-0 w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mx-auto md:mx-0 group-hover:bg-[#7b2121] group-hover:border-transparent group-hover:scale-110 transition-all duration-300">
             <ArrowRight className="w-6 h-6 text-white transform group-hover:translate-x-1 transition-transform" />
           </div>
         </div>

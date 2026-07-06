@@ -73,20 +73,20 @@ export const CustomCursor: React.FC = () => {
   if (isTouchDevice || isHidden) return null;
 
   // Render cursor style based on mode
-  let cursorClass = "w-4 h-4 bg-[#D12B2B] rounded-full";
+  let cursorClass = "w-4 h-4 bg-[#7b2121] rounded-full";
   let outerClass = "w-10 h-10 border border-neutral-400 dark:border-neutral-600 rounded-full scale-100";
 
   if (cursorMode === 'hover') {
-    cursorClass = "w-2 h-2 bg-[#D12B2B] rounded-full";
-    outerClass = "w-14 h-14 border border-[#D12B2B] bg-[#D12B2B]/10 dark:bg-[#D12B2B]/5 rounded-full scale-110";
+    cursorClass = "w-2 h-2 bg-white rounded-full";
+    outerClass = "w-14 h-14 border border-white bg-white/10 dark:bg-white/5 rounded-full scale-110";
   } else if (cursorMode === 'view') {
-    cursorClass = "w-16 h-16 bg-[#D12B2B]/90 flex items-center justify-center rounded-full text-[10px] uppercase font-mono tracking-widest text-white font-bold text-center select-none shadow-lg shadow-[#D12B2B]/20";
-    outerClass = "w-20 h-20 border border-[#D12B2B]/50 rounded-full scale-105 opacity-50";
+    cursorClass = "w-16 h-16 bg-[#7b2121]/90 flex items-center justify-center rounded-full text-[10px] uppercase font-mono tracking-widest text-white font-bold text-center select-none shadow-lg shadow-[#7b2121]/20";
+    outerClass = "w-20 h-20 border border-[#7b2121]/50 rounded-full scale-105 opacity-50";
   } else if (cursorMode === 'text') {
-    cursorClass = "w-1 h-6 bg-[#D12B2B] rounded-sm";
+    cursorClass = "w-1 h-6 bg-[#7b2121] rounded-sm";
     outerClass = "w-4 h-8 border border-neutral-300 dark:border-neutral-700 rounded-sm scale-100";
   } else if (cursorMode === 'drag') {
-    cursorClass = "w-14 h-14 bg-neutral-900/90 dark:bg-white/90 flex items-center justify-center rounded-full text-[10px] uppercase font-mono tracking-widest text-white dark:text-black font-bold text-center select-none shadow-lg";
+    cursorClass = "w-14 h-14 bg-neutral-900/90 dark:bg-[#7b2121]/90 flex items-center justify-center rounded-full text-[10px] uppercase font-mono tracking-widest text-white dark:text-white font-bold text-center select-none shadow-lg";
     outerClass = "w-16 h-16 border border-neutral-400 dark:border-neutral-500 rounded-full scale-105";
   }
 
@@ -125,7 +125,7 @@ export const CustomCursor: React.FC = () => {
           </span>
         )}
         {cursorMode === 'drag' && (
-          <span className="text-white dark:text-black text-[10px] font-mono tracking-wider font-bold select-none">
+          <span className="text-white dark:text-white text-[10px] font-mono tracking-wider font-bold select-none">
             DRAG
           </span>
         )}

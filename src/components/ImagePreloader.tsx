@@ -135,7 +135,7 @@ export const ImagePreloader: React.FC<ImagePreloaderProps> = ({ onComplete }) =>
           {/* Top segment: Title and coordinates */}
           <div className="flex justify-between items-start z-10">
             <div className="space-y-1">
-              <span className="text-[10px] font-mono tracking-widest text-[#D12B2B] font-bold uppercase block">
+              <span className="text-[10px] font-mono tracking-widest text-white font-bold uppercase block">
                 AL GALIB PORTFOLIO
               </span>
               <span className="text-[9px] font-mono text-zinc-500 tracking-wider block">
@@ -161,7 +161,7 @@ export const ImagePreloader: React.FC<ImagePreloaderProps> = ({ onComplete }) =>
                 transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
                 className="absolute inset-0 border border-zinc-800 rounded-full"
               />
-              <div className="w-1.5 h-1.5 bg-[#D12B2B] rounded-full" />
+              <div className="w-1.5 h-1.5 bg-[#7b2121] rounded-full" />
               <div className="absolute h-6 w-[1px] bg-zinc-800" />
               <div className="absolute w-6 h-[1px] bg-zinc-800" />
             </div>
@@ -170,14 +170,14 @@ export const ImagePreloader: React.FC<ImagePreloaderProps> = ({ onComplete }) =>
             <div className="text-center">
               <div className="text-8xl md:text-9xl lg:text-[10rem] font-black font-mono tracking-tighter text-zinc-100 flex items-baseline justify-center">
                 <span>{padZero(displayedPercent)}</span>
-                <span className="text-2xl md:text-3xl text-zinc-600 font-sans font-light ml-1">%</span>
+                <span className="text-2xl md:text-3xl text-zinc-400 font-sans font-light ml-1">%</span>
               </div>
             </div>
 
             {/* Premium Centered Thin Progress Bar */}
             <div className="w-full max-w-sm h-[1px] bg-zinc-900 relative overflow-hidden">
               <motion.div
-                className="absolute h-full bg-[#D12B2B] left-0 top-0"
+                className="absolute h-full bg-[#7b2121] left-0 top-0"
                 style={{ width: `${displayedPercent}%` }}
                 transition={{ ease: 'easeOut' }}
               />
@@ -188,15 +188,15 @@ export const ImagePreloader: React.FC<ImagePreloaderProps> = ({ onComplete }) =>
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 z-10 border-t border-zinc-900 pt-6">
             <div className="flex items-center gap-3">
               <div className="flex space-x-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#D12B2B] animate-ping" />
-                <span className="w-1.5 h-1.5 rounded-full bg-[#D12B2B]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#7b2121] animate-ping" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#7b2121]" />
               </div>
               <span className="text-[10px] font-mono tracking-widest text-zinc-400 font-semibold uppercase">
                 {statusText}
               </span>
             </div>
             
-            <div className="text-zinc-600 font-mono text-[9px] uppercase tracking-wider">
+            <div className="text-zinc-400 font-mono text-[9px] uppercase tracking-wider">
               {displayedPercent === 100 ? (
                 <span className="text-emerald-500 font-bold">READY TO COMMENCE</span>
               ) : (

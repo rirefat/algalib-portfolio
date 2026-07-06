@@ -89,27 +89,27 @@ export const GlassNavigation: React.FC = () => {
             {/* Sophisticated Custom-Designed SVG luxury mark */}
             <div className="relative w-11 h-11 flex-shrink-0 flex items-center justify-center bg-transparent">
               {/* Outer glowing aura on hover */}
-              <div className="absolute inset-0 bg-[#D12B2B]/5 dark:bg-[#D12B2B]/10 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <div className="absolute inset-0 bg-[#7b2121]/5 dark:bg-[#7b2121]/10 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
               
               {/* Fine concentric layout lines */}
               <svg
                 width="44"
                 height="44"
                 viewBox="0 0 100 100"
-                className="relative z-10 w-full h-full text-neutral-800 dark:text-neutral-100"
+                className="relative z-10 w-full h-full text-neutral-200 dark:text-neutral-100"
               >
                 <defs>
                   {/* Premium Metallic Gradient */}
                   <linearGradient id="luxuryGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stopColor="#FFFFFF" />
                     <stop offset="30%" stopColor="#F5E3C3" />
-                    <stop offset="70%" stopColor="#D12B2B" />
+                    <stop offset="70%" stopColor="#7b2121" />
                     <stop offset="100%" stopColor="#1A1A1A" />
                   </linearGradient>
                   
                   <linearGradient id="luxuryCrimson" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stopColor="#FF5252" />
-                    <stop offset="50%" stopColor="#D12B2B" />
+                    <stop offset="50%" stopColor="#7b2121" />
                     <stop offset="100%" stopColor="#7A0E0E" />
                   </linearGradient>
                 </defs>
@@ -120,7 +120,7 @@ export const GlassNavigation: React.FC = () => {
                   cy="50"
                   r="45"
                   fill="none"
-                  stroke="#D12B2B"
+                  stroke="#7b2121"
                   strokeWidth="0.75"
                   strokeDasharray="2 8"
                   opacity="0.3"
@@ -152,7 +152,7 @@ export const GlassNavigation: React.FC = () => {
                   strokeWidth="2.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  className="text-neutral-950 dark:text-neutral-100 transition-colors duration-500 group-hover:text-white"
+                  className="text-neutral-100 transition-colors duration-500 group-hover:text-[#7b2121]"
                   transition={{ duration: 0.5 }}
                 />
 
@@ -170,7 +170,7 @@ export const GlassNavigation: React.FC = () => {
                 />
 
                 {/* Central Core Origin Point */}
-                <circle cx="50" cy="50" r="1.5" fill="#D12B2B" />
+                <circle cx="50" cy="50" r="1.5" fill="#7b2121" />
               </svg>
 
               {/* Shimmer overlay animation */}
@@ -181,16 +181,16 @@ export const GlassNavigation: React.FC = () => {
             <div className="flex flex-col items-start leading-none gap-0.5">
               <div className="flex items-baseline">
                 {/* Italian/Swiss luxury aesthetic styling */}
-                <span className="text-[14px] font-serif italic font-medium tracking-[0.05em] text-neutral-400 dark:text-neutral-400 group-hover:text-neutral-300 transition-colors duration-500">
+                <span className="text-[14px] font-sans font-medium tracking-[0.05em] text-neutral-400 dark:text-neutral-400 group-hover:text-neutral-300 transition-colors duration-500">
                   al
                 </span>
-                <span className="text-[15px] font-sans font-black tracking-[0.25em] uppercase text-neutral-950 dark:text-white ml-1 transition-all duration-500 group-hover:text-[#D12B2B] group-hover:tracking-[0.28em]">
+                <span className="text-[15px] font-sans font-black tracking-[0.25em] uppercase text-white ml-1 transition-all duration-500 group-hover:text-[#7b2121] group-hover:tracking-[0.28em]">
                   GALIB
                 </span>
               </div>
               <div className="flex items-center gap-1.5">
-                <span className="h-[1px] w-2 bg-[#D12B2B]/40 group-hover:w-4 transition-all duration-500" />
-                <span className="text-[7.5px] font-mono tracking-[0.45em] uppercase text-neutral-400 dark:text-neutral-500 group-hover:text-neutral-300 transition-colors duration-500">
+                <span className="h-[1px] w-2 bg-[#7b2121]/40 group-hover:w-4 transition-all duration-500" />
+                <span className="text-[7.5px] font-mono tracking-[0.45em] uppercase text-neutral-400 dark:text-neutral-400 group-hover:text-neutral-300 transition-colors duration-500">
                   STUDIO
                 </span>
               </div>
@@ -212,13 +212,13 @@ export const GlassNavigation: React.FC = () => {
                   aria-label={`Go to ${item.label} section`}
                   className={`px-5 py-2 rounded-full font-sans text-[11px] uppercase tracking-[0.15em] font-medium transition-all relative ${
                     isActive
-                      ? 'text-neutral-900 dark:text-white font-bold'
-                      : 'text-neutral-600 dark:text-zinc-400 hover:text-neutral-900 dark:hover:text-white'
+                      ? 'text-white font-bold'
+                      : 'text-neutral-400 dark:text-zinc-400 hover:text-[#7b2121]'
                   }`}
                 >
                   {item.label}
                   {isActive && (
-                    <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#D12B2B]" />
+                    <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#7b2121]" />
                   )}
                 </button>
               );
@@ -227,16 +227,6 @@ export const GlassNavigation: React.FC = () => {
 
           {/* Action cluster (theme, download cv, contact triggers) */}
           <div className="flex items-center gap-3">
-            {/* Theme Toggle */}
-            <button
-              onClick={toggleTheme}
-              onMouseEnter={() => setCursorMode('hover')}
-              onMouseLeave={() => setCursorMode('default')}
-              aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-              className="p-2.5 rounded-full bg-neutral-100/80 dark:bg-zinc-900/40 hover:bg-neutral-200/80 dark:hover:bg-zinc-800/40 border border-neutral-200/40 dark:border-white/5 text-neutral-800 dark:text-neutral-200 transition-all shadow-sm"
-            >
-              {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
-            </button>
 
             {/* Quick Resume Link (Aesthetic & functional PDF action) */}
             <a
@@ -247,7 +237,7 @@ export const GlassNavigation: React.FC = () => {
               }}
               onMouseEnter={() => setCursorMode('hover')}
               onMouseLeave={() => setCursorMode('default')}
-              className="hidden sm:flex items-center gap-1 px-4 py-2 text-[10px] uppercase tracking-widest font-mono font-medium rounded-full bg-neutral-900 text-white dark:bg-zinc-900 dark:text-zinc-200 border dark:border-white/5 hover:bg-[#D12B2B] dark:hover:bg-[#D12B2B] dark:hover:text-black transition-all shadow-md"
+              className="hidden sm:flex items-center gap-1 px-4 py-2 text-[10px] uppercase tracking-widest font-mono font-medium rounded-full bg-neutral-900 text-white dark:bg-zinc-900 dark:text-zinc-200 border dark:border-white/5 hover:bg-[#7b2121] dark:hover:bg-[#7b2121] dark:hover:text-[#7b2121] transition-all shadow-md"
             >
               <span>Resume</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -260,7 +250,7 @@ export const GlassNavigation: React.FC = () => {
               onMouseLeave={() => setCursorMode('default')}
               aria-expanded={mobileMenuOpen}
               aria-label="Toggle mobile menu"
-              className="lg:hidden p-2.5 rounded-full bg-neutral-100/80 dark:bg-neutral-900/80 border border-neutral-200/40 dark:border-neutral-800/40 text-neutral-800 dark:text-neutral-200 hover:bg-neutral-200/80 dark:hover:bg-neutral-800/80 transition-all shadow-sm"
+              className="lg:hidden p-2.5 rounded-full bg-neutral-100/80 dark:bg-neutral-900/80 border border-neutral-200/40 dark:border-neutral-800/40 text-neutral-200 hover:bg-neutral-200/80 dark:hover:bg-neutral-800/80 transition-all shadow-sm"
             >
               {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
             </button>
@@ -277,14 +267,14 @@ export const GlassNavigation: React.FC = () => {
         <div className="absolute top-6 right-6">
           <button
             onClick={() => setMobileMenuOpen(false)}
-            className="p-3 rounded-full bg-neutral-100 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 border border-neutral-200/50 dark:border-neutral-800/50"
+            className="p-3 rounded-full bg-neutral-100 dark:bg-neutral-900 text-neutral-200 border border-neutral-200/50 dark:border-neutral-800/50"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         <nav className="flex flex-col items-center gap-6 px-8 max-w-md mx-auto w-full text-center">
-          <span className="text-[10px] uppercase font-mono tracking-widest text-neutral-400 dark:text-neutral-500">
+          <span className="text-[10px] uppercase font-mono tracking-widest text-neutral-400 dark:text-neutral-400">
             INDEXED SECTIONS
           </span>
           <div className="flex flex-col gap-3 w-full">
@@ -297,11 +287,11 @@ export const GlassNavigation: React.FC = () => {
                   style={{ transitionDelay: `${index * 50}ms` }}
                   className={`w-full py-3.5 text-2xl font-bold font-sans tracking-tight border-b border-neutral-100 dark:border-neutral-900 transition-all flex items-center justify-between px-2 ${
                     isActive
-                      ? 'text-red-600 dark:text-red-500 translate-x-1'
-                      : 'text-neutral-800 dark:text-neutral-300 hover:text-red-600 dark:hover:text-red-500'
+                      ? 'text-white dark:text-white translate-x-1'
+                      : 'text-neutral-200 dark:text-neutral-300 hover:text-[#7b2121] dark:hover:text-[#7b2121]'
                   }`}
                 >
-                  <span className="text-sm font-mono text-neutral-400 dark:text-neutral-600 mr-4">
+                  <span className="text-sm font-mono text-neutral-400 dark:text-neutral-400 mr-4">
                     0{index + 1}
                   </span>
                   <span>{item.label}</span>
@@ -317,7 +307,7 @@ export const GlassNavigation: React.FC = () => {
               e.preventDefault();
               handleNavClick('experience');
             }}
-            className="mt-6 flex items-center justify-center gap-2 w-full py-4 text-sm font-semibold uppercase tracking-widest font-mono rounded-full bg-neutral-900 text-white dark:bg-white dark:text-black hover:bg-red-600 dark:hover:bg-red-500 transition-all shadow-md"
+            className="mt-6 flex items-center justify-center gap-2 w-full py-4 text-sm font-semibold uppercase tracking-widest font-mono rounded-full bg-neutral-900 text-white dark:bg-white/10 dark:text-white hover:bg-[#7b2121] dark:hover:bg-[#7b2121] transition-all shadow-md"
           >
             <span>DOWNLOAD PORTFOLIO RESUME</span>
             <ArrowUpRight className="w-4 h-4" />

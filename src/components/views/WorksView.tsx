@@ -35,13 +35,14 @@ export const WorksView: React.FC = () => {
       
       {/* 1. Header Hero Area */}
       <section className="space-y-4 max-w-3xl">
-        <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-[#D12B2B]">
-          INDEXED CURATIONS
+        
+        <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-neutral-400 block">
+          ARCHIVE
         </span>
-        <h1 className="text-fluid-h1 font-light font-serif italic text-neutral-900 dark:text-white leading-[1.05]">
+        <h1 className="text-fluid-h1 font-light font-serif italic text-white leading-[1.05]">
           Curated Visual Collections.
         </h1>
-        <p className="text-sm md:text-base text-neutral-600 dark:text-zinc-400 font-sans max-w-xl leading-relaxed font-light">
+        <p className="text-sm md:text-base text-neutral-400 dark:text-zinc-400 font-sans max-w-xl leading-relaxed font-light">
           Explore award-winning digital spatial interfaces, tactical superbike telemetry dashboards, structural visual badging, and physical magazine grids.
         </p>
       </section>
@@ -64,11 +65,11 @@ export const WorksView: React.FC = () => {
                 {isActive && (
                   <motion.span
                     layoutId="activeWorksTab"
-                    className="absolute inset-0 bg-neutral-900 dark:bg-[#D12B2B] rounded-full z-[-1]"
+                    className="absolute inset-0 bg-neutral-900 dark:bg-[#7b2121] rounded-full z-[-1]"
                     transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                   />
                 )}
-                <span className={isActive ? 'text-white' : 'text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors duration-200'}>
+                <span className={isActive ? 'text-white' : 'text-neutral-400 hover:text-[#7b2121] transition-colors duration-200'}>
                   {cat.label}
                 </span>
               </button>
@@ -77,12 +78,12 @@ export const WorksView: React.FC = () => {
         </div>
 
         {/* Static high-end indices indicators */}
-        <div className="flex items-center gap-6 text-[10px] font-mono uppercase tracking-widest text-neutral-400 dark:text-neutral-500">
+        <div className="flex items-center gap-6 text-[10px] font-mono uppercase tracking-widest text-neutral-400 dark:text-neutral-400">
           <div>
-            SHOWCASE COUNT: <span className="text-[#D12B2B] font-bold">{filteredProjects.length}</span>
+            SHOWCASE COUNT: <span className="text-white font-bold">{filteredProjects.length}</span>
           </div>
           <div>
-            TOTAL REPUTATIONS: <span className="text-neutral-900 dark:text-white font-bold">5 WINNERS</span>
+            TOTAL REPUTATIONS: <span className="text-white font-bold">5 WINNERS</span>
           </div>
         </div>
       </section>
@@ -93,9 +94,9 @@ export const WorksView: React.FC = () => {
           {filteredProjects.length > 0 ? (
             <motion.div 
               layout
-              className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10"
+              className="flex flex-col"
             >
-              {filteredProjects.map((project) => (
+              {filteredProjects.map((project, idx) => (
                 <motion.div
                   key={project.id}
                   layout
@@ -104,7 +105,7 @@ export const WorksView: React.FC = () => {
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
                 >
-                  <ProjectCard project={project} />
+                  <ProjectCard project={project} isLast={idx === filteredProjects.length - 1} />
                 </motion.div>
               ))}
             </motion.div>
@@ -115,7 +116,7 @@ export const WorksView: React.FC = () => {
               exit={{ opacity: 0 }}
               className="py-24 text-center border border-dashed border-neutral-200/40 dark:border-white/5 rounded-sm w-full"
             >
-              <p className="text-sm text-neutral-500 font-sans font-medium">
+              <p className="text-sm text-neutral-400 font-sans font-medium">
                 No matching artifacts index available in this category.
               </p>
             </motion.div>

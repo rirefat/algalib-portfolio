@@ -131,34 +131,34 @@ export const ProjectQuickViewModal: React.FC = () => {
                 onClick={handleClose}
                 onMouseEnter={() => setCursorMode('hover')}
                 onMouseLeave={() => setCursorMode('default')}
-                className="absolute top-6 right-6 p-2 rounded-full border border-neutral-200/30 dark:border-white/15 bg-white/5 dark:bg-[#0A0A0A]/80 text-neutral-600 dark:text-zinc-300 hover:text-black dark:hover:text-white hover:border-black dark:hover:border-white transition-all duration-300 hover:scale-105 z-20"
+                className="absolute top-6 right-6 p-2 rounded-full border border-neutral-200/30 dark:border-white/15 bg-white/5 dark:bg-[#0A0A0A]/80 text-neutral-400 dark:text-zinc-300 hover:text-[#7b2121] dark:hover:text-[#7b2121] hover:border-black dark:hover:border-white transition-all duration-300 hover:scale-105 z-20"
                 aria-label="Close panel"
               >
                 <X size={18} />
               </button>
 
               <div className="space-y-6 md:space-y-8 mt-4 md:mt-0">
+
                 {/* Visual Label */}
-                <span className="text-[10px] tracking-[0.25em] font-mono uppercase text-[#D12B2B] font-bold block">
+                <span className="text-[10px] tracking-[0.25em] font-mono uppercase text-white font-bold block">
                   ARTIFACT DIRECTORY
                 </span>
-
                 {/* Title and Subtitle */}
                 <div className="space-y-2">
-                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-serif italic text-neutral-900 dark:text-white leading-tight">
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-serif italic text-white leading-tight">
                     {quickViewProject.title}
                   </h2>
-                  <p className="text-sm md:text-base text-zinc-600 dark:text-zinc-400 font-sans leading-relaxed">
+                  <p className="text-sm md:text-base text-zinc-400 dark:text-zinc-400 font-sans leading-relaxed">
                     {quickViewProject.subtitle}
                   </p>
                 </div>
 
                 {/* Brief Abstract */}
                 <div className="space-y-2.5 pt-2 border-t border-neutral-200/10 dark:border-white/5">
-                  <span className="text-[10px] tracking-wider font-mono uppercase text-neutral-400 dark:text-neutral-500 block">
+                  <span className="text-[10px] tracking-wider font-mono uppercase text-neutral-400 dark:text-neutral-400 block">
                     PROJECT ABSTRACT
                   </span>
-                  <p className="text-xs md:text-sm text-neutral-700 dark:text-zinc-300 font-sans font-light leading-relaxed">
+                  <p className="text-xs md:text-sm text-neutral-300 dark:text-zinc-300 font-sans font-light leading-relaxed">
                     {quickViewProject.overview}
                   </p>
                 </div>
@@ -166,29 +166,29 @@ export const ProjectQuickViewModal: React.FC = () => {
                 {/* Core Specifications Bento Metadata Grid */}
                 <div className="grid grid-cols-3 gap-4 pt-4 border-t border-neutral-200/10 dark:border-white/5">
                   <div className="space-y-1">
-                    <div className="flex items-center gap-1.5 text-[10px] font-mono text-neutral-400 dark:text-neutral-500 uppercase">
-                      <User size={10} className="text-[#D12B2B]" />
+                    <div className="flex items-center gap-1.5 text-[10px] font-mono text-neutral-400 dark:text-neutral-400 uppercase">
+                      <User size={10} className="text-white" />
                       <span>Client</span>
                     </div>
-                    <p className="text-xs font-sans font-medium text-neutral-900 dark:text-white line-clamp-1">
+                    <p className="text-xs font-sans font-medium text-white line-clamp-1">
                       {quickViewProject.client || 'Internal'}
                     </p>
                   </div>
                   <div className="space-y-1">
-                    <div className="flex items-center gap-1.5 text-[10px] font-mono text-neutral-400 dark:text-neutral-500 uppercase">
-                      <Briefcase size={10} className="text-[#D12B2B]" />
+                    <div className="flex items-center gap-1.5 text-[10px] font-mono text-neutral-400 dark:text-neutral-400 uppercase">
+                      <Briefcase size={10} className="text-white" />
                       <span>Role</span>
                     </div>
-                    <p className="text-xs font-sans font-medium text-neutral-900 dark:text-white line-clamp-1">
+                    <p className="text-xs font-sans font-medium text-white line-clamp-1">
                       {quickViewProject.role || 'Design Lead'}
                     </p>
                   </div>
                   <div className="space-y-1">
-                    <div className="flex items-center gap-1.5 text-[10px] font-mono text-neutral-400 dark:text-neutral-500 uppercase">
-                      <Clock size={10} className="text-[#D12B2B]" />
+                    <div className="flex items-center gap-1.5 text-[10px] font-mono text-neutral-400 dark:text-neutral-400 uppercase">
+                      <Clock size={10} className="text-white" />
                       <span>Read Time</span>
                     </div>
-                    <p className="text-xs font-sans font-bold text-[#D12B2B] line-clamp-1">
+                    <p className="text-xs font-sans font-bold text-white line-clamp-1">
                       {calculateReadingTime([
                         quickViewProject.title,
                         quickViewProject.subtitle,
@@ -211,7 +211,7 @@ export const ProjectQuickViewModal: React.FC = () => {
                   onClick={handleViewFullCaseStudy}
                   onMouseEnter={() => setCursorMode('hover')}
                   onMouseLeave={() => setCursorMode('default')}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-neutral-900 text-white dark:bg-[#D12B2B] dark:text-white font-sans text-xs font-bold tracking-widest uppercase hover:bg-neutral-800 dark:hover:bg-[#b02222] transition-colors rounded-sm shadow-lg group"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-neutral-900 text-white dark:bg-[#7b2121] dark:text-white font-sans text-xs font-bold tracking-widest uppercase hover:bg-neutral-800 dark:hover:bg-[#b02222] transition-colors rounded-sm shadow-lg group"
                 >
                   <span>View Full Case Study</span>
                   <ArrowRight size={14} className="transform group-hover:translate-x-1 transition-transform duration-300" />
@@ -221,7 +221,7 @@ export const ProjectQuickViewModal: React.FC = () => {
                   onClick={handleClose}
                   onMouseEnter={() => setCursorMode('hover')}
                   onMouseLeave={() => setCursorMode('default')}
-                  className="w-full sm:w-auto text-center py-2 text-neutral-500 dark:text-zinc-400 hover:text-black dark:hover:text-white font-mono text-[10px] tracking-wider uppercase transition-colors"
+                  className="w-full sm:w-auto text-center py-2 text-neutral-400 dark:text-zinc-400 hover:text-[#7b2121] dark:hover:text-[#7b2121] font-mono text-[10px] tracking-wider uppercase transition-colors"
                 >
                   Dismiss Overlay
                 </button>

@@ -147,8 +147,8 @@ export const HomeView: React.FC = () => {
       {/* 1. Creative Technical Grid Hero Section */}
       <section className="relative min-h-[90vh] flex flex-col justify-start px-6 pt-44 md:pt-52 lg:pt-64 pb-28 md:pb-36 max-w-7xl mx-auto z-10 select-none">
         {/* Ambient artistic soft red blurred backdrop glows */}
-        <div className="absolute -top-20 -left-20 w-[450px] h-[450px] bg-[#D12B2B]/4 rounded-full blur-[120px] pointer-events-none"></div>
-        <div className="absolute top-[40%] right-[-10%] w-[350px] h-[350px] bg-[#D12B2B]/3 rounded-full blur-[100px] pointer-events-none"></div>
+        <div className="absolute -top-20 -left-20 w-[450px] h-[450px] bg-[#7b2121]/4 rounded-full blur-[120px] pointer-events-none"></div>
+        <div className="absolute top-[40%] right-[-10%] w-[350px] h-[350px] bg-[#7b2121]/3 rounded-full blur-[100px] pointer-events-none"></div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center relative">
           
@@ -165,17 +165,17 @@ export const HomeView: React.FC = () => {
               className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/5 dark:bg-[#0A0A0A]/80 border border-neutral-200/40 dark:border-white/5 backdrop-blur-md shadow-sm"
             >
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D12B2B] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#D12B2B]"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#7b2121] opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#7b2121]"></span>
               </span>
-              <span className="text-[10px] uppercase font-mono tracking-[0.3em] text-zinc-600 dark:text-zinc-400">
+              <span className="text-[10px] uppercase font-mono tracking-[0.3em] text-zinc-400 dark:text-zinc-400">
                 ACTIVE COORDINATES — DHAKA, BD
               </span>
             </motion.div>
 
             <motion.div variants={itemVariants} className="space-y-4">
               <div className="flex items-center gap-3">
-                <span className="text-[#D12B2B] text-xs font-bold uppercase tracking-[0.4em] block">
+                <span className="text-white text-xs font-bold uppercase tracking-[0.4em] block">
                   CREATIVE DIRECTOR & PRODUCT ARCHITECT
                 </span>
                 <span className="hidden md:block w-8 h-[1px] bg-neutral-300 dark:bg-zinc-800" />
@@ -184,7 +184,7 @@ export const HomeView: React.FC = () => {
                 </span>
               </div>
               {/* Core Huge Narrative Typography with Editorial Clip-Path Reveal */}
-              <VelocityHeading as="h1" maxSkew={6} maxX={10} className="text-fluid-hero tracking-tight text-neutral-900 dark:text-white leading-[0.82] uppercase font-display flex flex-col gap-1 md:gap-2 w-full">
+              <VelocityHeading as="h1" maxSkew={6} maxX={10} className="text-fluid-hero tracking-tight text-white leading-[0.82] uppercase font-display flex flex-col gap-1 md:gap-2 w-full">
                 <div className="overflow-hidden block h-fit pb-1 md:pb-2">
                   <motion.span 
                     variants={charContainerVariants}
@@ -211,7 +211,7 @@ export const HomeView: React.FC = () => {
                       <span key={`al-${index}`} className="inline-block overflow-hidden pb-1">
                         <motion.span
                           variants={charVariants}
-                          className="inline-block text-zinc-400 dark:text-zinc-500 font-serif italic font-light lowercase origin-bottom"
+                          className="inline-block text-zinc-400 dark:text-zinc-500 font-sans font-light lowercase origin-bottom"
                         >
                           {char === " " ? "\u00A0" : char}
                         </motion.span>
@@ -221,7 +221,7 @@ export const HomeView: React.FC = () => {
                       <span key={`galib-${index}`} className="inline-block overflow-hidden pb-1">
                         <motion.span
                           variants={charVariants}
-                          className="inline-block uppercase font-display font-extrabold text-neutral-900 dark:text-white tracking-tight origin-bottom"
+                          className="inline-block uppercase font-display font-extrabold text-white tracking-tight origin-bottom"
                         >
                           {char}
                         </motion.span>
@@ -236,7 +236,7 @@ export const HomeView: React.FC = () => {
             <div className="overflow-hidden">
               <motion.p 
                 variants={maskTextVariants}
-                className="max-w-xl text-neutral-700 dark:text-zinc-300 text-sm md:text-base leading-relaxed font-light italic border-l-2 border-[#D12B2B] pl-6"
+                className="max-w-xl text-neutral-300 dark:text-zinc-300 text-sm md:text-base leading-relaxed font-light italic border-l-2 border-[#7b2121] pl-6"
               >
                 Sculpting high-end digital operating systems, premium physical identities, and absolute visual standards for ventures demanding design authority and visual dominance.
               </motion.p>
@@ -275,15 +275,15 @@ export const HomeView: React.FC = () => {
               className="grid grid-cols-3 gap-6 md:gap-8 max-w-lg border-t border-neutral-200/40 dark:border-white/5 pt-8 mt-12"
             >
               <div>
-                <div className="text-3xl md:text-4xl font-light mb-1 italic text-neutral-900 dark:text-[#F5F5F4] font-serif">08+</div>
+                <div className="text-3xl md:text-4xl font-light mb-1 italic text-white font-serif">08+</div>
                 <div className="text-[9px] uppercase tracking-widest text-zinc-500 font-mono">Years Exp</div>
               </div>
               <div>
-                <div className="text-3xl md:text-4xl font-light mb-1 italic text-neutral-900 dark:text-[#F5F5F4] font-serif">42</div>
+                <div className="text-3xl md:text-4xl font-light mb-1 italic text-white font-serif">42</div>
                 <div className="text-[9px] uppercase tracking-widest text-zinc-500 font-mono">Design Honors</div>
               </div>
               <div>
-                <div className="text-3xl md:text-4xl font-light mb-1 italic text-neutral-900 dark:text-[#F5F5F4] font-serif">120+</div>
+                <div className="text-3xl md:text-4xl font-light mb-1 italic text-white font-serif">120+</div>
                 <div className="text-[9px] uppercase tracking-widest text-zinc-500 font-mono">Global Assets</div>
               </div>
             </motion.div>
@@ -348,7 +348,7 @@ export const HomeView: React.FC = () => {
                   className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-[#100204]/90 border border-white/20 flex items-center justify-center z-25 transition-all duration-75 shadow-lg"
                   style={{ left: `${splitPercent}%` }}
                 >
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#D12B2B] animate-pulse" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#7b2121] animate-pulse" />
                 </div>
 
                 {/* Interactive Drag Hint Label (Only visible when not hovering or at center) */}
@@ -382,7 +382,7 @@ export const HomeView: React.FC = () => {
                       }}
                       onMouseEnter={() => setCursorMode('hover')}
                       onMouseLeave={() => setCursorMode('default')}
-                      className="w-11 h-11 rounded-full border border-white/40 flex items-center justify-center text-white hover:bg-white hover:text-black hover:border-transparent hover:scale-110 transition-all duration-300 flex-shrink-0 cursor-pointer"
+                      className="w-11 h-11 rounded-full border border-white/40 flex items-center justify-center text-white hover:bg-white hover:text-[#7b2121] hover:border-transparent hover:scale-110 transition-all duration-300 flex-shrink-0 cursor-pointer"
                     >
                       <ChevronRight className="w-5 h-5 transform translate-x-[0.5px]" />
                     </button>
@@ -409,7 +409,7 @@ export const HomeView: React.FC = () => {
         {/* Cinematic Scroll Indicator */}
         <div className="absolute bottom-6 left-6 flex items-center gap-3 text-neutral-400 dark:text-zinc-500 lg:flex hidden">
           <div className="w-8 h-12 rounded-full border border-neutral-300 dark:border-zinc-800 flex justify-center py-2">
-            <div className="w-1.5 h-1.5 rounded-full bg-[#D12B2B] animate-bounce" />
+            <div className="w-1.5 h-1.5 rounded-full bg-[#7b2121] animate-bounce" />
           </div>
           <span className="text-[10px] font-mono tracking-widest uppercase">
             SCROLL TO DISCOVER
@@ -423,10 +423,11 @@ export const HomeView: React.FC = () => {
           {/* Header */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-neutral-200/40 dark:border-white/5 pb-8">
             <div className="space-y-2">
-              <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-[#D12B2B]">
+              
+              <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-neutral-400 block">
                 CURATED EXPEDITIONS — 01
               </span>
-              <VelocityHeading as="h2" direction="right" className="text-fluid-h1 font-light font-serif italic text-neutral-900 dark:text-white">
+              <VelocityHeading as="h2" direction="right" className="text-fluid-h1 font-light font-serif italic text-white">
                 Selected Works
               </VelocityHeading>
             </div>
@@ -437,7 +438,7 @@ export const HomeView: React.FC = () => {
               }}
               onMouseEnter={() => setCursorMode('hover')}
               onMouseLeave={() => setCursorMode('default')}
-              className="group flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-neutral-950 dark:text-zinc-200 hover:text-[#D12B2B] dark:hover:text-[#D12B2B] transition-colors"
+              className="group flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-zinc-200 hover:text-[#7b2121] dark:hover:text-[#7b2121] transition-colors"
             >
               <span>Explore All Works ({PROJECTS.length})</span>
               <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -450,11 +451,11 @@ export const HomeView: React.FC = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.15 }}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10"
+            className="flex flex-col"
           >
-            {featuredProjects.map((project) => (
+            {featuredProjects.map((project, idx) => (
               <motion.div key={project.id} variants={cardScrollRevealVariants}>
-                <ProjectCard project={project} />
+                <ProjectCard project={project} isLast={idx === featuredProjects.length - 1} />
               </motion.div>
             ))}
           </motion.div>
@@ -465,10 +466,11 @@ export const HomeView: React.FC = () => {
       <section className="px-6 py-12 max-w-7xl mx-auto z-10 relative">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-white/5 dark:bg-[#0A0A0A]/40 border border-neutral-200/40 dark:border-white/5 backdrop-blur-md rounded-sm p-8 md:p-16">
           <div className="lg:col-span-5 space-y-4">
-            <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-[#D12B2B]">
-              CORE PRINCIPLES — 02
+            
+            <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-neutral-400 block">
+              DESIGN MANIFESTO — 02
             </span>
-            <VelocityHeading as="h3" direction="left" className="text-fluid-h2 font-light font-serif italic text-neutral-900 dark:text-[#F5F5F4]">
+            <VelocityHeading as="h3" direction="left" className="text-fluid-h2 font-light font-serif italic text-white">
               The Philosophy of Absolute Subtraction.
             </VelocityHeading>
             <p className="text-xs font-mono text-zinc-500 dark:text-zinc-500">
@@ -476,8 +478,8 @@ export const HomeView: React.FC = () => {
             </p>
           </div>
           <div className="lg:col-span-7">
-            <p className="text-sm md:text-base text-neutral-600 dark:text-zinc-400 font-sans leading-relaxed space-y-4 font-light border-l-2 border-[#D12B2B]/60 pl-6">
-              I believe that premium design is not an act of decorative assembly, but a ruthless process of reduction. Whether drawing vector badges for raw electric superbikes or laying down depth grids for spatial applications, the goal is same: <strong className="font-semibold text-neutral-900 dark:text-[#F5F5F4]">create silence.</strong>
+            <p className="text-sm md:text-base text-neutral-400 dark:text-zinc-400 font-sans leading-relaxed space-y-4 font-light border-l-2 border-[#7b2121]/60 pl-6">
+              I believe that premium design is not an act of decorative assembly, but a ruthless process of reduction. Whether drawing vector badges for raw electric superbikes or laying down depth grids for spatial applications, the goal is same: <strong className="font-semibold text-white">create silence.</strong>
               <br /><br />
               By treating typography as architecture and white space as material, the products we launch do not compete for attention. They command it through sheer structural confidence.
             </p>
@@ -491,10 +493,11 @@ export const HomeView: React.FC = () => {
           {/* Header */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-neutral-200/40 dark:border-white/5 pb-8">
             <div className="space-y-2">
-              <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-[#D12B2B]">
+              
+              <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-neutral-400 block">
                 CAPABILITIES — 03
               </span>
-              <VelocityHeading as="h2" direction="right" className="text-fluid-h1 font-light font-serif italic text-neutral-900 dark:text-white">
+              <VelocityHeading as="h2" direction="right" className="text-fluid-h1 font-light font-serif italic text-white">
                 Design Services
               </VelocityHeading>
             </div>
@@ -505,7 +508,7 @@ export const HomeView: React.FC = () => {
               }}
               onMouseEnter={() => setCursorMode('hover')}
               onMouseLeave={() => setCursorMode('default')}
-              className="group flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-neutral-950 dark:text-zinc-200 hover:text-[#D12B2B] dark:hover:text-[#D12B2B] transition-colors"
+              className="group flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-zinc-200 hover:text-[#7b2121] dark:hover:text-[#7b2121] transition-colors"
             >
               <span>Deep Capability Specs</span>
               <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -515,48 +518,48 @@ export const HomeView: React.FC = () => {
           {/* Core Blocks */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="p-6 rounded-sm bg-white/5 dark:bg-[#0A0A0A]/40 border border-neutral-200/40 dark:border-white/5 backdrop-blur-sm space-y-6 shadow-md">
-              <div className="w-10 h-10 rounded-full bg-[#D12B2B]/10 text-[#D12B2B] flex items-center justify-center font-mono text-sm font-bold">
+              <div className="w-10 h-10 rounded-full bg-[#7b2121]/10 text-white flex items-center justify-center font-mono text-sm font-bold">
                 01
               </div>
               <div className="space-y-2">
-                <h4 className="text-xl font-medium text-neutral-900 dark:text-[#F5F5F4] font-serif italic">Product Design</h4>
-                <p className="text-xs text-neutral-500 dark:text-zinc-400 font-sans leading-relaxed">
+                <h4 className="text-xl font-medium text-white font-serif italic">Product Design</h4>
+                <p className="text-xs text-neutral-400 dark:text-zinc-400 font-sans leading-relaxed">
                   Intuitive spatial systems, pixel-perfect layouts, interactive prototypes, and modular design guides.
                 </p>
               </div>
             </div>
 
             <div className="p-6 rounded-sm bg-white/5 dark:bg-[#0A0A0A]/40 border border-neutral-200/40 dark:border-white/5 backdrop-blur-sm space-y-6 shadow-md">
-              <div className="w-10 h-10 rounded-full bg-[#D12B2B]/10 text-[#D12B2B] flex items-center justify-center font-mono text-sm font-bold">
+              <div className="w-10 h-10 rounded-full bg-[#7b2121]/10 text-white flex items-center justify-center font-mono text-sm font-bold">
                 02
               </div>
               <div className="space-y-2">
-                <h4 className="text-xl font-medium text-neutral-900 dark:text-[#F5F5F4] font-serif italic">Brand Identity</h4>
-                <p className="text-xs text-neutral-500 dark:text-zinc-400 font-sans leading-relaxed">
+                <h4 className="text-xl font-medium text-white font-serif italic">Brand Identity</h4>
+                <p className="text-xs text-neutral-400 dark:text-zinc-400 font-sans leading-relaxed">
                   Bespoke visual badging, corporate typography grids, editorial curation, and cohesive brand systems.
                 </p>
               </div>
             </div>
 
             <div className="p-6 rounded-sm bg-white/5 dark:bg-[#0A0A0A]/40 border border-neutral-200/40 dark:border-white/5 backdrop-blur-sm space-y-6 shadow-md">
-              <div className="w-10 h-10 rounded-full bg-[#D12B2B]/10 text-[#D12B2B] flex items-center justify-center font-mono text-sm font-bold">
+              <div className="w-10 h-10 rounded-full bg-[#7b2121]/10 text-white flex items-center justify-center font-mono text-sm font-bold">
                 03
               </div>
               <div className="space-y-2">
-                <h4 className="text-xl font-medium text-neutral-900 dark:text-[#F5F5F4] font-serif italic">Creative Direction</h4>
-                <p className="text-xs text-neutral-500 dark:text-zinc-400 font-sans leading-relaxed">
+                <h4 className="text-xl font-medium text-white font-serif italic">Creative Direction</h4>
+                <p className="text-xs text-neutral-400 dark:text-zinc-400 font-sans leading-relaxed">
                   Conceptual spark, creative guidelines, artistic oversight, and visual narrative unification.
                 </p>
               </div>
             </div>
 
             <div className="p-6 rounded-sm bg-white/5 dark:bg-[#0A0A0A]/40 border border-neutral-200/40 dark:border-white/5 backdrop-blur-sm space-y-6 shadow-md">
-              <div className="w-10 h-10 rounded-full bg-[#D12B2B]/10 text-[#D12B2B] flex items-center justify-center font-mono text-sm font-bold">
+              <div className="w-10 h-10 rounded-full bg-[#7b2121]/10 text-white flex items-center justify-center font-mono text-sm font-bold">
                 04
               </div>
               <div className="space-y-2">
-                <h4 className="text-xl font-medium text-neutral-900 dark:text-[#F5F5F4] font-serif italic">Premium Packaging</h4>
-                <p className="text-xs text-neutral-500 dark:text-zinc-400 font-sans leading-relaxed">
+                <h4 className="text-xl font-medium text-white font-serif italic">Premium Packaging</h4>
+                <p className="text-xs text-neutral-400 dark:text-zinc-400 font-sans leading-relaxed">
                   Tactile paper stocks, structural baselines, embossed graphic badges, and luxury boxing layouts.
                 </p>
               </div>
@@ -569,16 +572,14 @@ export const HomeView: React.FC = () => {
       <section className="px-6 max-w-7xl mx-auto z-10 relative">
         <div className="bg-[#0A0A0A] text-white rounded-sm p-8 md:p-16 border border-white/5 shadow-2xl relative overflow-hidden">
           {/* Accent light blob */}
-          <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#D12B2B]/5 rounded-full blur-[100px] pointer-events-none" />
+          <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#7b2121]/5 rounded-full blur-[100px] pointer-events-none" />
           
           <div className="max-w-4xl space-y-10 relative z-10">
-            <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-[#D12B2B]">
-              REPUTATION — 04
-            </span>
+            
 
             {/* Testimonial Active Slide */}
             <div className="space-y-8 min-h-[220px]">
-              <Quote className="w-10 h-10 text-[#D12B2B] opacity-60" />
+              <Quote className="w-10 h-10 text-white opacity-60" />
               <p className="text-lg md:text-2xl font-light font-serif tracking-tight leading-relaxed text-[#F5F5F4] italic">
                 "{TESTIMONIALS[activeTestimonial].content}"
               </p>
@@ -589,14 +590,14 @@ export const HomeView: React.FC = () => {
                   src={TESTIMONIALS[activeTestimonial].avatar}
                   alt={TESTIMONIALS[activeTestimonial].name}
                   referrerPolicy="no-referrer"
-                  className="w-12 h-12 rounded-full object-cover border-2 border-[#D12B2B]"
+                  className="w-12 h-12 rounded-full object-cover border-2 border-[#7b2121]"
                 />
                 <div>
                   <h5 className="font-serif italic font-light text-base text-white">
                     {TESTIMONIALS[activeTestimonial].name}
                   </h5>
                   <p className="text-xs font-mono text-zinc-400 uppercase tracking-wider">
-                    {TESTIMONIALS[activeTestimonial].role}, <span className="text-[#D12B2B]">{TESTIMONIALS[activeTestimonial].company}</span>
+                    {TESTIMONIALS[activeTestimonial].role}, <span className="text-white">{TESTIMONIALS[activeTestimonial].company}</span>
                   </p>
                 </div>
               </div>
@@ -608,7 +609,7 @@ export const HomeView: React.FC = () => {
                 onClick={prevTestimonial}
                 onMouseEnter={() => setCursorMode('hover')}
                 onMouseLeave={() => setCursorMode('default')}
-                className="w-10 h-10 rounded-full border border-white/10 hover:border-white text-zinc-400 hover:text-white flex items-center justify-center transition-all bg-[#0A0A0A]"
+                className="w-10 h-10 rounded-full border border-white/10 hover:border-white text-zinc-400 hover:text-[#7b2121] flex items-center justify-center transition-all bg-[#0A0A0A]"
               >
                 <ChevronLeft className="w-4 h-4" />
               </button>
@@ -619,7 +620,7 @@ export const HomeView: React.FC = () => {
                 onClick={nextTestimonial}
                 onMouseEnter={() => setCursorMode('hover')}
                 onMouseLeave={() => setCursorMode('default')}
-                className="w-10 h-10 rounded-full border border-white/10 hover:border-white text-zinc-400 hover:text-white flex items-center justify-center transition-all bg-[#0A0A0A]"
+                className="w-10 h-10 rounded-full border border-white/10 hover:border-white text-zinc-400 hover:text-[#7b2121] flex items-center justify-center transition-all bg-[#0A0A0A]"
               >
                 <ChevronRight className="w-4 h-4" />
               </button>
@@ -638,7 +639,7 @@ export const HomeView: React.FC = () => {
             {CLIENTS.map((client, index) => (
               <div
                 key={index}
-                className="py-5 px-3 rounded-sm border border-neutral-200/40 dark:border-white/5 bg-white/5 dark:bg-[#0A0A0A]/20 backdrop-blur-sm flex items-center justify-center text-center text-xs font-mono font-medium tracking-wider text-neutral-600 dark:text-zinc-400 uppercase hover:text-[#D12B2B] dark:hover:text-[#D12B2B] transition-colors"
+                className="py-5 px-3 rounded-sm border border-neutral-200/40 dark:border-white/5 bg-white/5 dark:bg-[#0A0A0A]/20 backdrop-blur-sm flex items-center justify-center text-center text-xs font-mono font-medium tracking-wider text-neutral-400 dark:text-zinc-400 uppercase hover:text-[#7b2121] dark:hover:text-[#7b2121] transition-colors"
               >
                 {client}
               </div>
@@ -651,10 +652,11 @@ export const HomeView: React.FC = () => {
       <section className="px-6 max-w-7xl mx-auto z-10 relative">
         <div className="space-y-10">
           <div className="border-b border-neutral-200/40 dark:border-white/5 pb-6">
-            <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-[#D12B2B]">
-              ACCOLADES & VERDICTS — 05
+            
+            <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-neutral-400 block">
+              GLOBAL RECOGNITION — 04
             </span>
-            <VelocityHeading as="h2" direction="left" className="text-fluid-h2 font-light font-serif italic text-neutral-900 dark:text-white">
+            <VelocityHeading as="h2" direction="left" className="text-fluid-h2 font-light font-serif italic text-white">
               Selected Accolades
             </VelocityHeading>
           </div>
@@ -663,22 +665,22 @@ export const HomeView: React.FC = () => {
             {AWARDS.map((award, index) => (
               <div
                 key={index}
-                className="py-6 flex flex-col md:flex-row md:items-center justify-between gap-4 group hover:bg-[#D12B2B]/5 px-4 rounded-sm transition-all"
+                className="py-6 flex flex-col md:flex-row md:items-center justify-between gap-4 group hover:bg-[#7b2121]/5 px-4 rounded-sm transition-all"
               >
                 <div className="flex items-center gap-4">
-                  <span className="font-mono text-sm text-[#D12B2B] font-bold">
+                  <span className="font-mono text-sm text-white font-bold">
                     {award.year}
                   </span>
                   <div>
-                    <h4 className="font-serif italic font-medium text-lg text-neutral-900 dark:text-white group-hover:text-[#D12B2B] transition-colors">
+                    <h4 className="font-serif italic font-medium text-lg text-white group-hover:text-[#7b2121] transition-colors">
                       {award.title}
                     </h4>
-                    <p className="text-xs text-neutral-500 font-sans">
+                    <p className="text-xs text-neutral-400 font-sans">
                       Category: {award.category}
                     </p>
                   </div>
                 </div>
-                <div className="flex items-center gap-1.5 text-xs font-mono text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-white transition-colors">
+                <div className="flex items-center gap-1.5 text-xs font-mono text-neutral-400 group-hover:text-[#7b2121] transition-colors">
                   <span>FOR: {award.project}</span>
                   <Award className="w-3.5 h-3.5 text-zinc-500" />
                 </div>
@@ -691,11 +693,12 @@ export const HomeView: React.FC = () => {
       {/* 8. Call To Action Footer Board */}
       <section className="px-6 max-w-7xl mx-auto z-10 relative">
         <div className="bg-[#0A0A0A] border border-white/5 backdrop-blur-md rounded-sm p-8 md:p-16 text-center space-y-8 relative overflow-hidden">
-          <div className="absolute -bottom-10 -left-10 w-44 h-44 bg-[#D12B2B]/5 rounded-full blur-[60px] pointer-events-none" />
+          <div className="absolute -bottom-10 -left-10 w-44 h-44 bg-[#7b2121]/5 rounded-full blur-[60px] pointer-events-none" />
           
           <div className="max-w-2xl mx-auto space-y-6">
-            <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-[#D12B2B]">
-              COMMENCE THE JOURNEY
+            
+            <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-neutral-400 block">
+              INITIATE CONTACT — 05
             </span>
             <VelocityHeading as="h2" direction="right" className="text-fluid-h1 font-light font-serif italic text-[#F5F5F4] leading-tight">
               Have a premium concept you wish to bring to life?
@@ -711,7 +714,7 @@ export const HomeView: React.FC = () => {
                 }}
                 onMouseEnter={() => setCursorMode('hover')}
                 onMouseLeave={() => setCursorMode('default')}
-                className="inline-flex items-center gap-2 px-10 py-5 bg-[#D12B2B] text-white hover:bg-[#b02222] text-xs font-mono tracking-widest uppercase rounded-full shadow-lg shadow-[#D12B2B]/20 transition-all font-bold"
+                className="inline-flex items-center gap-2 px-10 py-5 bg-[#7b2121] text-white hover:bg-[#b02222] text-xs font-mono tracking-widest uppercase rounded-full shadow-lg shadow-[#7b2121]/20 transition-all font-bold"
               >
                 <span>INITIATE VENTURE</span>
                 <ArrowUpRight className="w-4 h-4" />
