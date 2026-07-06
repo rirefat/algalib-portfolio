@@ -1,12 +1,35 @@
-import React from 'react';
-import { motion } from 'motion/react';
+import React, { useEffect, useRef } from 'react';
+import { motion, useInView, useMotionValue, useSpring, useTransform } from 'motion/react';
 import { usePortfolioStore } from '../../hooks/usePortfolioStore';
 import { VelocityHeading } from '../VelocityHeading';
 import { ArtistAvatar } from '../ArtistAvatar';
 import { CreativeButton } from '../CreativeButton';
-import { Award, Code, CheckCircle, Lightbulb, Coffee, Compass } from 'lucide-react';
+
 import { SkillsExpertise } from '../SkillsExpertise';
 const aboutImage = 'https://i.ibb.co.com/tMNC5hMv/al-galib-image.png';
+
+const AnimatedCounter = ({ value }: { value: string }) => {
+  const numericValue = parseInt(value.replace(/\D/g, ''), 10);
+  const suffix = value.replace(/\d/g, '');
+
+  const ref = useRef<HTMLSpanElement>(null);
+  const motionValue = useMotionValue(0);
+  const springValue = useSpring(motionValue, {
+    damping: 60,
+    stiffness: 100,
+  });
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  useEffect(() => {
+    if (isInView) {
+      motionValue.set(numericValue);
+    }
+  }, [motionValue, isInView, numericValue]);
+
+  const display = useTransform(springValue, (current) => Math.round(current) + suffix);
+
+  return <motion.span ref={ref}>{display}</motion.span>;
+};
 
 export const AboutView: React.FC = () => {
   const { setCurrentView, setCursorMode } = usePortfolioStore();
@@ -109,18 +132,20 @@ export const AboutView: React.FC = () => {
             Today, I work with high-end brands, luxury watchmakers, and forward-thinking electric mobility ventures to unify physical branding with stellar, high-end digital applications. My designs do not look like web pages; they feel like custom mechanical systems or spatial luxury art pieces.
           </p>
 
-          {/* Quick stats grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-6 border-t border-neutral-200/40 dark:border-white/5">
-            {stats.map((stat, i) => (
-              <div key={i} className="space-y-1">
-                <span className="text-2xl md:text-3xl font-sans font-bold text-white">
-                  {stat.number}
-                </span>
-                <span className="text-[10px] uppercase font-mono tracking-widest text-zinc-500 block leading-tight">
-                  {stat.label}
-                </span>
-              </div>
-            ))}
+          {/* Precision Stats Array - Minimal */}
+          <div className="pt-8 md:pt-12 w-full mt-6 border-t border-neutral-200/40 dark:border-white/10">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+              {stats.map((stat, i) => (
+                <div key={i} className="flex flex-col gap-2">
+                  <span className="text-4xl md:text-5xl font-serif italic text-white tracking-tight">
+                    <AnimatedCounter value={stat.number} />
+                  </span>
+                  <span className="text-[10px] uppercase font-mono tracking-widest text-neutral-500 leading-relaxed">
+                    {stat.label}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -131,33 +156,33 @@ export const AboutView: React.FC = () => {
       </section>
 
       {/* 4. Personality / Personal facts */}
-      <section className="space-y-10 bg-[#0A0A0A] text-white rounded-sm p-8 md:p-16 border border-white/5 relative overflow-hidden shadow-2xl">
-        <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-[#7b2121]/5 rounded-full blur-[80px] pointer-events-none" />
-        
-        <div className="max-w-4xl space-y-10 relative z-10">
+      <section className="space-y-10 pt-16 border-t border-neutral-200/40 dark:border-white/10">
+        <div className="max-w-4xl space-y-10">
           
           <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-neutral-400 block">
             GUIDING PRINCIPLES
           </span>
-          <VelocityHeading as="h3" direction="left" className="text-2xl md:text-4xl font-bold font-serif italic leading-tight text-[#F5F5F4]">
+          <VelocityHeading as="h3" direction="left" className="text-2xl md:text-4xl font-bold font-serif italic leading-tight text-white">
             Some Curiosities & Values I Live By.
           </VelocityHeading>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
-            {funFacts.map((fact, i) => {
-              const icons = [Compass, Award, Coffee, Lightbulb];
-              const IconComp = icons[i % icons.length];
-              return (
-                <div key={i} className="flex gap-4 items-start">
-                  <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 text-white">
-                    <IconComp className="w-5 h-5" />
-                  </div>
-                  <p className="text-sm font-sans text-zinc-400 leading-relaxed pt-1.5 font-light">
-                    {fact}
-                  </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 pt-8">
+            {funFacts.map((fact, i) => (
+              <div 
+                key={i} 
+                className="flex flex-col gap-4 group"
+              >
+                <div className="flex items-center gap-4">
+                  <span className="text-[10px] font-mono tracking-widest text-[#7b2121]">
+                    0{i + 1}
+                  </span>
+                  <div className="w-full h-[1px] bg-neutral-200/40 dark:bg-white/10 group-hover:bg-[#7b2121]/40 transition-colors duration-500" />
                 </div>
-              );
-            })}
+                <p className="text-base font-sans text-neutral-500 dark:text-neutral-400 group-hover:text-neutral-800 dark:group-hover:text-neutral-200 transition-colors duration-300 font-light leading-relaxed">
+                  {fact}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
