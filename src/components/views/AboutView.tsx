@@ -5,6 +5,7 @@ import { VelocityHeading } from '../VelocityHeading';
 import { ArtistAvatar } from '../ArtistAvatar';
 import { CreativeButton } from '../CreativeButton';
 import { Award, Code, CheckCircle, Lightbulb, Coffee, Compass } from 'lucide-react';
+import { SkillsExpertise } from '../SkillsExpertise';
 const aboutImage = 'https://i.ibb.co.com/tMNC5hMv/al-galib-image.png';
 
 export const AboutView: React.FC = () => {
@@ -15,21 +16,6 @@ export const AboutView: React.FC = () => {
     { number: '25+', label: 'Global Clients Served' },
     { number: '5', label: 'Design Awards Won' },
     { number: '100%', label: 'Craftsmanship Focus' },
-  ];
-
-  const skillGroups = [
-    {
-      title: 'Product Design (Digital)',
-      skills: ['UI/UX Architecture', 'Interactive Prototyping', 'Spatial Systems Design', 'Design Systems Engineering', 'Usability Mapping'],
-    },
-    {
-      title: 'Graphic Design (Physical & Visual)',
-      skills: ['Swiss Grid Typography', 'Bespoke Brand Identities', 'Premium Box Packaging', 'Editorial Curation', 'Logo Geometry Badge Design'],
-    },
-    {
-      title: 'Tools & Workflows',
-      skills: ['Figma (Advanced Componentry)', 'Adobe Creative Suite', 'Cinema 4D (Drafts)', 'React / Tailwind CSS / Framer Motion', 'Clay & Physical Prototyping'],
-    },
   ];
 
   const funFacts = [
@@ -141,36 +127,7 @@ export const AboutView: React.FC = () => {
 
       {/* 3. Skill Matrices groups */}
       <section className="space-y-12">
-        <div className="border-b border-neutral-200/40 dark:border-white/5 pb-6">
-          
-          <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-neutral-400 block">
-            CORE PROFICIENCIES
-          </span>
-          <VelocityHeading as="h2" direction="right" className="text-fluid-h2 font-light font-serif italic text-white">
-            Curated Skill Groups
-          </VelocityHeading>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {skillGroups.map((group, i) => (
-            <div
-              key={i}
-              className="p-8 rounded-sm bg-white/5 dark:bg-[#0A0A0A]/40 border border-neutral-200/40 dark:border-white/5 backdrop-blur-md space-y-6 shadow-md"
-            >
-              <h4 className="text-lg font-bold text-white font-serif italic border-b border-neutral-200/40 dark:border-white/5 pb-3">
-                {group.title}
-              </h4>
-              <ul className="space-y-3.5">
-                {group.skills.map((skill, skIndex) => (
-                  <li key={skIndex} className="flex items-center gap-3 text-sm text-neutral-400 dark:text-zinc-400 font-sans">
-                    <CheckCircle className="w-4 h-4 text-white flex-shrink-0" />
-                    <span>{skill}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
+        <SkillsExpertise />
       </section>
 
       {/* 4. Personality / Personal facts */}

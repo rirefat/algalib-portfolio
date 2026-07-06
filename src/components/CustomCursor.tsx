@@ -50,7 +50,7 @@ export const CustomCursor: React.FC = () => {
         const dx = targetPos.current.x - prev.x;
         const dy = targetPos.current.y - prev.y;
         // Adjust speed for a responsive but beautifully lagging feel (lerp factor 0.15)
-        const speed = 0.16;
+        const speed = 0.08;
         return {
           x: prev.x + dx * speed,
           y: prev.y + dy * speed,
@@ -99,14 +99,14 @@ export const CustomCursor: React.FC = () => {
       style={{
         left: `${position.x}px`,
         top: `${position.y}px`,
-        transition: 'transform 0.1s cubic-bezier(0.215, 0.610, 0.355, 1)',
+        transition: 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
         transform: `translate(-50%, -50%) ${isClicking ? 'scale(0.85)' : 'scale(1)'}`,
       }}
     >
       {/* Outer Ring */}
       {!isExpandedMode && (
         <div
-          className={`absolute inset-0 flex items-center justify-center transition-all duration-300 ease-out pointer-events-none ${outerClass}`}
+          className={`absolute inset-0 flex items-center justify-center transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] pointer-events-none ${outerClass}`}
           style={{
             transform: 'translate(-50%, -50%)',
             left: '50%',
@@ -117,7 +117,7 @@ export const CustomCursor: React.FC = () => {
 
       {/* Inner Core */}
       <div
-        className={`flex items-center justify-center transition-all duration-300 ease-out pointer-events-none ${cursorClass}`}
+        className={`flex items-center justify-center transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] pointer-events-none ${cursorClass}`}
       >
         {cursorMode === 'view' && (
           <span className="text-black text-[10px] font-mono tracking-wider font-bold select-none">

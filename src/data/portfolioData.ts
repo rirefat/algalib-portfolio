@@ -48,6 +48,7 @@ export const PROJECTS: Project[] = [
     year: '2026',
     client: 'Aether Labs',
     role: 'Principal Product Designer',
+    status: 'Concept',
     image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80',
     accentColor: '#E53E3E', // Deep Red
     overview: 'Aether OS is a speculative spatial operating system designed for the next generation of visual thinkers and high-performance creatives. It introduces a modular, weightless desktop environment that responds to ambient lighting and physical depth cues.',
@@ -86,6 +87,7 @@ export const PROJECTS: Project[] = [
     year: '2025',
     client: 'Volta Motors',
     role: 'Lead Identity & Graphic Designer',
+    status: 'Live',
     image: 'https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1200&q=80',
     accentColor: '#1A202C', // Deep Charcoal
     overview: 'Volta Electric is a high-performance electric superbike crafted for city streets. The task was to build a visually aggressive, premium brand identity, complete with physical logo badges, luxury promotional materials, and a bespoke dashboard interface.',
@@ -124,6 +126,7 @@ export const PROJECTS: Project[] = [
     year: '2025',
     client: 'Chronos Switzerland',
     role: 'Creative Director & Designer',
+    status: 'Case Study',
     image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1200&q=80',
     accentColor: '#D4AF37', // Gold / Warm White
     overview: 'An exquisite luxury mechanical timepiece designed for modern purists. The project involved complete watch housing design, bespoke watch face graphics, packaging made of sustainable basalt fibers, and an accompanying mobile app.',
@@ -162,6 +165,7 @@ export const PROJECTS: Project[] = [
     year: '2024',
     client: 'Form & Void Association',
     role: 'Lead Editorial Designer & Curator',
+    status: 'Case Study',
     image: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=1200&q=80',
     accentColor: '#000000', // Pitch Black
     overview: 'Form & Void is an award-winning bi-annual print and digital magazine showcasing experimental typography, brutalist grid layouts, and minimalist design methodologies.',

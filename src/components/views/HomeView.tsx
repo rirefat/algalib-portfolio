@@ -8,6 +8,7 @@ const galibImage = 'https://i.ibb.co.com/tMNC5hMv/al-galib-image.png';
 import { PROJECTS, CLIENTS, AWARDS, TESTIMONIALS, JOURNAL_POSTS } from '../../data/portfolioData';
 import { ProjectCard } from '../ProjectCard';
 import { ArrowDown, ArrowUpRight, Compass, Layers, Feather, Package, ChevronLeft, ChevronRight, Award, Quote } from 'lucide-react';
+import { SkillsExpertise } from '../SkillsExpertise';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -568,6 +569,10 @@ export const HomeView: React.FC = () => {
         </div>
       </section>
 
+      <section className="px-6 py-12 max-w-7xl mx-auto z-10 relative">
+        <SkillsExpertise />
+      </section>
+
       {/* 5. Interactive Testimonials Board */}
       <section className="px-6 max-w-7xl mx-auto z-10 relative">
         <div className="bg-[#0A0A0A] text-white rounded-sm p-8 md:p-16 border border-white/5 shadow-2xl relative overflow-hidden">
@@ -665,7 +670,7 @@ export const HomeView: React.FC = () => {
             {AWARDS.map((award, index) => (
               <div
                 key={index}
-                className="py-6 flex flex-col md:flex-row md:items-center justify-between gap-4 group hover:bg-white hover:text-black/5 px-4 rounded-sm transition-all"
+                className="py-6 flex flex-col md:flex-row md:items-center justify-between gap-4 group hover:bg-[#111111]/80 hover:backdrop-blur-md border border-transparent hover:border-white/10 px-6 rounded-2xl transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:shadow-[0_0_30px_rgba(255,255,255,0.02)]"
               >
                 <div className="flex items-center gap-4">
                   <span className="font-mono text-sm text-white font-bold">

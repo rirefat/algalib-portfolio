@@ -28,9 +28,9 @@ function PortfolioLayout() {
   React.useEffect(() => {
     // Initialize Lenis smooth scroll
     const lenis = new Lenis({
-      duration: 1.4,
+      duration: 1.8,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Luxurious exponential out easing
-      gestureOrientation: 'vertical',
+      wheelMultiplier: 0.8,
       smoothWheel: true,
     });
 

@@ -42,6 +42,18 @@ export const ProjectQuickViewModal: React.FC = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [setQuickViewProject]);
 
+  // Lock background scroll when modal is open
+  useEffect(() => {
+    if (quickViewProject) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [quickViewProject]);
+
   const handleClose = () => {
     setQuickViewProject(null);
     setCursorMode('default');
@@ -60,7 +72,7 @@ export const ProjectQuickViewModal: React.FC = () => {
   return (
     <AnimatePresence>
       {quickViewProject && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6 lg:p-12 overflow-hidden">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6 lg:p-12 overflow-hidden" data-lenis-prevent="true">
           {/* Backdrop Blur Overlay */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -100,10 +112,10 @@ export const ProjectQuickViewModal: React.FC = () => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 30 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full max-w-5xl h-[85vh] md:h-[75vh] max-h-[800px] bg-white/5 dark:bg-[#060606]/90 border border-neutral-200/20 dark:border-white/10 rounded-sm overflow-hidden flex flex-col md:flex-row shadow-2xl z-10 select-none backdrop-blur-3xl"
+            className="relative w-full max-w-5xl h-auto max-h-[80vh] bg-white/5 dark:bg-[#060606]/90 border border-neutral-200/20 dark:border-white/10 rounded-sm overflow-y-auto overscroll-contain custom-scrollbar flex flex-col md:flex-row shadow-2xl z-10 select-none backdrop-blur-3xl"
           >
             {/* Left/Top Image Panel */}
-            <div className="relative w-full md:w-1/2 h-[35%] md:h-full overflow-hidden border-b md:border-b-0 md:border-r border-neutral-200/20 dark:border-white/10">
+            <div className="relative w-full md:w-1/2 h-[300px] md:h-auto overflow-hidden border-b md:border-b-0 md:border-r border-neutral-200/20 dark:border-white/10 shrink-0">
               <img
                 src={quickViewProject.image}
                 alt={quickViewProject.title}
@@ -124,7 +136,7 @@ export const ProjectQuickViewModal: React.FC = () => {
             </div>
 
             {/* Right/Bottom Content Details */}
-            <div className="w-full md:w-1/2 h-[65%] md:h-full flex flex-col justify-between p-6 md:p-10 lg:p-12 overflow-y-auto">
+            <div className="w-full md:w-1/2 h-auto flex flex-col p-6 md:p-10 lg:p-12">
               
               {/* Close Button */}
               <button
@@ -137,7 +149,7 @@ export const ProjectQuickViewModal: React.FC = () => {
                 <X size={18} />
               </button>
 
-              <div className="space-y-6 md:space-y-8 mt-4 md:mt-0">
+              <div className="space-y-6 md:space-y-8 mt-4 md:mt-0 flex-1">
 
                 {/* Visual Label */}
                 <span className="text-[10px] tracking-[0.25em] font-mono uppercase text-white font-bold block">

@@ -35,25 +35,10 @@ export const ProjectDetailView: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [activeProject]);
 
-  if (!activeProject) {
-    return (
-      <div className="py-32 text-center space-y-4">
-        <p className="text-neutral-400 font-sans">No project selected.</p>
-        <button
-          onClick={() => setCurrentView('works')}
-          className="px-6 py-2.5 rounded-full bg-[#7b2121] text-white font-mono text-xs uppercase"
-        >
-          Explore Works
-        </button>
-      </div>
-    );
-  }
-
   // Before/After mouse slider mechanics
   const handleSliderMove = (clientX: number) => {
     const container = sliderContainerRef.current;
     if (!container) return;
-
     const rect = container.getBoundingClientRect();
     const x = clientX - rect.left;
     const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
@@ -92,6 +77,20 @@ export const ProjectDetailView: React.FC = () => {
       window.removeEventListener('touchend', handleGlobalMouseUp);
     };
   }, []);
+
+  if (!activeProject) {
+    return (
+      <div className="py-32 text-center space-y-4">
+        <p className="text-neutral-400 font-sans">No project selected.</p>
+        <button
+          onClick={() => setCurrentView('works')}
+          className="px-6 py-2.5 rounded-full bg-[#7b2121] text-white font-mono text-xs uppercase"
+        >
+          Explore Works
+        </button>
+      </div>
+    );
+  }
 
   const handleMouseDown = () => {
     isDragging.current = true;

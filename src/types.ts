@@ -6,6 +6,7 @@ export interface Project {
   year: string;
   client: string;
   role: string;
+  status?: 'Live' | 'Case Study' | 'Concept';
   image: string;
   accentColor: string;
   overview: string;

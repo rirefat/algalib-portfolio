@@ -92,7 +92,7 @@ export const JournalView: React.FC = () => {
               </button>
 
               <div className="flex items-center gap-4 mb-6">
-                <span className="text-[9px] font-mono tracking-[0.2em] uppercase text-[#7b2121] border border-[#7b2121]/30 px-3 py-1 bg-[#7b2121]/5 backdrop-blur-sm rounded-sm">
+                <span className="text-[9px] font-mono tracking-[0.2em] uppercase text-red-400 border border-[#7b2121]/50 px-3 py-1 bg-[#7b2121]/10 backdrop-blur-sm rounded-sm">
                   {activePost.category}
                 </span>
                 <span className="text-[10px] font-mono tracking-widest uppercase text-neutral-500 flex items-center gap-2">
@@ -204,12 +204,12 @@ export const JournalView: React.FC = () => {
 
               {/* Author Signature */}
               <div className="mt-20 pt-12 border-t border-white/5 flex flex-col items-end gap-2 pr-0 lg:pr-12">
-                <span className="text-4xl md:text-5xl font-serif italic text-white/80 font-light tracking-wide opacity-90" style={{ fontFamily: '"Playfair Display", "Georgia", serif' }}>
+                <span className="text-5xl md:text-6xl font-ballet text-white/80 tracking-wide opacity-90 -mr-2">
                   Abdullah Al Galib
                 </span>
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-[1px] bg-[#7b2121]/50" />
-                  <span className="text-[9px] font-mono tracking-[0.3em] text-neutral-500 uppercase">Principal Architect</span>
+                  <span className="text-[9px] font-mono tracking-[0.3em] text-neutral-500 uppercase">Visual Experience Architect</span>
                 </div>
               </div>
 
@@ -304,7 +304,7 @@ export const JournalView: React.FC = () => {
                     <div className="flex-1 flex flex-col md:flex-row md:items-center justify-between gap-8 md:gap-12 relative z-10 md:pl-12">
                       <div className="flex-1 space-y-5 max-w-2xl">
                         <div className="flex items-center gap-4">
-                          <span className="text-[9px] font-mono tracking-[0.2em] uppercase text-[#7b2121] border border-[#7b2121]/30 px-2 py-0.5 rounded-sm bg-[#7b2121]/5">
+                          <span className="text-[9px] font-mono tracking-[0.2em] uppercase text-red-400 border border-[#7b2121]/50 px-2 py-0.5 rounded-sm bg-[#7b2121]/10">
                             {post.category}
                           </span>
                           <span className="text-[10px] font-mono text-neutral-500 flex items-center gap-1.5 uppercase tracking-widest">

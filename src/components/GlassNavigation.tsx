@@ -19,6 +19,18 @@ export const GlassNavigation: React.FC = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
   // Monitor scrolling to hide/reveal nav
   useEffect(() => {
     const handleScroll = () => {
@@ -47,10 +59,10 @@ export const GlassNavigation: React.FC = () => {
 
   const navItems: { label: string; view: ViewMode }[] = [
     { label: 'Home', view: 'home' },
-    { label: 'Works', view: 'works' },
     { label: 'About', view: 'about' },
     { label: 'Services', view: 'services' },
-    { label: 'Experience', view: 'experience' },
+    { label: 'Works', view: 'works' },
+    { label: 'Experiences', view: 'experience' },
     { label: 'Journal', view: 'journal' },
     { label: 'Contact', view: 'contact' },
   ];
@@ -260,59 +272,64 @@ export const GlassNavigation: React.FC = () => {
 
       {/* Mobile Glass Drawer Overlay */}
       <div
-        className={`fixed inset-0 z-50 lg:hidden flex flex-col justify-center bg-white/95 dark:bg-neutral-950/98 backdrop-blur-xl transition-all duration-500 ease-in-out ${
-          mobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full pointer-events-none'
+        className={`fixed inset-0 z-[110] lg:hidden flex flex-col bg-[#050505]/98 backdrop-blur-3xl transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-y-auto overflow-x-hidden ${
+          mobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'
         }`}
       >
-        <div className="absolute top-6 right-6">
+        {/* Ambient Glows */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#7b2121]/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-white/5 rounded-full blur-[100px] pointer-events-none" />
+
+        {/* Fixed Close Button */}
+        <div className="fixed top-6 right-6 z-[120]">
           <button
             onClick={() => setMobileMenuOpen(false)}
-            className="p-3 rounded-full bg-neutral-100 dark:bg-neutral-900 text-neutral-200 border border-neutral-200/50 dark:border-neutral-800/50"
+            className="p-3 rounded-full bg-white/5 text-neutral-300 border border-white/10 hover:bg-white/10 hover:text-white transition-colors backdrop-blur-md"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
-        <nav className="flex flex-col items-center gap-6 px-8 max-w-md mx-auto w-full text-center">
-          <span className="text-[10px] uppercase font-mono tracking-widest text-neutral-400 dark:text-neutral-400">
-            INDEXED SECTIONS
-          </span>
-          <div className="flex flex-col gap-3 w-full">
-            {navItems.map((item, index) => {
-              const isActive = currentView === item.view;
-              return (
-                <button
-                  key={item.view}
-                  onClick={() => handleNavClick(item.view)}
-                  style={{ transitionDelay: `${index * 50}ms` }}
-                  className={`w-full py-3.5 text-2xl font-bold font-sans tracking-tight border-b border-neutral-100 dark:border-neutral-900 transition-all flex items-center justify-between px-2 ${
-                    isActive
-                      ? 'text-white dark:text-white translate-x-1'
-                      : 'text-neutral-200 dark:text-neutral-300 hover:text-white dark:hover:text-white'
-                  }`}
-                >
-                  <span className="text-sm font-mono text-neutral-400 dark:text-neutral-400 mr-4">
-                    0{index + 1}
-                  </span>
-                  <span>{item.label}</span>
-                  <ArrowUpRight className="w-5 h-5 opacity-40 group-hover:opacity-100" />
-                </button>
-              );
-            })}
-          </div>
+        <div className="flex flex-col justify-center min-h-full py-24">
+          <nav className="flex flex-col gap-4 px-8 sm:px-12 max-w-md mx-auto w-full relative z-10">
+            <div className="flex items-center gap-4 mb-4">
+              <span className="h-[1px] w-8 bg-[#7b2121]"></span>
+              <span className="text-[10px] uppercase font-mono tracking-[0.3em] text-neutral-500">
+                Navigation
+              </span>
+            </div>
 
-          <a
-            href="#resume"
-            onClick={(e) => {
-              e.preventDefault();
-              handleNavClick('experience');
-            }}
-            className="mt-6 flex items-center justify-center gap-2 w-full py-4 text-sm font-semibold uppercase tracking-widest font-mono rounded-full bg-neutral-900 text-white dark:bg-white/10 dark:text-white hover:bg-white hover:text-black dark:hover:bg-white dark:hover:text-black transition-all shadow-md"
-          >
-            <span>DOWNLOAD PORTFOLIO RESUME</span>
-            <ArrowUpRight className="w-4 h-4" />
-          </a>
-        </nav>
+            <div className="flex flex-col w-full space-y-2">
+              {navItems.map((item, index) => {
+                const isActive = currentView === item.view;
+                return (
+                  <button
+                    key={item.view}
+                    onClick={() => handleNavClick(item.view)}
+                    style={{ 
+                      transitionDelay: mobileMenuOpen ? `${100 + index * 60}ms` : '0ms',
+                      transform: mobileMenuOpen ? 'translateY(0)' : 'translateY(20px)',
+                      opacity: mobileMenuOpen ? 1 : 0
+                    }}
+                    className={`w-full py-4 text-3xl sm:text-4xl font-serif italic tracking-tight border-b border-white/5 transition-all duration-700 flex items-center justify-between group ${
+                      isActive
+                        ? 'text-white'
+                        : 'text-neutral-500 hover:text-white'
+                    }`}
+                  >
+                    <div className="flex items-center gap-4 sm:gap-6">
+                      <span className={`text-xs sm:text-sm font-mono font-sans not-italic transition-colors duration-500 ${isActive ? 'text-[#7b2121]' : 'text-neutral-700 group-hover:text-neutral-500'}`}>
+                        0{index + 1}
+                      </span>
+                      <span className={`transition-transform duration-500 ${isActive ? 'translate-x-2' : 'group-hover:translate-x-2'}`}>{item.label}</span>
+                    </div>
+                    <ArrowUpRight className={`w-5 h-5 sm:w-6 sm:h-6 transition-all duration-500 ${isActive ? 'opacity-100 text-[#7b2121]' : 'opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 group-hover:text-white'}`} />
+                  </button>
+                );
+              })}
+            </div>
+          </nav>
+        </div>
       </div>
     </>
   );
