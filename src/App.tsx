@@ -95,7 +95,7 @@ function PortfolioLayout() {
   };
 
   return (
-    <div className="bg-[#030303] min-h-screen text-neutral-200 selection:bg-[#7b2121]/20 font-sans transition-colors duration-500 flex flex-col justify-between relative overflow-x-hidden">
+    <div className="bg-[#030303] min-h-screen text-neutral-200 selection:bg-[#7b2121]/20 font-sans transition-colors duration-500 flex flex-col justify-between relative overflow-x-clip">
       {/* Cinematic Custom Follower Cursor */}
       <CustomCursor />
 

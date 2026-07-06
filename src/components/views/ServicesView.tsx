@@ -1,7 +1,7 @@
 import React from 'react';
 import { SERVICES } from '../../data/portfolioData';
 import { usePortfolioStore } from '../../hooks/usePortfolioStore';
-import { Layers, Compass, Feather, Package, CheckCircle, ArrowRight } from 'lucide-react';
+import { Layers, Compass, Feather, Package, CheckCircle, ArrowRight, ArrowUpRight } from 'lucide-react';
 
 export const ServicesView: React.FC = () => {
   const { setCurrentView, setCursorMode } = usePortfolioStore();
@@ -159,31 +159,69 @@ export const ServicesView: React.FC = () => {
       </section>
 
       {/* 4. Contact redirection block */}
-      <section className="bg-[#0A0A0A] text-white rounded-sm p-8 md:p-16 border border-white/5 relative overflow-hidden text-center max-w-5xl mx-auto shadow-xl">
-        <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-[#7b2121]/10 rounded-full blur-[80px] pointer-events-none" />
-        <div className="max-w-xl mx-auto space-y-6 relative z-10">
-          <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-neutral-400 block">
-            ENGAGEMENT
-          </span>
-          <h3 className="text-2xl md:text-3xl font-bold font-serif italic text-white leading-tight">
-            Ready to integrate design authority into your team?
-          </h3>
-          <p className="text-xs md:text-sm text-zinc-400 font-sans font-light">
-            Let’s discuss your current interfaces, brand guidelines, and requirements. Book a video sync or drop a quick inquiry.
-          </p>
-          <div className="pt-4">
-            <button
-              onClick={() => {
-                setCurrentView('contact');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-              onMouseEnter={() => setCursorMode('hover')}
-              onMouseLeave={() => setCursorMode('default')}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-[#7b2121] hover:bg-[#b02222] text-white font-mono text-xs uppercase tracking-wider rounded-sm shadow-lg shadow-[#7b2121]/10 transition-all"
-            >
-              <span>CONNECT CHANNELS</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
+      <section className="px-4 md:px-6 max-w-5xl mx-auto z-10 relative mb-12 lg:mb-16">
+        <div className="relative w-full border border-white/10 bg-[#030303]/60 backdrop-blur-2xl p-8 md:p-14 lg:p-20 overflow-hidden group">
+          
+          {/* Viewfinder Corner Accents */}
+          <div className="absolute top-4 left-4 w-4 h-4 border-t border-l border-white/30 transition-all duration-700 group-hover:scale-110 group-hover:border-[#7b2121]" />
+          <div className="absolute top-4 right-4 w-4 h-4 border-t border-r border-white/30 transition-all duration-700 group-hover:scale-110 group-hover:border-[#7b2121]" />
+          <div className="absolute bottom-4 left-4 w-4 h-4 border-b border-l border-white/30 transition-all duration-700 group-hover:scale-110 group-hover:border-[#7b2121]" />
+          <div className="absolute bottom-4 right-4 w-4 h-4 border-b border-r border-white/30 transition-all duration-700 group-hover:scale-110 group-hover:border-[#7b2121]" />
+
+          {/* Background elements */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#7b2121]/5 via-transparent to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-1000" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-gradient-to-tr from-[#7b2121]/10 to-transparent blur-[80px] pointer-events-none rounded-full group-hover:scale-110 transition-transform duration-1000" />
+          
+          {/* Technical Grid lines inside */}
+          <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)', backgroundSize: '3rem 3rem' }}></div>
+
+          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-12 md:gap-8">
+            
+            <div className="flex-1 space-y-6 md:space-y-8 text-center md:text-left">
+              <div className="flex items-center justify-center md:justify-start gap-4">
+                <span className="h-[1px] w-8 bg-[#7b2121] transition-all duration-700 group-hover:w-12"></span>
+                <span className="text-[10px] md:text-[11px] font-mono tracking-[0.3em] uppercase text-neutral-400">
+                  ENGAGEMENT
+                </span>
+              </div>
+              
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-white leading-[1.1] tracking-tight">
+                Ready to <span className="font-serif italic text-neutral-400">integrate</span> <br className="hidden md:block" />
+                design authority?
+              </h2>
+              
+              <p className="text-xs text-zinc-400 font-sans font-light max-w-md mx-auto md:mx-0 leading-relaxed">
+                Let’s discuss your current interfaces, brand guidelines, and requirements. Book a video sync or drop a quick inquiry.
+              </p>
+            </div>
+
+            <div className="relative shrink-0 flex items-center justify-center md:pr-4">
+              {/* Creative Circular Magnetic-style Button */}
+              <button
+                onClick={() => {
+                  setCurrentView('contact');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                onMouseEnter={() => setCursorMode('hover')}
+                onMouseLeave={() => setCursorMode('default')}
+                className="group/btn relative w-36 h-36 md:w-44 md:h-44 rounded-full border border-white/10 flex items-center justify-center overflow-hidden transition-all duration-700 hover:border-[#7b2121]/50 bg-black/20 hover:shadow-[0_0_40px_rgba(123,33,33,0.2)]"
+              >
+                {/* Reveal Fill on Hover */}
+                <div className="absolute inset-0 bg-[#7b2121] translate-y-[101%] rounded-full group-hover/btn:translate-y-0 transition-transform duration-700 ease-[cubic-bezier(0.19,1,0.22,1)]" />
+                
+                {/* Animated Inner Ring */}
+                <div className="absolute inset-2 rounded-full border border-white/10 border-dashed opacity-0 scale-50 group-hover/btn:opacity-30 group-hover/btn:scale-100 transition-all duration-700 ease-out" />
+                
+                {/* Text & Icon */}
+                <div className="relative z-10 flex flex-col items-center gap-3 text-white transition-colors duration-500">
+                  <span className="text-[9px] md:text-[10px] font-mono tracking-[0.2em] uppercase text-center leading-tight">
+                    Connect<br/>Channels
+                  </span>
+                  <ArrowUpRight className="w-4 h-4 group-hover/btn:rotate-45 group-hover/btn:scale-125 transition-all duration-500" />
+                </div>
+              </button>
+            </div>
+            
           </div>
         </div>
       </section>

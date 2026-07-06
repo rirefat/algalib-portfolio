@@ -229,6 +229,7 @@ export const JOURNAL_POSTS: JournalPost[] = [
     category: 'Product Design',
     date: 'June 18, 2026',
     readTime: '6 min read',
+    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop',
     content: `
 Spatial User Interfaces represent the ultimate leap forward in digital interaction. Over the past decade, flat design has flattened our imagination, training users to perceive digital layers as zero-thickness planes of solid color.
 
@@ -247,6 +248,7 @@ With Aether OS, we set out to build an interface that possesses visual weight. B
     category: 'Graphic Design',
     date: 'April 05, 2026',
     readTime: '4 min read',
+    image: 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=2670&auto=format&fit=crop',
     content: `
 We live in an era of digital noise. Every brand is shouting with flashy gradients, hyper-saturated animations, and interactive gimmicks. But look at the brands that survive decades—they are almost completely silent.
 
@@ -266,6 +268,7 @@ True luxury is quiet. When designing the Volta Electric brand, we bypassed the o
     category: 'Product Design',
     date: 'Jan 12, 2026',
     readTime: '5 min read',
+    image: 'https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?q=80&w=2487&auto=format&fit=crop',
     content: `
 A premium product experience does not start when a user turns on a screen; it starts the moment their hands touch the physical packaging box.
 

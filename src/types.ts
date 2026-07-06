@@ -39,6 +39,7 @@ export interface JournalPost {
   category: string;
   date: string;
   readTime: string;
+  image?: string;
 }
 
 export interface Testimonial {

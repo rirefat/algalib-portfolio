@@ -43,23 +43,58 @@ export const ExperienceView: React.FC = () => {
       </section>
 
       {/* 2. Interactive timeline cards */}
-      <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      <section className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         {/* Left side: design values summary */}
-        <div className="lg:col-span-4 space-y-6 lg:sticky lg:top-24 bg-white/5 dark:bg-[#0A0A0A]/40 border border-neutral-200/40 dark:border-white/5 p-8 rounded-sm shadow-md">
-          <h3 className="text-lg font-bold font-serif italic text-white tracking-tight border-b border-neutral-200/40 dark:border-white/5 pb-3">
-            Corporate Values
-          </h3>
-          <ul className="space-y-4 text-xs font-sans text-neutral-400 dark:text-zinc-400 leading-relaxed font-light">
-            <li>
-              <strong className="text-white font-semibold">Strict Standard Guidelines:</strong> Standard layouts aligned with pixel-perfect ratios and accessible typography guides.
-            </li>
-            <li>
-              <strong className="text-white font-semibold">Engineering Harmony:</strong> Communicating with developers using clean spec sheets, modular token frameworks, and responsive interactive structures.
-            </li>
-            <li>
-              <strong className="text-white font-semibold">Autonomous Driving:</strong> Guiding client processes end-to-end, minimizing scope creep, and meeting extreme tight deadlines with design authority.
-            </li>
-          </ul>
+        <div className="lg:col-span-4">
+          <div className="space-y-10 lg:sticky lg:top-32 bg-[#030303]/40 backdrop-blur-md border border-white/5 p-8 md:p-10 relative overflow-hidden group">
+            {/* Subtle glow */}
+            <div className="absolute -top-20 -right-20 w-40 h-40 bg-[#7b2121]/10 rounded-full blur-[60px] pointer-events-none transition-transform duration-1000 group-hover:translate-x-5 group-hover:translate-y-5" />
+            
+            <div className="space-y-2 relative z-10 border-b border-white/5 pb-6">
+              <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-neutral-500 group-hover:text-[#7b2121] transition-colors duration-500">
+                Principles
+              </span>
+              <h3 className="text-2xl font-light font-serif italic text-white tracking-tight">
+                The Foundation
+              </h3>
+            </div>
+
+            <div className="space-y-8 relative z-10">
+              <div className="group/item">
+                <div className="flex items-baseline gap-3 mb-2">
+                  <span className="text-[10px] font-mono text-neutral-500 group-hover/item:text-[#7b2121] transition-colors duration-300">01.</span>
+                  <h4 className="text-sm font-medium text-neutral-200 tracking-wide">Visual Architecture</h4>
+                </div>
+                <p className="text-xs text-zinc-500 font-sans font-light leading-relaxed pl-7 border-l border-white/5 group-hover/item:border-[#7b2121]/30 transition-colors duration-500 ml-1.5">
+                  Precision-crafted layouts anchored by mathematical ratios, kinetic typography, and uncompromising spatial awareness.
+                </p>
+              </div>
+
+              <div className="group/item">
+                <div className="flex items-baseline gap-3 mb-2">
+                  <span className="text-[10px] font-mono text-neutral-500 group-hover/item:text-[#7b2121] transition-colors duration-300">02.</span>
+                  <h4 className="text-sm font-medium text-neutral-200 tracking-wide">Frictionless Translation</h4>
+                </div>
+                <p className="text-xs text-zinc-500 font-sans font-light leading-relaxed pl-7 border-l border-white/5 group-hover/item:border-[#7b2121]/30 transition-colors duration-500 ml-1.5">
+                  Bridging the gap between conceptual design and robust engineering through modular tokens, motion choreography, and crystalline spec sheets.
+                </p>
+              </div>
+
+              <div className="group/item">
+                <div className="flex items-baseline gap-3 mb-2">
+                  <span className="text-[10px] font-mono text-neutral-500 group-hover/item:text-[#7b2121] transition-colors duration-300">03.</span>
+                  <h4 className="text-sm font-medium text-neutral-200 tracking-wide">Sovereign Execution</h4>
+                </div>
+                <p className="text-xs text-zinc-500 font-sans font-light leading-relaxed pl-7 border-l border-white/5 group-hover/item:border-[#7b2121]/30 transition-colors duration-500 ml-1.5">
+                  Directing the creative trajectory from initial spark to final deployment, eliminating friction, and commanding the narrative with absolute authority.
+                </p>
+              </div>
+            </div>
+            
+            {/* Decorative Corner Elements */}
+            <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-white/20 transition-all duration-500 group-hover:border-[#7b2121]" />
+            <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-white/20 transition-all duration-500 group-hover:border-[#7b2121]" />
+          </div>
         </div>
 
         {/* Right side: Core interactive list timeline */}
