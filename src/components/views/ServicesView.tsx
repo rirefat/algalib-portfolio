@@ -1,10 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { SERVICES } from '../../data/portfolioData';
 import { usePortfolioStore } from '../../hooks/usePortfolioStore';
-import { Layers, Compass, Feather, Package, CheckCircle, ArrowRight, ArrowUpRight } from 'lucide-react';
+import { Layers, Compass, Feather, Package, CheckCircle, ArrowRight, ArrowUpRight, Palette } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
+
+const DUMMY_ILLUSTRATIONS = [
+  { id: 'ill-01', title: 'Ethereal Dreams', image: 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&q=80&w=800', aspect: 'aspect-[4/5]' },
+  { id: 'ill-02', title: 'Abstract Forms', image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800', aspect: 'aspect-square' },
+  { id: 'ill-03', title: 'Digital Landscape', image: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=800', aspect: 'aspect-[3/4]' },
+  { id: 'ill-04', title: 'Neon Nights', image: 'https://images.unsplash.com/photo-1543857778-c4a1a3e0b2eb?auto=format&fit=crop&q=80&w=800', aspect: 'aspect-[16/9]' },
+  { id: 'ill-05', title: 'Geometric Harmony', image: 'https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&q=80&w=800', aspect: 'aspect-[4/3]' },
+  { id: 'ill-06', title: 'Fluid Motion', image: 'https://images.unsplash.com/photo-1604871000636-074fa5117945?auto=format&fit=crop&q=80&w=800', aspect: 'aspect-square' },
+  { id: 'ill-07', title: 'Cosmic Dust', image: 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&q=80&w=800', aspect: 'aspect-[3/2]' },
+  { id: 'ill-08', title: 'Urban Jungle', image: 'https://images.unsplash.com/photo-1449844908441-8829872d2607?auto=format&fit=crop&q=80&w=800', aspect: 'aspect-[4/5]' },
+  { id: 'ill-09', title: 'Minimalist Wave', image: 'https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?auto=format&fit=crop&q=80&w=800', aspect: 'aspect-square' },
+  { id: 'ill-10', title: 'Cybernetic Flow', image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=800', aspect: 'aspect-[16/9]' },
+  { id: 'ill-11', title: 'Organic Textures', image: 'https://images.unsplash.com/photo-1621619856624-42fd193a0661?auto=format&fit=crop&q=80&w=800', aspect: 'aspect-[3/4]' },
+  { id: 'ill-12', title: 'Prismatic Light', image: 'https://images.unsplash.com/photo-1557672172-298e090bd0f1?auto=format&fit=crop&q=80&w=800', aspect: 'aspect-square' },
+];
 
 export const ServicesView: React.FC = () => {
   const { setCurrentView, setCursorMode } = usePortfolioStore();
+  const [visibleIllustrations, setVisibleIllustrations] = useState(6);
 
   const getIcon = (iconName: string) => {
     switch (iconName) {
@@ -12,6 +29,7 @@ export const ServicesView: React.FC = () => {
       case 'Compass': return <Compass className="w-6 h-6" />;
       case 'Feather': return <Feather className="w-6 h-6" />;
       case 'Package': return <Package className="w-6 h-6" />;
+      case 'Palette': return <Palette className="w-6 h-6" />;
       default: return <Layers className="w-6 h-6" />;
     }
   };
@@ -128,7 +146,68 @@ export const ServicesView: React.FC = () => {
         ))}
       </section>
 
-      {/* 3. Design Process Blueprint */}
+      {/* Arts & Illustrations Gallery */}
+      <section className="space-y-12">
+        <div className="border-b border-neutral-200/40 dark:border-white/5 pb-6 text-center md:text-left">
+          <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-neutral-400 block">
+            GALLERY
+          </span>
+          <h2 className="text-2xl md:text-4xl font-bold font-serif italic text-white">
+            Arts & Illustrations
+          </h2>
+        </div>
+
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+          <AnimatePresence>
+            {DUMMY_ILLUSTRATIONS.slice(0, visibleIllustrations).map((ill) => (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                key={ill.id}
+                className="break-inside-avoid relative group overflow-hidden bg-white/5 dark:bg-[#050505] border border-neutral-200/40 dark:border-white/5 rounded-sm cursor-crosshair"
+                onMouseEnter={() => setCursorMode('hover')}
+                onMouseLeave={() => setCursorMode('default')}
+              >
+                <div className={`w-full ${ill.aspect} relative overflow-hidden`}>
+                  <img
+                    src={ill.image}
+                    alt={ill.title}
+                    className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110 filter contrast-110"
+                  />
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-[2px]">
+                    <div className="translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700 ease-out text-center">
+                      <span className="text-[10px] font-mono tracking-widest text-[#7b2121] uppercase block mb-2">
+                        {ill.id}
+                      </span>
+                      <h3 className="text-xl font-serif italic text-white">
+                        {ill.title}
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </div>
+
+        {visibleIllustrations < DUMMY_ILLUSTRATIONS.length && (
+          <div className="flex justify-center pt-8">
+            <button
+              onClick={() => setVisibleIllustrations((prev) => prev + 6)}
+              onMouseEnter={() => setCursorMode('hover')}
+              onMouseLeave={() => setCursorMode('default')}
+              className="px-8 py-3 border border-neutral-200/40 dark:border-white/5 text-sm font-mono uppercase tracking-widest text-neutral-400 hover:text-white hover:bg-white/5 transition-all duration-300 rounded-sm"
+            >
+              Load More
+            </button>
+          </div>
+        )}
+      </section>
+
+      {/* Design Process Blueprint */}
       <section className="space-y-12">
         <div className="border-b border-neutral-200/40 dark:border-white/5 pb-6 text-center md:text-left">
           

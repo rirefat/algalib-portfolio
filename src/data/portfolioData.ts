@@ -36,6 +36,15 @@ export const SERVICES = [
     skills: ['Premium Packaging', 'Tactile Interface Design', 'Material Selection', 'Ergonomic Testing', '3D Prototyping'],
     icon: 'Package',
     image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    id: 's5',
+    title: 'Arts & Illustrations',
+    subtitle: 'Custom Visual Artworks',
+    description: 'Creating evocative illustrations and artistic visuals that enhance storytelling and add unique character to digital and physical platforms.',
+    skills: ['Digital Illustration', 'Concept Art', 'Iconography', 'Character Design', 'Environment Art'],
+    icon: 'Palette',
+    image: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=80'
   }
 ];
 

@@ -53,4 +53,4 @@ export interface Testimonial {
 }
 
 export type Theme = 'dark' | 'light';
-export type ViewMode = 'home' | 'about' | 'works' | 'services' | 'experience' | 'journal' | 'contact' | 'privacy' | 'project-detail';
+export type ViewMode = 'home' | 'about' | 'works' | 'services' | 'experience' | 'journal' | 'contact' | 'privacy' | 'project-detail' | 'logofolio';

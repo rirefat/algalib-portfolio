@@ -20,6 +20,7 @@ import { PrivacyView } from './components/views/PrivacyView';
 
 import { ArrowUpRight, Linkedin, Dribbble, Twitter } from 'lucide-react';
 import { ImagePreloader } from './components/ImagePreloader';
+import { ScrollToTopButton } from './components/ScrollToTopButton';
 
 function PortfolioLayout() {
   const { currentView, setCurrentView, setCursorMode, setActiveProject } = usePortfolioStore();
@@ -118,6 +119,9 @@ function PortfolioLayout() {
       <main className="flex-grow z-10 relative">
         {renderActiveView()}
       </main>
+
+      {/* Scroll to Top Button */}
+      <ScrollToTopButton />
 
       {/* Swiss Minimalist & Creative Footer */}
       <footer className="w-full text-neutral-400 pt-16 md:pt-24 pb-8 px-6 lg:px-12 border-t border-white/5 relative overflow-hidden">
