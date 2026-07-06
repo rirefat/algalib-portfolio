@@ -1,4 +1,4 @@
-# Galib Studio - Premium Portfolio Web Experience
+# Galib Portfolio - Premium Portfolio Web Experience
 
 A sophisticated, high-performance personal portfolio website built for **Abdullah Al Galib**. Emphasizing a premium aesthetic, deep contrast styling, and seamless interactions, this application serves as a digital showcase of creative work, professional capabilities, and thoughts.
 
@@ -86,7 +86,7 @@ This portfolio is built on a "Craftsmanship over Defaults" principle. It avoids 
 
 **Abdullah Al Galib**  
 Email: [abdullahalgalib255@gmail.com](mailto:abdullahalgalib255@gmail.com)  
-Brand: Galib Studio  
+Brand: Galib Portfolio  
 
 ---
 *Crafted with precision.*

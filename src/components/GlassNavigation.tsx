@@ -191,7 +191,7 @@ export const GlassNavigation: React.FC = () => {
               <div className="flex items-center gap-1.5">
                 <span className="h-[1px] w-2 bg-[#7b2121]/40 group-hover:w-4 transition-all duration-500" />
                 <span className="text-[7.5px] font-mono tracking-[0.45em] uppercase text-neutral-400 dark:text-neutral-400 group-hover:text-neutral-300 transition-colors duration-500">
-                  STUDIO
+                  PORTFOLIO
                 </span>
               </div>
             </div>

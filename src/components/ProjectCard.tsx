@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { Project } from '../types';
 import { usePortfolioStore } from '../hooks/usePortfolioStore';
-import { ArrowUpRight, Zap } from 'lucide-react';
+import { ArrowUpRight, Zap, Scan } from 'lucide-react';
 
 interface ProjectCardProps {
   project: Project;
@@ -10,6 +10,9 @@ interface ProjectCardProps {
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project, isLast = false }) => {
   const { setCursorMode, setCustomCursorText, setQuickViewProject } = usePortfolioStore();
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isHoveringImage, setIsHoveringImage] = useState(false);
+  const imagePanelRef = useRef<HTMLDivElement>(null);
 
   const handleMouseEnter = () => {
     setCursorMode('view');
@@ -23,6 +26,17 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, isLast = fals
   const handleCardClick = () => {
     setQuickViewProject(project);
   };
+
+  const handleImageMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!imagePanelRef.current) return;
+    const rect = imagePanelRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    setMousePos({ x, y });
+  };
+
+  const handleImageMouseEnter = () => setIsHoveringImage(true);
+  const handleImageMouseLeave = () => setIsHoveringImage(false);
 
   return (
     <div
@@ -91,22 +105,60 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, isLast = fals
               </span>
               VIEW
             </span>
-            <div className="w-5 h-5 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] transform group-hover:scale-110">
-               <ArrowUpRight className="w-2.5 h-2.5 group-hover:rotate-45 transition-transform duration-500" />
+            <div className="w-5 h-5 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] transform group-hover:scale-110"> 
+              <ArrowUpRight className="w-2.5 h-2.5 group-hover:rotate-45 transition-transform duration-500" />
             </div>
           </div>
         </div>
         
         {/* Right: Image Panel */}
-        <div className="w-full md:w-[25%] lg:w-[25%] h-[60px] md:h-auto shrink-0 relative overflow-hidden bg-[#030303] border border-white/5 rounded-t-xl md:rounded-t-none md:rounded-r-xl">
+        <div 
+          ref={imagePanelRef}
+          onMouseMove={handleImageMouseMove}
+          onMouseEnter={handleImageMouseEnter}
+          onMouseLeave={handleImageMouseLeave}
+          className="w-full md:w-[25%] lg:w-[25%] h-[60px] md:h-auto shrink-0 relative overflow-hidden bg-[#030303] border border-white/5 rounded-t-xl md:rounded-t-none md:rounded-r-xl group/image"
+        >
           <div className="absolute inset-0 bg-neutral-950/40 z-10 group-hover:bg-transparent transition-colors duration-700 pointer-events-none" />
           <div className="absolute inset-0 bg-gradient-to-l from-transparent to-[#050505] z-10 opacity-80 group-hover:opacity-0 transition-opacity duration-700 pointer-events-none hidden md:block" />
           
+          {/* Base Image */}
           <img 
             src={project.image} 
             alt={project.title} 
-            className="w-full h-full object-cover filter grayscale-[0.8] contrast-125 opacity-70 group-hover:opacity-100 group-hover:grayscale-[0.1] group-hover:contrast-100 transform scale-100 group-hover:scale-105 transition-all duration-[1.5s] ease-[cubic-bezier(0.16,1,0.3,1)]" 
+            className="w-full h-full object-cover filter grayscale-[0.8] contrast-125 opacity-70 group-hover:opacity-100 group-hover:grayscale-[0.1] group-hover:contrast-100 transform scale-100 group-hover:scale-105 transition-all duration-[1.5s] ease-[cubic-bezier(0.16,1,0.3,1)]"
           />
+
+          {/* X-Ray Process Reveal Layer */}
+          <div 
+            className="absolute inset-0 z-15 pointer-events-none transition-opacity duration-500"
+            style={{
+              opacity: isHoveringImage ? 1 : 0,
+              clipPath: `circle(80px at ${mousePos.x}px ${mousePos.y}px)`
+            }}
+          >
+            {/* We use the beforeImage as the "process/wireframe" image. If not available, we apply a heavy blueprint filter to the original image */}
+            <img 
+              src={project.beforeImage || project.image} 
+              alt={`${project.title} Process`} 
+              className={`w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-all duration-[1.5s] ease-[cubic-bezier(0.16,1,0.3,1)] ${!project.beforeImage ? 'filter invert sepia-[1] saturate-[5] hue-rotate-[180deg] opacity-80' : ''}`}
+            />
+            {/* X-Ray Ring Ring */}
+            <div 
+              className="absolute pointer-events-none border-[1.5px] border-white/50 rounded-full shadow-[0_0_15px_rgba(255,255,255,0.3)_inset,0_0_15px_rgba(255,255,255,0.3)] transition-transform duration-75"
+              style={{
+                left: mousePos.x - 80,
+                top: mousePos.y - 80,
+                width: 160,
+                height: 160,
+              }}
+            >
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center opacity-30">
+                <Scan className="w-6 h-6 text-white" />
+                <span className="text-[6px] font-mono tracking-widest text-white mt-1 uppercase">X-RAY</span>
+              </div>
+            </div>
+          </div>
           
           {/* Overlay Grid lines (Creative touch) */}
           <div className="absolute inset-0 z-20 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-1000 delay-100">
@@ -122,6 +174,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, isLast = fals
               {project.year.slice(-2)}
             </div>
           </div>
+
         </div>
       </div>
     </div>
