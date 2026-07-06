@@ -7,7 +7,8 @@ export const SERVICES = [
     subtitle: 'Digital Products & Systems',
     description: 'Crafting highly intuitive, pixel-perfect user interfaces and deeply researched user experiences. Specializing in complex web apps, spatial designs, and design systems.',
     skills: ['UI/UX Design', 'Design Systems', 'Interactive Prototyping', 'User Research', 'Information Architecture'],
-    icon: 'Layers'
+    icon: 'Layers',
+    image: 'https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 's2',
@@ -15,7 +16,8 @@ export const SERVICES = [
     subtitle: 'Visual Systems & Strategy',
     description: 'Developing cohesive visual architectures that speak elegance and authority. From minimalist typography guidelines to complete corporate graphic standards.',
     skills: ['Logo Design', 'Typography systems', 'Style Guides', 'Brand Strategy', 'Collateral Design'],
-    icon: 'Compass'
+    icon: 'Compass',
+    image: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 's3',
@@ -23,7 +25,8 @@ export const SERVICES = [
     subtitle: 'Concept & Visual Narrative',
     description: 'Guiding products from initial spark to award-winning execution. Unifying visual aesthetics, design principles, and product objectives into a singular voice.',
     skills: ['Editorial Design', 'Curation', 'Visual Storytelling', 'Campaign Architecture', '3D Design Guidance'],
-    icon: 'Feather'
+    icon: 'Feather',
+    image: 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 's4',
@@ -31,7 +34,8 @@ export const SERVICES = [
     subtitle: 'Physical & Digital Blending',
     description: 'Designing premium physical packaging and tactile interfaces that bridge the gap between human touch and elegant technology.',
     skills: ['Premium Packaging', 'Tactile Interface Design', 'Material Selection', 'Ergonomic Testing', '3D Prototyping'],
-    icon: 'Package'
+    icon: 'Package',
+    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80'
   }
 ];
 

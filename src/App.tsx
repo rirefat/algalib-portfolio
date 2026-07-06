@@ -120,11 +120,22 @@ function PortfolioLayout() {
       </main>
 
       {/* Swiss Minimalist & Creative Footer */}
-      <footer className="w-full bg-[#030303] text-neutral-400 pt-16 md:pt-24 pb-8 px-6 lg:px-12 border-t border-white/5 relative overflow-hidden">
+      <footer className="w-full text-neutral-400 pt-16 md:pt-24 pb-8 px-6 lg:px-12 border-t border-white/5 relative overflow-hidden">
         
-        {/* Subtle background glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
-        <div className="absolute -top-[300px] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-white/5 rounded-full blur-[120px] pointer-events-none"></div>
+        {/* Dark Red & Black Premium Gradient Background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#030303] via-[#0a0102] to-[#160204] pointer-events-none z-0" />
+        
+        {/* Subtle grid background */}
+        <div className="absolute inset-0 opacity-[0.01] pointer-events-none z-0" 
+             style={{ backgroundImage: 'linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)', backgroundSize: '20rem 20rem' }}>
+        </div>
+
+        {/* Ambient glow */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[400px] bg-[#7b2121] blur-[200px] opacity-[0.07] pointer-events-none rounded-t-full z-0" />
+        
+        {/* Top edge glowing accent */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[1px] bg-gradient-to-r from-transparent via-[#7b2121]/40 to-transparent z-10"></div>
+        <div className="absolute -top-[300px] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-white/5 rounded-full blur-[120px] pointer-events-none z-0"></div>
 
         {/* Massive Background Typography */}
         <div className="absolute bottom-0 left-0 right-0 overflow-hidden pointer-events-none flex justify-center items-end select-none z-0">
@@ -185,24 +196,36 @@ function PortfolioLayout() {
           </div>
 
           {/* Bottom Row */}
-          <div className="pt-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 md:gap-0 text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-400">
+          <div className="pt-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 md:gap-0 text-[10px] font-mono tracking-[0.2em] text-neutral-400">
             <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
-              <span 
-                className="text-white font-sans text-xl font-medium tracking-tight cursor-pointer hover:text-[#7b2121] transition-colors"
+               <span 
+                className="text-white font-italianno text-5xl font-normal tracking-normal normal-case cursor-pointer hover:text-[#7b2121] transition-colors -ml-2"
                 onClick={() => handleFooterNavClick('home')}
                 onMouseEnter={() => setCursorMode('hover')}
                 onMouseLeave={() => setCursorMode('default')}
               >
-                AL GALIB
+                Abdullah Al Galib
               </span>
               <span className="hidden md:block w-1 h-1 rounded-full bg-neutral-700"></span>
-              <p>&copy; {new Date().getFullYear()} All Rights Reserved</p>
+              <p className="uppercase">&copy; {new Date().getFullYear()} All Rights Reserved</p>
             </div>
             
-            <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-8">
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-8 uppercase">
               <button onClick={() => handleFooterNavClick('privacy')} onMouseEnter={() => setCursorMode('hover')} onMouseLeave={() => setCursorMode('default')} className="hover:text-[#7b2121] transition-colors">Privacy Policy</button>
               <span className="hidden md:block w-1 h-1 rounded-full bg-neutral-700"></span>
-              <span className="text-neutral-400 tracking-widest uppercase">Never stop trying.</span>
+              
+              <div 
+                className="group/mission cursor-default relative flex items-center min-w-[200px] justify-start md:justify-end h-[30px]" 
+                onMouseEnter={() => setCursorMode('text')} 
+                onMouseLeave={() => setCursorMode('default')}
+              >
+                <span className="absolute right-auto md:right-0 text-neutral-400 tracking-widest transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover/mission:opacity-0 group-hover/mission:-translate-y-3 whitespace-nowrap">
+                  Never stop trying.
+                </span>
+                <span className="absolute right-auto md:right-0 text-neutral-300 normal-case font-serif italic text-[14px] tracking-wide opacity-0 translate-y-3 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover/mission:opacity-100 group-hover/mission:translate-y-0 whitespace-nowrap">
+                  Translating intent into visual poetry.
+                </span>
+              </div>
             </div>
           </div>
           

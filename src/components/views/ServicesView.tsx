@@ -61,44 +61,67 @@ export const ServicesView: React.FC = () => {
         {SERVICES.map((s) => (
           <div
             key={s.id}
-            className="p-8 md:p-12 rounded-sm bg-white/5 dark:bg-[#0A0A0A]/40 border border-neutral-200/40 dark:border-white/5 backdrop-blur-md flex flex-col justify-between gap-8 group hover:border-[#7b2121]/40 transition-all shadow-md"
+            className="flex flex-col md:flex-row items-stretch rounded-sm bg-gradient-to-br from-[#080808] via-[#050505] to-[#140204]/40 border border-white/5 backdrop-blur-md overflow-hidden group hover:border-[#7b2121]/30 hover:from-[#0d0d0d] hover:to-[#220408]/60 transition-all duration-700 shadow-2xl relative"
           >
-            <div className="space-y-6">
-              {/* Icon & Category tag */}
-              <div className="flex items-center justify-between">
-                <div className="w-12 h-12 rounded-sm bg-[#7b2121]/10 text-white flex items-center justify-center border border-[#7b2121]/20 animate-pulse">
-                  {getIcon(s.icon)}
+            {/* Top glowing crimson border */}
+            <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-[#7b2121]/30 via-transparent to-transparent group-hover:from-[#7b2121]/70 transition-all duration-1000" />
+
+            {/* Left Content Column */}
+            <div className="flex-1 p-6 md:p-8 flex flex-col justify-between gap-6 relative z-10">
+              <div className="space-y-6">
+                {/* Icon & Category tag */}
+                <div className="flex items-center justify-between">
+                  <div className="w-10 h-10 rounded-sm bg-[#7b2121]/10 text-white flex items-center justify-center border border-[#7b2121]/20 animate-pulse">
+                    {getIcon(s.icon)}
+                  </div>
+                  <span className="text-[9px] font-mono uppercase tracking-[0.2em] text-neutral-400">
+                    {s.subtitle}
+                  </span>
                 </div>
-                <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-400 dark:text-neutral-400">
-                  {s.subtitle}
-                </span>
+
+                {/* Title and description */}
+                <div className="space-y-2">
+                  <h3 className="text-xl md:text-2xl font-bold font-serif italic text-white tracking-tight">
+                    {s.title}
+                  </h3>
+                  <p className="text-xs md:text-sm text-neutral-400 dark:text-zinc-400 font-sans font-light leading-relaxed">
+                    {s.description}
+                  </p>
+                </div>
               </div>
 
-              {/* Title and description */}
-              <div className="space-y-3">
-                <h3 className="text-2xl font-bold font-serif italic text-white tracking-tight">
-                  {s.title}
-                </h3>
-                <p className="text-sm text-neutral-400 dark:text-zinc-400 font-sans font-light leading-relaxed">
-                  {s.description}
-                </p>
+              {/* Sub skill list tags */}
+              <div className="space-y-3 pt-4 border-t border-neutral-200/40 dark:border-white/5">
+                <span className="text-[8px] font-mono uppercase tracking-widest text-neutral-400 block">
+                  DELIVERABLE HIGHLIGHTS
+                </span>
+                <div className="flex flex-wrap gap-1.5">
+                  {s.skills.map((sk, index) => (
+                    <span
+                      key={index}
+                      className="px-2.5 py-0.5 text-[10px] font-mono text-neutral-400 dark:text-zinc-400 rounded-sm bg-white/5 dark:bg-neutral-950 border border-neutral-200/40 dark:border-white/5"
+                    >
+                      {sk}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
 
-            {/* Sub skill list tags */}
-            <div className="space-y-4 pt-4 border-t border-neutral-200/40 dark:border-white/5">
-              <span className="text-[9px] font-mono uppercase tracking-widest text-neutral-400 dark:text-neutral-400 block">
-                DELIVERABLE HIGHLIGHTS
-              </span>
-              <div className="flex flex-wrap gap-2">
-                {s.skills.map((sk, index) => (
-                  <span
-                    key={index}
-                    className="px-3.5 py-1 text-[11px] font-mono text-neutral-400 dark:text-zinc-400 rounded-sm bg-white/5 dark:bg-neutral-950 border border-neutral-200/40 dark:border-white/5"
-                  >
-                    {sk}
-                  </span>
-                ))}
+            {/* Right Image Placeholder Panel with premium dark red & black gradient overlay */}
+            <div className="w-full md:w-[30%] lg:w-[35%] h-[150px] md:h-auto shrink-0 relative overflow-hidden bg-[#030303] border-t md:border-t-0 md:border-l border-white/5">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-[#0c0203]/85 to-[#4c0d15]/40 z-10 group-hover:from-[#030303]/30 group-hover:via-[#1c0406]/60 group-hover:to-[#7b2121]/40 transition-all duration-700 pointer-events-none" />
+              <img
+                src={s.image}
+                alt={`${s.title} abstract 3D visual`}
+                referrerPolicy="no-referrer"
+                className="w-full h-full object-cover filter grayscale contrast-125 opacity-30 group-hover:opacity-80 group-hover:grayscale-0 group-hover:contrast-110 transform scale-100 group-hover:scale-105 transition-all duration-[1.5s] ease-[cubic-bezier(0.16,1,0.3,1)]"
+              />
+              {/* Overlay Grid lines */}
+              <div className="absolute inset-0 z-20 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-1000 delay-100">
+                <div className="absolute top-1/3 left-0 w-full h-[1px] bg-white/5" />
+                <div className="absolute top-2/3 left-0 w-full h-[1px] bg-white/5" />
+                <div className="absolute top-0 left-1/2 w-[1px] h-full bg-white/5" />
               </div>
             </div>
           </div>

@@ -691,22 +691,44 @@ export const HomeView: React.FC = () => {
       </section>
 
       {/* 8. Call To Action Footer Board */}
-      <section className="px-6 max-w-7xl mx-auto z-10 relative">
-        <div className="bg-[#0A0A0A] border border-white/5 backdrop-blur-md rounded-sm p-8 md:p-16 text-center space-y-8 relative overflow-hidden">
-          <div className="absolute -bottom-10 -left-10 w-44 h-44 bg-[#7b2121]/5 rounded-full blur-[60px] pointer-events-none" />
+      <section className="px-4 md:px-6 max-w-5xl mx-auto z-10 relative mb-12 lg:mb-16">
+        <div className="relative w-full border border-white/10 bg-[#030303]/60 backdrop-blur-2xl p-8 md:p-14 lg:p-20 overflow-hidden group">
           
-          <div className="max-w-2xl mx-auto space-y-6">
+          {/* Viewfinder Corner Accents */}
+          <div className="absolute top-4 left-4 w-4 h-4 border-t border-l border-white/30 transition-all duration-700 group-hover:scale-110 group-hover:border-[#7b2121]" />
+          <div className="absolute top-4 right-4 w-4 h-4 border-t border-r border-white/30 transition-all duration-700 group-hover:scale-110 group-hover:border-[#7b2121]" />
+          <div className="absolute bottom-4 left-4 w-4 h-4 border-b border-l border-white/30 transition-all duration-700 group-hover:scale-110 group-hover:border-[#7b2121]" />
+          <div className="absolute bottom-4 right-4 w-4 h-4 border-b border-r border-white/30 transition-all duration-700 group-hover:scale-110 group-hover:border-[#7b2121]" />
+
+          {/* Background elements */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#7b2121]/5 via-transparent to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-1000" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-gradient-to-tr from-[#7b2121]/10 to-transparent blur-[80px] pointer-events-none rounded-full group-hover:scale-110 transition-transform duration-1000" />
+          
+          {/* Technical Grid lines inside */}
+          <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)', backgroundSize: '3rem 3rem' }}></div>
+
+          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-12 md:gap-8">
             
-            <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-neutral-400 block">
-              INITIATE CONTACT — 05
-            </span>
-            <VelocityHeading as="h2" direction="right" className="text-fluid-h1 font-light font-serif italic text-[#F5F5F4] leading-tight">
-              Have a premium concept you wish to bring to life?
-            </VelocityHeading>
-            <p className="text-sm text-zinc-400 font-sans">
-              I collaborate with luxury creators and avant-garde technology labs globally to design absolute visual dominance. Let’s start the blueprint.
-            </p>
-            <div className="pt-4">
+            <div className="flex-1 space-y-6 md:space-y-8 text-center md:text-left">
+              <div className="flex items-center justify-center md:justify-start gap-4">
+                <span className="h-[1px] w-8 bg-[#7b2121] transition-all duration-700 group-hover:w-12"></span>
+                <span className="text-[10px] md:text-[11px] font-mono tracking-[0.3em] uppercase text-neutral-400">
+                  Phase 05 — The Convergence
+                </span>
+              </div>
+              
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-white leading-[1.1] tracking-tight">
+                Ready to <span className="font-serif italic text-neutral-400">architect</span> <br className="hidden md:block" />
+                the impossible?
+              </h2>
+              
+              <p className="text-xs text-zinc-400 font-sans font-light max-w-md mx-auto md:mx-0 leading-relaxed">
+                I align with disruptive founders and visionary brands to sculpt digital experiences that echo through time. Your next masterpiece awaits.
+              </p>
+            </div>
+
+            <div className="relative shrink-0 flex items-center justify-center md:pr-4">
+              {/* Creative Circular Magnetic-style Button */}
               <button
                 onClick={() => {
                   setCurrentView('contact');
@@ -714,12 +736,24 @@ export const HomeView: React.FC = () => {
                 }}
                 onMouseEnter={() => setCursorMode('hover')}
                 onMouseLeave={() => setCursorMode('default')}
-                className="inline-flex items-center gap-2 px-10 py-5 bg-[#7b2121] text-white hover:bg-[#b02222] text-xs font-mono tracking-widest uppercase rounded-full shadow-lg shadow-[#7b2121]/20 transition-all font-bold"
+                className="group/btn relative w-36 h-36 md:w-44 md:h-44 rounded-full border border-white/10 flex items-center justify-center overflow-hidden transition-all duration-700 hover:border-[#7b2121]/50 bg-black/20 hover:shadow-[0_0_40px_rgba(123,33,33,0.2)]"
               >
-                <span>INITIATE VENTURE</span>
-                <ArrowUpRight className="w-4 h-4" />
+                {/* Reveal Fill on Hover */}
+                <div className="absolute inset-0 bg-[#7b2121] translate-y-[101%] rounded-full group-hover/btn:translate-y-0 transition-transform duration-700 ease-[cubic-bezier(0.19,1,0.22,1)]" />
+                
+                {/* Animated Inner Ring */}
+                <div className="absolute inset-2 rounded-full border border-white/10 border-dashed opacity-0 scale-50 group-hover/btn:opacity-30 group-hover/btn:scale-100 transition-all duration-700 ease-out" />
+                
+                {/* Text & Icon */}
+                <div className="relative z-10 flex flex-col items-center gap-3 text-white transition-colors duration-500">
+                  <span className="text-[9px] md:text-[10px] font-mono tracking-[0.2em] uppercase text-center leading-tight">
+                    Initiate<br/>Dialogue
+                  </span>
+                  <ArrowUpRight className="w-4 h-4 group-hover/btn:rotate-45 group-hover/btn:scale-125 transition-all duration-500" />
+                </div>
               </button>
             </div>
+            
           </div>
         </div>
       </section>
