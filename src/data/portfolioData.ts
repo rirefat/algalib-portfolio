@@ -210,27 +210,35 @@ export const PROJECTS: Project[] = [
 export const EXPERIENCES: Experience[] = [
   {
     id: 'exp1',
-    period: '2024 — Present',
-    role: 'Senior Visual & Product Designer',
-    company: 'Nexus Creative Studio, London',
-    description: 'Directing visual narrative and spatial user experience design systems for world-renowned technology brands. Collaborating directly with engineering teams to deploy WebGL experiences, interactive digital branding, and custom-tailored mobile ecosystems.',
-    skills: ['Creative Direction', 'Spatial Design Systems', 'Framer Motion', 'Product Architecture']
+    period: 'September 2025 — Present',
+    role: 'Senior Graphics Designer',
+    company: 'FB International, Banasree, Dhaka',
+    description: 'At FB International, I lead the design team in crafting creative concepts for branding, web design, and marketing visuals for various clients. I am responsible for developing visually engaging designs for websites, advertisements, and social media. My role ensures a cohesive visual identity across all digital platforms, providing leadership in design strategy and ensuring that all creative goals align with business objectives.',
+    skills: ['Branding', 'Web Design', 'Marketing Visuals', 'Design Strategy', 'Creative Leadership']
   },
   {
     id: 'exp2',
-    period: '2022 — 2024',
-    role: 'Lead Visual Designer',
-    company: 'Slate Luxury Branding, Zurich',
-    description: 'Crafted award-winning visual identities, premium print catalog design systems, packaging systems, and digital storefronts for elite watchmakers, premium fashion labels, and automotive leaders across Switzerland and Germany.',
-    skills: ['Brand Systems', 'Typography Engineering', 'Editorial Design', 'Luxury Packaging']
+    period: 'December 2023 — September 2024',
+    role: 'Trainer of Graphic Design',
+    company: 'DeepNet IT, Tejgaon I/A, Dhaka',
+    description: 'During my tenure at DeepNet IT, I taught both offline and online graphic design courses, catering to students ranging from beginner to advanced levels. I helped students transition into freelancing careers by teaching industry-standard tools and design principles. Additionally, I provided feedback on student work, assisted in building portfolios, and mentored individuals to improve their design skills and foster creative concepts. As a Senior Designer (from Aug 2024), I was responsible for content development and leading the Graphic Design Department and team, ensuring high-quality design outputs and creative solutions.',
+    skills: ['Mentoring', 'Course Creation', 'Content Development', 'Design Principles', 'Leadership']
   },
   {
     id: 'exp3',
-    period: '2020 — 2022',
-    role: 'Product Designer',
-    company: 'Aether Digital, San Francisco',
-    description: 'Designed highly refined web portals, visual dashboards, and collaborative web editors. Implemented design systems using high-end UI guidelines, focusing on fluid motion and tactile user interactions.',
-    skills: ['UI/UX Design', 'Interactive Prototyping', 'Component Library Architecture', 'Motion Design']
+    period: 'May 2022 — November 2023',
+    role: 'Graphics Designer',
+    company: 'Initux Software Limited, Mirpur Dhaka',
+    description: 'At Initux Software Limited, I was responsible for designing visuals for websites, social media, and marketing campaigns to strengthen client branding. I developed ad creatives, pitch decks, and banners, collaborating with the marketing and development teams to create impactful content. My work contributed significantly to enhancing the company\'s visual identity through consistent and professional design solutions.',
+    skills: ['Social Media Design', 'Pitch Decks', 'Ad Creatives', 'Visual Identity', 'Campaign Design']
+  },
+  {
+    id: 'exp4',
+    period: 'March 2020 — April 2022',
+    role: 'Graphics Designer',
+    company: 'iNTECH Properties Ltd., Darus Salam Rd, Dhaka',
+    description: 'At iNTECH Properties Ltd., I created eye-catching designs for both digital and print materials, including social media posts, ad creatives, and marketing visuals. I collaborated with marketing teams to develop creative campaigns and ensured brand consistency across all design assets. I worked extensively with Adobe Creative Suite, producing high-quality visual content that aligned with client objectives.',
+    skills: ['Print Material Design', 'Social Media Posts', 'Ad Creatives', 'Adobe Creative Suite', 'Brand Consistency']
   }
 ];
 

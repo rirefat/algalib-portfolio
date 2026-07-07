@@ -208,9 +208,8 @@ function PortfolioLayout() {
               </div>
               <div className="flex flex-col gap-4">
                 <span className="text-[9px] font-mono uppercase tracking-[0.3em] text-neutral-400 mb-1">Socials</span>
-                <a href="https://www.linkedin.com/in/rafiul-islam-refat-1875181b8/" target="_blank" rel="noopener noreferrer" onMouseEnter={() => setCursorMode('hover')} onMouseLeave={() => setCursorMode('default')} className="text-neutral-400 hover:text-white transition-colors flex items-center gap-2 group"><Linkedin className="w-3.5 h-3.5 group-hover:-translate-y-0.5 transition-transform" /> LinkedIn</a>
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" onMouseEnter={() => setCursorMode('hover')} onMouseLeave={() => setCursorMode('default')} className="text-neutral-400 hover:text-white transition-colors flex items-center gap-2 group"><Twitter className="w-3.5 h-3.5 group-hover:-translate-y-0.5 transition-transform" /> Twitter</a>
-                <a href="https://dribbble.com" target="_blank" rel="noopener noreferrer" onMouseEnter={() => setCursorMode('hover')} onMouseLeave={() => setCursorMode('default')} className="text-neutral-400 hover:text-white transition-colors flex items-center gap-2 group"><Dribbble className="w-3.5 h-3.5 group-hover:-translate-y-0.5 transition-transform" /> Dribbble</a>
+                <a href="https://www.linkedin.com/in/abdullahalgalib" target="_blank" rel="noopener noreferrer" onMouseEnter={() => setCursorMode('hover')} onMouseLeave={() => setCursorMode('default')} className="text-neutral-400 hover:text-white transition-colors flex items-center gap-2 group"><Linkedin className="w-3.5 h-3.5 group-hover:-translate-y-0.5 transition-transform" /> LinkedIn</a>
+                <a href="http://behance.net/Abdullahalgalib" target="_blank" rel="noopener noreferrer" onMouseEnter={() => setCursorMode('hover')} onMouseLeave={() => setCursorMode('default')} className="text-neutral-400 hover:text-white transition-colors flex items-center gap-2 group"><ArrowUpRight className="w-3.5 h-3.5 group-hover:-translate-y-0.5 transition-transform" /> Behance</a>
               </div>
             </div>
           </div>
